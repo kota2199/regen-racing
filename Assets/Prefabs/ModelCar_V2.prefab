@@ -702,6 +702,7 @@ GameObject:
   - component: {fileID: 881537200}
   - component: {fileID: 881537212}
   - component: {fileID: 1041336812}
+  - component: {fileID: 1460678358}
   m_Layer: 0
   m_Name: ModelCar_V2
   m_TagString: Car
@@ -789,7 +790,7 @@ MonoBehaviour:
   Brake: 0
   AccelPower: 1000
   HandleAngle: 15
-  BrakePower: 4000
+  BrakePower: 1000
   DriveWheels:
   - 0
   - 0
@@ -803,8 +804,8 @@ MonoBehaviour:
   SpeedHandleLimit: 1
   reverse: 1
   padControll: 0
-  acceleButton: Trigger_R2
-  brakeButton: Trigger_L2
+  acceleButton: Vertical Stick-L
+  brakeButton: Vertical Stick-L
   steerButton: Horizontal Stick-L
   reverseButton: Fire_0
   controllWay: {fileID: 0}
@@ -835,6 +836,7 @@ MonoBehaviour:
   timerText: {fileID: 0}
   selfBestTimeText: {fileID: 0}
   finishedPanel: {fileID: 0}
+  isFinished: 0
   finishedBestTimeText: {fileID: 0}
 --- !u!114 &574169944846019414
 MonoBehaviour:
@@ -944,6 +946,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuUI: {fileID: 0}
+  sceneController: {fileID: 0}
+  replaceController: {fileID: 0}
 --- !u!114 &881537212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,6 +1057,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1460678358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574169944846019409}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fccd48ec76e400a98d38cae86f87e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &574169944874632577
 GameObject:
   m_ObjectHideFlags: 0

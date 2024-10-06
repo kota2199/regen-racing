@@ -593,13 +593,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3029a65d428af40b516346157bb461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkPointsParent: {fileID: 0}
   checkPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   maxCheckPoint: 0
-  checkedPoint: 0
+  checkedNum: 0
   maxLap: 3
   lapCount: 0
   lapText: {fileID: 0}
@@ -607,6 +608,7 @@ MonoBehaviour:
   timerText: {fileID: 0}
   selfBestTimeText: {fileID: 0}
   finishedPanel: {fileID: 0}
+  isFinished: 0
   finishedBestTimeText: {fileID: 0}
 --- !u!114 &1960940407883432829
 MonoBehaviour:
@@ -1034,6 +1036,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fef06675b6dd04b4097781fd9d2b56a9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe7fc592ada5f4da3b4964b8b26e7fae, type: 2}
     - target: {fileID: 919132149155446097, guid: fef06675b6dd04b4097781fd9d2b56a9, type: 3}
       propertyPath: m_Name
       value: Wheel_RR
@@ -1112,6 +1118,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fef06675b6dd04b4097781fd9d2b56a9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe7fc592ada5f4da3b4964b8b26e7fae, type: 2}
     - target: {fileID: 919132149155446097, guid: fef06675b6dd04b4097781fd9d2b56a9, type: 3}
       propertyPath: m_Name
       value: Wheel_FL
@@ -1190,6 +1200,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fef06675b6dd04b4097781fd9d2b56a9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe7fc592ada5f4da3b4964b8b26e7fae, type: 2}
     - target: {fileID: 919132149155446097, guid: fef06675b6dd04b4097781fd9d2b56a9, type: 3}
       propertyPath: m_Name
       value: Wheel_FR
@@ -1264,6 +1278,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fef06675b6dd04b4097781fd9d2b56a9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe7fc592ada5f4da3b4964b8b26e7fae, type: 2}
     - target: {fileID: 919132149155446097, guid: fef06675b6dd04b4097781fd9d2b56a9, type: 3}
       propertyPath: m_Name
       value: Wheel_RL
@@ -1342,6 +1360,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -3250548495125225966, guid: 5ddeb44f2f9c442cd8683471786812e8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aa98ed4ddaa6e49efa79fc8082e558e0, type: 2}
     - target: {fileID: 919132149155446097, guid: 5ddeb44f2f9c442cd8683471786812e8, type: 3}
       propertyPath: m_Name
       value: battery_light
@@ -1420,6 +1442,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a04bbd6779ac1479c8d60a466d4e131b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 348753f6de3de48d19a8a0fbe08ed286, type: 2}
     - target: {fileID: 919132149155446097, guid: a04bbd6779ac1479c8d60a466d4e131b, type: 3}
       propertyPath: m_Name
       value: formu1_body
@@ -1498,6 +1524,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5819328720118838395, guid: a3215a8caef094e948365604c15ea237, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe7fc592ada5f4da3b4964b8b26e7fae, type: 2}
     - target: {fileID: 919132149155446097, guid: a3215a8caef094e948365604c15ea237, type: 3}
       propertyPath: m_Name
       value: wing1
