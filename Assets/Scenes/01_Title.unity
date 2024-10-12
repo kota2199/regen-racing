@@ -623,7 +623,7 @@ MonoBehaviour:
   titleCanvas: {fileID: 349510800}
   choiceCanvas: {fileID: 663976196}
   explainSceneName: 02_GameExplain
-  gameSceneName: 04_TestCircuit
+  gameSceneName: 03_Menu
   decision: {fileID: 8300000, guid: 002c1f0219aa14f04a153745d212aa6b, type: 3}
   choice: {fileID: 8300000, guid: 0a1f097574b934ccda1d7163b219294c, type: 3}
 --- !u!4 &1063088613
