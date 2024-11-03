@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357b4b5aa1137b0468be1dee8c12c1e7, type: 3}
   m_Name: Stairville 01
   m_EditorClassIdentifier: 
-  modelName: Stairville LED PAR 64
-  channelCount: 7
-  masterChannel: 7
+  modelName: 
+  channelCount: 8
+  masterChannel: 0
   redChannel: 1
   greenChannel: 2
   blueChannel: 3

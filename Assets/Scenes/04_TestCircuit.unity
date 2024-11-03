@@ -3524,6 +3524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModelCar_V2
       objectReference: {fileID: 0}
+    - target: {fileID: 574169944846019410, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 574169944846019411, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: manager
       value: 

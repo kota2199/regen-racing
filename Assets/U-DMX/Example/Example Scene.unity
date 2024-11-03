@@ -559,44 +559,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4774143067591043224, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
+      propertyPath: dmxAddress
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774143067591043224, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
       propertyPath: lightColor.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4774143067591043224, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
       propertyPath: lightColor.g
-      value: 0
+      value: 0.21511793
       objectReference: {fileID: 0}
     - target: {fileID: 4774143067591043224, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
       propertyPath: lightColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4774143067591043224, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
       propertyPath: previewSprite
       value: 
-      objectReference: {fileID: 1291519598}
+      objectReference: {fileID: 0}
     - target: {fileID: 4774143067591043225, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4774143067591043225, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.21511793
       objectReference: {fileID: 0}
     - target: {fileID: 4774143067591043225, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
       propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774143067591043225, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
-      propertyPath: m_SpotAngle
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774143067591043225, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
-      propertyPath: m_InnerSpotAngle
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4774143067591043226, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
       propertyPath: m_Name
       value: 3D Dmx Light Source
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774143067591043226, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4774143067591043238, guid: 6d3ef758168b0a7409f205d92f92413a, type: 3}
       propertyPath: m_RootOrder
@@ -899,15 +899,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6717794462117555392, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.08235288
       objectReference: {fileID: 0}
     - target: {fileID: 6717794462117555392, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6717794462117555392, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6717794462759895144, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
       propertyPath: m_RootOrder
@@ -957,6 +957,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2D DMX Light Source
       objectReference: {fileID: 0}
+    - target: {fileID: 6717794462759895145, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6717794462759895147, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
       propertyPath: dmxAddress
       value: 2
@@ -973,13 +977,20 @@ PrefabInstance:
       propertyPath: lightColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6717794462759895147, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
+      propertyPath: previewSprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6717794463180085745, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6717794463180085745, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
---- !u!212 &1291519598 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 6717794462117555392, guid: 40b99a95597c67349a551695e4f55efa, type: 3}
-  m_PrefabInstance: {fileID: 1291519597}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1380329430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1156,7 @@ Canvas:
   m_GameObject: {fileID: 1693158707}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
