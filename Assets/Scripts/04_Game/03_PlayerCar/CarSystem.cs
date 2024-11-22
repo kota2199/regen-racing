@@ -152,7 +152,12 @@ public class CarSystem : MonoBehaviour
 
         for (int i = 0; i < Wheel.Length; i++)
         {
-            if (batterySystem.remainBattery > 0)
+            if (batterySystem.remainBattery <= 0)
+            {
+                Debug.Log("BATTERY : 0");
+                Wheel[i].motorTorque = 0;
+            }
+            else
             {
                 Wheel[i].motorTorque = InputVector.y * DriveWheels[i] * AccelPower * boostManager.addBoostPower * (restrictor / 4);
             }

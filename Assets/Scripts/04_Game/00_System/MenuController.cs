@@ -70,6 +70,7 @@ public class MenuController : MonoBehaviour
     public void Replace()
     {
         replaceController.Replace();
+        onMenu = false;
     }
     public void Retry()
     {

@@ -33,3 +33,4 @@ MonoBehaviour:
     Position: 0
     PassedPoint: 0
     time: 0
+  playerColorIndex: 8

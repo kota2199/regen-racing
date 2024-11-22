@@ -30,6 +30,12 @@ public class ColorSelectController : MonoBehaviour
     [SerializeField]
     private AudioClip decision, choice;
 
+    [SerializeField]
+    private CarColorChanger carColorChanger;
+
+    [SerializeField]
+    private RaceData raceData;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -117,8 +123,8 @@ public class ColorSelectController : MonoBehaviour
         colorMarker.rectTransform.localPosition = Vector3.zero;
         colorMarker.rectTransform.anchoredPosition = Vector2.zero;
 
-        //carColorMaterial.color = FromHex(colors[numberOfColors].gameObject.name);
-        //demoBody.
+        carColorChanger.SetCarColor(numberOfColors);
+        raceData.playerColorIndex = numberOfColors;
     }
 
     public static Color FromHex(string hex)

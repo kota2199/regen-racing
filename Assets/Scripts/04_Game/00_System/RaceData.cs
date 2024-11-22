@@ -18,6 +18,8 @@ public class RaceData : ScriptableObject
 {
     public List<CarInfo> cars;
 
+    public int playerColorIndex;
+
     public void ClearData()
     {
         cars.Clear();

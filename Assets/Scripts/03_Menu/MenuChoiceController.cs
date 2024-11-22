@@ -71,6 +71,9 @@ public class MenuChoiceController : MonoBehaviour
     [SerializeField]
     private string raceSceneName;
 
+    [SerializeField]
+    private FadeInOut fadeController;
+
     void Awake()
     {
         selecter = GetComponent<ColorSelectController>();
@@ -241,7 +244,8 @@ public class MenuChoiceController : MonoBehaviour
 
     public void ToRaceScene()
     {
-        SceneManager.LoadScene(raceSceneName);
+        fadeController.FadeOut();
+        Invoke("SceneTransition", 1f);
     }
 
     private IEnumerator PlayGuideVoice(AudioClip clip)
@@ -249,5 +253,10 @@ public class MenuChoiceController : MonoBehaviour
         audioSourceForGuide.Stop();
         yield return new WaitForSeconds(1.5f);
         audioSourceForGuide.PlayOneShot(clip);
+    }
+
+    private void SceneTransition()
+    {
+        SceneManager.LoadScene(raceSceneName);
     }
 }
