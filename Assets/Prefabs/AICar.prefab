@@ -567,7 +567,7 @@ MonoBehaviour:
   CenterOfMass: {fileID: 1960940407826148779}
   Wheel: []
   Obj: []
-  AccelPower: 1000
+  AccelPower: 1200
   HandleAngle: 15
   BrakePower: 1000
   throttle: 0
@@ -596,6 +596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3029a65d428af40b516346157bb461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
+  defaultGrid: 1
   checkPointsParent: {fileID: 0}
   checkPoints:
   - {fileID: 0}
@@ -743,7 +745,8 @@ MonoBehaviour:
   - {fileID: 1711813855004262429}
   - {fileID: 1711813855436704476}
   carInfo: 1
-  raceData: {fileID: 0}
+  raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
+  carColorIndex: 0
 --- !u!1 &1960940407931440695
 GameObject:
   m_ObjectHideFlags: 0

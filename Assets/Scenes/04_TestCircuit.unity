@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1817236227}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 12214.234, g: 14582.125, b: 15705.969, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1633,7 +1633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!120 &333314880
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1954,7 +1954,7 @@ PrefabInstance:
       objectReference: {fileID: 604173712}
     - target: {fileID: 2719266501084875692, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: AccelPower
-      value: 900
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2719266501084875692, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: HandleAngle
@@ -3924,7 +3924,7 @@ PrefabInstance:
       objectReference: {fileID: 604173712}
     - target: {fileID: 2719266501084875692, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: AccelPower
-      value: 800
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 2719266501084875692, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: wayPointsParent
@@ -5481,26 +5481,6 @@ PrefabInstance:
       propertyPath: sceneController
       value: 
       objectReference: {fileID: 604173716}
-    - target: {fileID: 1041336812, guid: 36548756a7dfd452bb943046c37083df, type: 3}
-      propertyPath: m_Volume
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
-      propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
-      propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
-      propertyPath: m_SidewaysFriction.m_AsymptoteSlip
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
-      propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 1.6
-      objectReference: {fileID: 0}
     - target: {fileID: 574169944846019409, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5509,10 +5489,6 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 604173712}
-    - target: {fileID: 574169944846019411, guid: 36548756a7dfd452bb943046c37083df, type: 3}
-      propertyPath: BrakePower
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 574169944846019411, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: controllWay
       value: 
@@ -5593,30 +5569,14 @@ PrefabInstance:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 200961872}
-    - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
-      propertyPath: m_SidewaysFriction.m_AsymptoteSlip
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
-      propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 1.6
-      objectReference: {fileID: 0}
     - target: {fileID: 5152142550648497067, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: lapText
       value: 
       objectReference: {fileID: 1719151625}
     - target: {fileID: 5152142550648497067, guid: 36548756a7dfd452bb943046c37083df, type: 3}
-      propertyPath: raceData
-      value: 
-      objectReference: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
-    - target: {fileID: 5152142550648497067, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 1184826459}
-    - target: {fileID: 5152142550648497067, guid: 36548756a7dfd452bb943046c37083df, type: 3}
-      propertyPath: defaultGrid
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5152142550648497067, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: finishedPanel
       value: 
@@ -13626,10 +13586,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1041336812}
-    - target: {fileID: 807871909788655167, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
-      propertyPath: raceData
-      value: 
-      objectReference: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
     - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Name
       value: AICar_1
@@ -13691,17 +13647,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1719151625}
     - target: {fileID: 6575644918315649920, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
-      propertyPath: raceData
-      value: 
-      objectReference: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
-    - target: {fileID: 6575644918315649920, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 1184826459}
-    - target: {fileID: 6575644918315649920, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
-      propertyPath: defaultGrid
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6575644918315649920, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: finishedPanel
       value: 
