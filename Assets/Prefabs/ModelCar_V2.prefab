@@ -1600,7 +1600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a8c090b872c421a948d9fe9dc00b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorCodes: []
   bodyMaterials:
   - {fileID: 2100000, guid: 348753f6de3de48d19a8a0fbe08ed286, type: 2}
   - {fileID: 2100000, guid: 595c924a6b4ad4cc8a1b400adf4a52ce, type: 2}
@@ -1647,6 +1646,9 @@ MonoBehaviour:
   - {fileID: 5783048512734689520}
   - {fileID: 5783048513830873809}
   - {fileID: 5783048513748119955}
+  carInfo: 0
+  raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
+  carColorIndex: 0
 --- !u!1 &574169944874632577
 GameObject:
   m_ObjectHideFlags: 0

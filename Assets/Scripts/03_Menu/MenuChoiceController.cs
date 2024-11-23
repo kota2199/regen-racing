@@ -102,6 +102,7 @@ public class MenuChoiceController : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal Stick-L") > 0.15f && !selectRight)
         {
+            Debug.Log("Right");
             selectRight = true;
             RecieveRightInput();
         }
@@ -112,10 +113,11 @@ public class MenuChoiceController : MonoBehaviour
 
         if (Input.GetAxis("Horizontal Stick-L") < -0.15f && !selectLeft)
         {
+            Debug.Log("Left");
             selectLeft = true;
             RecieveLeftInput();
         }
-        else if (Input.GetAxis("Horizontal Stick-L") > -0.15f && !selectLeft)
+        else if (Input.GetAxis("Horizontal Stick-L") > -0.15f)
         {
             selectLeft = false;
         }
@@ -157,30 +159,30 @@ public class MenuChoiceController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (isSelecting && currentChoiceNum > 0)
-            {
-                RecieveLeftInput();
-            }
+            RecieveLeftInput();
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (isSelecting && currentChoiceNum < choices.Length - 1)
-            {
-                RecieveRightInput();
-            }
+            RecieveRightInput();
         }
     }
 
     private void RecieveRightInput()
     {
-        currentChoiceNum++;
-        audioSourceSE.PlayOneShot(choice);
+        if (isSelecting && currentChoiceNum < choices.Length - 1)
+        {
+            currentChoiceNum++;
+            audioSourceSE.PlayOneShot(choice);
+        }
     }
 
     private void RecieveLeftInput()
     {
-        currentChoiceNum--;
-        audioSourceSE.PlayOneShot(choice);
+        if (isSelecting && currentChoiceNum > 0)
+        {
+            currentChoiceNum--;
+            audioSourceSE.PlayOneShot(choice);
+        }
     }
 
     private void UpdateUI()

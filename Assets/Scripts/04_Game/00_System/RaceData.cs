@@ -10,6 +10,7 @@ public class CarInfo
     public int Position;
     public int PassedPoint;
     public float time;
+    public int colorIndex;
 }
 
 // ScriptableObjectを作成するクラス
@@ -71,6 +72,16 @@ public class RaceData : ScriptableObject
         for (int i = 0; i < cars.Count; i++)
         {
             cars[i] = sortedCars[i];
+        }
+    }
+
+    public void UpdateCarColorInfo(string name, int colorIndex)
+    {
+        CarInfo car = GetCarInfo(name);
+        if (car != null)
+        {
+            car.colorIndex = colorIndex;
+            Debug.Log("changed");
         }
     }
 }

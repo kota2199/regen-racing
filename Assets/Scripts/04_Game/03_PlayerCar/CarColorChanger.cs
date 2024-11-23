@@ -56,6 +56,6 @@ public class CarColorChanger : MonoBehaviour
             Wheels[i].material = TyreMaterials[index];
         }
 
-        carColorIndex = index;
+        raceData.UpdateCarColorInfo(this.gameObject.name, index);
     }
 }

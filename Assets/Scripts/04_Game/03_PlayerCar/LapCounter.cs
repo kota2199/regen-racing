@@ -5,7 +5,13 @@ using UnityEngine.UI;
 
 public class LapCounter : MonoBehaviour
 {
+    [SerializeField]
+    private RaceData raceData;
+
     private GameModeManager gameModeManager;
+
+    [SerializeField]
+    private int defaultGrid;
 
     //Lap
     [SerializeField]
@@ -41,11 +47,16 @@ public class LapCounter : MonoBehaviour
     [SerializeField]
     private Text finishedBestTimeText;
 
-    //ForReplace
-    private ReplaceController replacer;
+    //ForReplacePlayer
+    private ReplaceController playerReplacer;
+
+    //ForReplaceAI
+    private AIAutoReverse aiReplacer;
 
     //Human or AI
     private bool humanCar = false;
+
+    private bool firstPassedCheckPoint = false;
 
     // Start is called before the first frame update
 
@@ -64,7 +75,14 @@ public class LapCounter : MonoBehaviour
 
         if (humanCar)
         {
-            replacer = GetComponent<ReplaceController>();
+            playerReplacer = GetComponent<ReplaceController>();
+        }
+        else
+        {
+            if (GetComponent<AIAutoReverse>())
+            {
+                aiReplacer = GetComponent<AIAutoReverse>();
+            }
         }
 
         checkPoints = new Transform[checkPointsParent.transform.childCount];
@@ -91,18 +109,30 @@ public class LapCounter : MonoBehaviour
     {
         TimeCounter();
 
+        if (!firstPassedCheckPoint)
+        {
+            SetFirstGrid();
+        }
+
         if(humanCar)
         {
             UpdateUI();
         }
     }
 
+    private void SetFirstGrid()
+    {
+        string carName = this.gameObject.name;
+        raceData.GetCarInfo(carName).Position = defaultGrid;
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "CheckPoint")
         {
-            Debug.Log(other.gameObject.name);
-            Debug.Log("num" + checkedNum);
+            firstPassedCheckPoint = true;
+
             if (other.gameObject.name == checkPoints[checkedNum].name)
             {
                 checkedNum++;
@@ -111,7 +141,11 @@ public class LapCounter : MonoBehaviour
                 //SetReplacePoint
                 if (humanCar)
                 {
-                    replacer.SetReplacePoint(other.gameObject.transform);
+                    playerReplacer.SetReplacePoint(other.gameObject.transform);
+                }
+                else
+                {
+                    aiReplacer.SetReplacePoint(other.gameObject.transform);
                 }
             }
         }
