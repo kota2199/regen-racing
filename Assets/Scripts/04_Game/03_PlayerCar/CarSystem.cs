@@ -29,9 +29,10 @@ public class CarSystem : MonoBehaviour
     [SerializeField] Vector2 InputVector;
     [SerializeField] float Brake = 0;
 
-    [SerializeField] float AccelPower = 1000f;
+    public float AccelPower = 1000f;
     [SerializeField] float HandleAngle = 45f;
     [SerializeField] float BrakePower = 1000f;
+    [SerializeField] float regenerativeBrakeAmount = 0.0f;
 
     [SerializeField] float[] DriveWheels = new float[] { 1.0f, 1.0f, 1.0f, 1.0f };
     [SerializeField] float[] SteerWheels = new float[] { 0f, 0f, 1.0f, 1.0f };
@@ -159,7 +160,7 @@ public class CarSystem : MonoBehaviour
             }
             else
             {
-                Wheel[i].motorTorque = InputVector.y * DriveWheels[i] * AccelPower * boostManager.addBoostPower * (restrictor / 4);
+                Wheel[i].motorTorque = InputVector.y * DriveWheels[i] * AccelPower * boostManager.addBoostPower * (restrictor / 4) - regenerativeBrakeAmount;
             }
 
             Wheel[i].steerAngle = InputVector.x * SteerWheels[i] * HandleAngle;
@@ -175,15 +176,18 @@ public class CarSystem : MonoBehaviour
         if (InputVector.y > 0)
         {
             batterySystem.remainBattery -= 1.0f * restrictor * Time.deltaTime;
+            regenerativeBrakeAmount = 0;
         }
         if (InputVector.y <= 0)
         {
-            if (speedCheck.speed > 0)
+            if (speedCheck.speed >= 10)
             {
-                if (speedCheck.speed >= 10)
-                {
-                    batterySystem.remainBattery += 2f * restrictor * Time.deltaTime;
-                }
+                batterySystem.remainBattery += 2f * restrictor * Time.deltaTime;
+                regenerativeBrakeAmount = 150;
+            }
+            else
+            {
+                regenerativeBrakeAmount = 0;
             }
         }
     }

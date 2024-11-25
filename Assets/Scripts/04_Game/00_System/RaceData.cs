@@ -11,6 +11,10 @@ public class CarInfo
     public int PassedPoint;
     public float time;
     public int colorIndex;
+    public int choiceIndex;
+    public bool isFinished;
+    public float ecoPoint;
+    public float totalTime;
 }
 
 // ScriptableObjectを作成するクラス
@@ -19,7 +23,7 @@ public class RaceData : ScriptableObject
 {
     public List<CarInfo> cars;
 
-    public int playerColorIndex;
+    public int playerColorIndex, playerChoiceIndex;
 
     public void ClearData()
     {
@@ -82,6 +86,45 @@ public class RaceData : ScriptableObject
         {
             car.colorIndex = colorIndex;
             Debug.Log("changed");
+        }
+    }
+
+    public void UpdateCarChoiceNumber(string name, int index)
+    {
+        CarInfo car = GetCarInfo(name);
+        if(car != null)
+        {
+            car.choiceIndex = index;
+            Debug.Log("ChangeCarMode : Car" + car.CarName + " is " + index);
+        }
+    }
+
+    public void UpdateFinishStatus(string name)
+    {
+        CarInfo car = GetCarInfo(name);
+        if (car != null)
+        {
+            car.isFinished = true;
+            switch (car.choiceIndex)
+            {
+                case 0:
+                    car.ecoPoint = -10.00f;
+                    car.totalTime = car.time + car.ecoPoint;
+                    break;
+                case 1:
+                    car.ecoPoint = 0.00f;
+                    car.totalTime = car.time + car.ecoPoint;
+                    break;
+                case 2:
+                    car.ecoPoint = 10.00f;
+                    car.totalTime = car.time + car.ecoPoint;
+                    break;
+                default:
+                    Debug.LogError("Out of Index");
+                    break;
+            }
+
+            UpdateCarPositionsByTime();
         }
     }
 }

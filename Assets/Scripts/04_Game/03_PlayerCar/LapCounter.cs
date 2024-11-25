@@ -35,17 +35,11 @@ public class LapCounter : MonoBehaviour
 
     private float timer, selfBestTime, totalTime;
 
-    [SerializeField]
-    private Text timerText, selfBestTimeText;
-
     //Finished
     [SerializeField]
     private GameObject finishedPanel;
 
     public bool isFinished;
-
-    [SerializeField]
-    private Text finishedBestTimeText;
 
     //ForReplacePlayer
     private ReplaceController playerReplacer;
@@ -57,6 +51,9 @@ public class LapCounter : MonoBehaviour
     private bool humanCar = false;
 
     private bool firstPassedCheckPoint = false;
+
+    [SerializeField]
+    private ResultManager resultManager;
 
     // Start is called before the first frame update
 
@@ -156,7 +153,7 @@ public class LapCounter : MonoBehaviour
             FastestCheck(timer, lapCount);
             timer = 0.0f;
 
-            if(lapCount >= maxLap && humanCar)
+            if(lapCount >= maxLap)
             {
                 Finished();
             }
@@ -189,15 +186,21 @@ public class LapCounter : MonoBehaviour
 
     private void UpdateUI()
     {
-        timerText.text = "Time : " + timer.ToString("f2");
         lapText.text = lapCount.ToString() + "/" + maxLap.ToString();
-        selfBestTimeText.text = "Fastest : " + selfBestTime.ToString("f2");
+
         finishedPanel.SetActive(isFinished);
     }
 
     private void Finished()
     {
         isFinished = true;
-        finishedBestTimeText.text = "Fastest : " + selfBestTime.ToString("f2");
+        raceData.UpdateFinishStatus(this.gameObject.name);
+        resultManager.CalcResult(this.gameObject.name);
+
+        if (humanCar)
+        {
+            this.GetComponent<CarSystem>().enabled = false;
+            this.GetComponent<AICarController>().enabled = true;
+        }
     }
 }

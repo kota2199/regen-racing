@@ -16,7 +16,7 @@ public class AICarController : MonoBehaviour
     [SerializeField] WheelCollider[] Wheel;
     [SerializeField] Transform[] Obj;
 
-    [SerializeField] float AccelPower = 1000f;
+    public float AccelPower = 1000f;
     [SerializeField] float HandleAngle = 45f;
     [SerializeField] float BrakePower = 1000f;
     [SerializeField] float throttle = 0.0f;

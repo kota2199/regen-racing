@@ -74,6 +74,9 @@ public class MenuChoiceController : MonoBehaviour
     [SerializeField]
     private FadeInOut fadeController;
 
+    [SerializeField]
+    private RaceData raceData;
+
     void Awake()
     {
         selecter = GetComponent<ColorSelectController>();
@@ -129,6 +132,7 @@ public class MenuChoiceController : MonoBehaviour
         {
             if (isSelecting)
             {
+                raceData.playerChoiceIndex = currentChoiceNum;
                 UpdateMenuMode(MenuMode.ChoiceCarColor);
             }
             else if (isColorSelecting)

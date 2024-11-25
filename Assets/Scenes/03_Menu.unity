@@ -2581,6 +2581,7 @@ MonoBehaviour:
   choice: {fileID: 8300000, guid: 0a1f097574b934ccda1d7163b219294c, type: 3}
   raceSceneName: 04_TestCircuit
   fadeController: {fileID: 323367968}
+  raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
 --- !u!114 &1761763329
 MonoBehaviour:
   m_ObjectHideFlags: 0
