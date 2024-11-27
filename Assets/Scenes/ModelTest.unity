@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 8144.8047, g: 9723.359, b: 10473.422, a: 1}
+  m_IndirectSpecularColor: {r: 12214.234, g: 14582.125, b: 15705.969, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1143,6 +1143,10 @@ PrefabInstance:
     - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Name
       value: AICar (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1960940407883432830, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_RootOrder
@@ -2415,6 +2419,10 @@ PrefabInstance:
     - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Name
       value: AICar (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1960940407883432830, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_RootOrder
@@ -8680,6 +8688,10 @@ PrefabInstance:
     - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Name
       value: AICar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1960940407883432830, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_RootOrder

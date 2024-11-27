@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1817236227}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 12214.234, g: 14582.125, b: 15705.969, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3191,6 +3191,7 @@ GameObject:
   - component: {fileID: 604173718}
   - component: {fileID: 604173719}
   - component: {fileID: 604173720}
+  - component: {fileID: 604173721}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3422,6 +3423,18 @@ MonoBehaviour:
   choice3MaxTorque: 1100
   choice3CarWeight: 950
   raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
+--- !u!114 &604173721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604173712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12a372445d85149fe84cf8f86b22f488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &627031629
 GameObject:
   m_ObjectHideFlags: 0
@@ -5975,6 +5988,10 @@ PrefabInstance:
     - target: {fileID: 1373024241, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: ShapeModule.m_Scale.z
       value: 0.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373024241, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 1373024241, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
