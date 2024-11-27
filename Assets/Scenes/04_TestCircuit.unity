@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1817236227}
-  m_IndirectSpecularColor: {r: 12214.234, g: 14582.125, b: 15705.969, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2481,6 +2481,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390357829}
   m_CullTransparentMesh: 1
+--- !u!198 &405738849 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1373024241, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+  m_PrefabInstance: {fileID: 1041336810}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &409749975
 GameObject:
   m_ObjectHideFlags: 0
@@ -5969,9 +5974,13 @@ PrefabInstance:
       propertyPath: sceneController
       value: 
       objectReference: {fileID: 604173716}
-    - target: {fileID: 1358509723, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+    - target: {fileID: 1358509715, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358509723, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1358867123, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5981,17 +5990,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1358867131, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373024241, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1373024241, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: ShapeModule.type
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1373024241, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: ShapeModule.m_Scale.z
-      value: 0.91
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 1373024241, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1373024241, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -6121,6 +6138,10 @@ PrefabInstance:
       propertyPath: checkPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1276985334}
+    - target: {fileID: 5152142551616968279, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: boostEffect
+      value: 
+      objectReference: {fileID: 405738849}
     - target: {fileID: 5152142551616968279, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: isBoostCountText
       value: 

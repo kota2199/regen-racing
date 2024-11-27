@@ -29,6 +29,9 @@ public class BoostModeManager : MonoBehaviour
     [SerializeField]
     private AudioClip boostSound;
 
+    [SerializeField]
+    private ParticleSystem boostEffect;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -73,6 +76,9 @@ public class BoostModeManager : MonoBehaviour
 
                 UpdateUI();
 
+                boostEffect.gameObject.SetActive(true);
+                boostEffect.Play();
+
                 Invoke("InitializeBoostPower", 10);
             }
         }
@@ -108,5 +114,6 @@ public class BoostModeManager : MonoBehaviour
         addBoostPower = 1.0f;
         isBoostCountText.gameObject.SetActive(false);
         length = 10f;
+        boostEffect.gameObject.SetActive(false);
     }
 }
