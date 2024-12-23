@@ -1,0 +1,32 @@
+{
+  "project_info": {
+    "project_number": "842679623398",
+    "firebase_url": "https://firebase-kunimi-test-default-rtdb.firebaseio.com",
+    "project_id": "firebase-kunimi-test",
+    "storage_bucket": "firebase-kunimi-test.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842679623398:ios:21db8b5d0218e8222e2527",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.EVRaceGame"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnnSdH9FU-YpTnJxew7oyiOGpJqm8_0oQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

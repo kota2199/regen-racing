@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -1227,12 +1227,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearColorMode: 1
+  clearColorMode: 0
   backgroundColorHDR: {r: 0, g: 0, b: 0, a: 0}
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 0
   volumeAnchorOverride: {fileID: 0}
   antialiasing: 0
   SMAAQuality: 2
@@ -1517,11 +1517,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6177269534728624309, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
   m_PrefabInstance: {fileID: 6177269535397408807}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &946071699
+--- !u!114 &946071699 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 946071699, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
+  m_PrefabInstance: {fileID: 6177269535397408807}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946071698}
   m_Enabled: 1
@@ -1529,55 +1528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a8c090b872c421a948d9fe9dc00b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyMaterials:
-  - {fileID: 2100000, guid: 348753f6de3de48d19a8a0fbe08ed286, type: 2}
-  - {fileID: 2100000, guid: 595c924a6b4ad4cc8a1b400adf4a52ce, type: 2}
-  - {fileID: 2100000, guid: 9229b6820e0c34ea09d5ee0981b76383, type: 2}
-  - {fileID: 2100000, guid: ae30d8b057f8a45b2a94649a9f425e45, type: 2}
-  - {fileID: 2100000, guid: 476ff8e4ac54d40639b33fabec4aedde, type: 2}
-  - {fileID: 2100000, guid: bcf4e5db6e2fd47ab8ab024c60157b77, type: 2}
-  - {fileID: 2100000, guid: 4dc786c0cc2d94d68a8b6ef153d9fed1, type: 2}
-  - {fileID: 2100000, guid: 8b84af8c71ac64657a34c81a0ec665cf, type: 2}
-  - {fileID: 2100000, guid: a8e16a0fa4925456ebcd241eeedf9cb2, type: 2}
-  - {fileID: 2100000, guid: 3d9073d96ec49444bb481c43b6274353, type: 2}
-  - {fileID: 2100000, guid: 3319022afaa594d249dbbcbe4ac0cacd, type: 2}
-  - {fileID: 2100000, guid: 9643d485a210c4206a0dc2e36301c500, type: 2}
-  TyreMaterials:
-  - {fileID: 2100000, guid: fe7fc592ada5f4da3b4964b8b26e7fae, type: 2}
-  - {fileID: 2100000, guid: 25f5d55318d6b4db7997e8b9925c32c3, type: 2}
-  - {fileID: 2100000, guid: dac6702f5b70341e7a21e3f22308318d, type: 2}
-  - {fileID: 2100000, guid: a8c7017bef8844ff2a8f317662a3cb6e, type: 2}
-  - {fileID: 2100000, guid: 80bb8bb521aa04cfcbd58a0d53d46dc0, type: 2}
-  - {fileID: 2100000, guid: 4faab6f767d48446c8e40b932ce9943f, type: 2}
-  - {fileID: 2100000, guid: 3950dbe714d7e49bcb6be4a6b4056bda, type: 2}
-  - {fileID: 2100000, guid: e6242730d50264205b3386b1f77b61d2, type: 2}
-  - {fileID: 2100000, guid: 16639af54f19c467481439e0a0bda70b, type: 2}
-  - {fileID: 2100000, guid: 6129cdeee895c4f2ab2df952f6b090be, type: 2}
-  - {fileID: 2100000, guid: 27cd433fa57b1481f8a49205dea6fef4, type: 2}
-  - {fileID: 2100000, guid: 6e37ec33e2cce44cfa742fa61c4d97d1, type: 2}
-  WingMaterials:
-  - {fileID: 2100000, guid: 65329607581b446aea70e242e0b364c5, type: 2}
-  - {fileID: 2100000, guid: 051864421aa9544b0bb73a379994a205, type: 2}
-  - {fileID: 2100000, guid: 5277607ce9ee84c65846f37fc2aa3ef3, type: 2}
-  - {fileID: 2100000, guid: 47e38a0b38aed4f39a2feb167d07fa93, type: 2}
-  - {fileID: 2100000, guid: e2aa09f85671f481fbea5a7a5ecbad1a, type: 2}
-  - {fileID: 2100000, guid: 340b55b2d104e4390acf1a6be9a0acd7, type: 2}
-  - {fileID: 2100000, guid: 306cbe0f7f295425a86f216dbe1f77b8, type: 2}
-  - {fileID: 2100000, guid: 68a3075304c3c4db99bf89570b907bed, type: 2}
-  - {fileID: 2100000, guid: 652f1ea9120b74fc392c93d9d883e9d8, type: 2}
-  - {fileID: 2100000, guid: 0aa8479cd13074fdaa174a35800803e0, type: 2}
-  - {fileID: 2100000, guid: 2ae326bc06df54396b5e6513ed2cc5f5, type: 2}
-  - {fileID: 2100000, guid: 88b457cfba60b47afb2916e414b38234, type: 2}
-  bodyObj: {fileID: 6177269535397408812}
-  WingObj: {fileID: 6177269535397408811}
-  Wheels:
-  - {fileID: 6177269535397408810}
-  - {fileID: 6177269535397408809}
-  - {fileID: 6177269535397408808}
-  - {fileID: 1664646985}
-  carInfo: 0
-  raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
-  carColorIndex: 0
 --- !u!1 &979331129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,11 +2487,6 @@ MonoBehaviour:
 --- !u!1 &1664646983 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6447879475370734131, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-  m_PrefabInstance: {fileID: 6177269535397408807}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &1664646985 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4790568074529903590, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
   m_PrefabInstance: {fileID: 6177269535397408807}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1674263161
@@ -3703,30 +3648,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 529642121870703018, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: aa98ed4ddaa6e49efa79fc8082e558e0, type: 2}
-    - target: {fileID: 4790568073631565253, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 595c924a6b4ad4cc8a1b400adf4a52ce, type: 2}
-    - target: {fileID: 4790568073806229427, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 25f5d55318d6b4db7997e8b9925c32c3, type: 2}
-    - target: {fileID: 4790568074474065900, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 25f5d55318d6b4db7997e8b9925c32c3, type: 2}
-    - target: {fileID: 4790568074529903590, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 25f5d55318d6b4db7997e8b9925c32c3, type: 2}
-    - target: {fileID: 4790568074671911941, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 25f5d55318d6b4db7997e8b9925c32c3, type: 2}
     - target: {fileID: 6177269534728624308, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3775,34 +3696,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleCar
       objectReference: {fileID: 0}
-    - target: {fileID: 8829173710105868236, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 051864421aa9544b0bb73a379994a205, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
---- !u!23 &6177269535397408808 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4790568074671911941, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-  m_PrefabInstance: {fileID: 6177269535397408807}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &6177269535397408809 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4790568074474065900, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-  m_PrefabInstance: {fileID: 6177269535397408807}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &6177269535397408810 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4790568073806229427, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-  m_PrefabInstance: {fileID: 6177269535397408807}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &6177269535397408811 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8829173710105868236, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-  m_PrefabInstance: {fileID: 6177269535397408807}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &6177269535397408812 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4790568073631565253, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
-  m_PrefabInstance: {fileID: 6177269535397408807}
-  m_PrefabAsset: {fileID: 0}
