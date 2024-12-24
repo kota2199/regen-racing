@@ -4,7 +4,7 @@ using Firebase.Firestore;
 using Firebase.Extensions;
 using UnityEngine;
 
-public class FirestoreExample : MonoBehaviour
+public class FirebaseUpdater : MonoBehaviour
 {
     FirebaseFirestore db;
 
@@ -14,7 +14,7 @@ public class FirestoreExample : MonoBehaviour
     {
         isConnected = false;
 
-        // Firebase„ÅÆÂàùÊúüÂåñ
+        // FirebaseÇÃèâä˙âª
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             if (task.Result == DependencyStatus.Available)
@@ -22,7 +22,7 @@ public class FirestoreExample : MonoBehaviour
                 db = FirebaseFirestore.DefaultInstance;
                 Debug.Log("Firebase Firestore is ready!");
                 isConnected = true;
-                // „Éá„Éº„ÇøÁôªÈå≤„ÅÆ‰æã
+                // ÉfÅ[É^ìoò^ÇÃó·
                 AddFutureChoice("eco");
             }
             else
@@ -32,7 +32,7 @@ public class FirestoreExample : MonoBehaviour
         });
     }
 
-    private void Update()
+    void Update()
     {
         if (isConnected && Input.GetKey(KeyCode.Space))
         {
@@ -43,7 +43,29 @@ public class FirestoreExample : MonoBehaviour
         }
     }
 
-    void AddValue(float charge, float speed, float regenRate)
+    public void AddFutureChoice(string choice)
+    {
+        // ìoò^Ç∑ÇÈÉfÅ[É^ÇíËã`
+        Dictionary<string, object> test = new Dictionary<string, object>
+        {
+            { "future", choice },
+        };
+
+        // FirestoreÇ…ÉfÅ[É^Çí«â¡
+        db.Collection("test").Document("test").SetAsync(test).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted)
+            {
+                Debug.Log("Data successfully added to Firestore!");
+            }
+            else
+            {
+                Debug.LogError($"Failed to add data: {task.Exception}");
+            }
+        });
+    }
+
+    public void AddValue(float charge, float speed, float regenRate)
     {
         Dictionary<string, object> chargeUpdates = new Dictionary<string, object>
         {
@@ -57,28 +79,6 @@ public class FirestoreExample : MonoBehaviour
             if (task.IsCompleted)
             {
                 Debug.Log("Succes updating");
-            }
-            else
-            {
-                Debug.LogError($"Failed to add data: {task.Exception}");
-            }
-        });
-    }
-
-    void AddFutureChoice(string choice)
-    {
-        // ÁôªÈå≤„Åô„Çã„Éá„Éº„Çø„ÇíÂÆöÁæ©
-        Dictionary<string, object> test = new Dictionary<string, object>
-        {
-            { "future", choice },
-        };
-
-        // Firestore„Å´„Éá„Éº„Çø„ÇíËøΩÂä†
-        db.Collection("test").Document("test").SetAsync(test).ContinueWithOnMainThread(task =>
-        {
-            if (task.IsCompleted)
-            {
-                Debug.Log("Data successfully added to Firestore!");
             }
             else
             {
