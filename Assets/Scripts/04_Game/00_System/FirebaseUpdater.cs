@@ -10,11 +10,26 @@ public class FirebaseUpdater : MonoBehaviour
 
     private bool isConnected;
 
+    [SerializeField]
+    private RaceData raceData;
+
+    [SerializeField]
+    private SpeedCheck speedCheck;
+
+    [SerializeField]
+    private BatterySystem batterySystem;
+
+    [SerializeField]
+    private CountDown countDown;
+
+    [SerializeField]
+    private float updateInterval = 1;
+    private float passedTime = 0;
+
     void Start()
     {
         isConnected = false;
 
-        // Firebaseの初期化
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             if (task.Result == DependencyStatus.Available)
@@ -22,8 +37,7 @@ public class FirebaseUpdater : MonoBehaviour
                 db = FirebaseFirestore.DefaultInstance;
                 Debug.Log("Firebase Firestore is ready!");
                 isConnected = true;
-                // データ登録の例
-                AddFutureChoice("eco");
+                AddFutureChoice(raceData.playerChoiceIndex.ToString());
             }
             else
             {
@@ -34,24 +48,32 @@ public class FirebaseUpdater : MonoBehaviour
 
     void Update()
     {
-        if (isConnected && Input.GetKey(KeyCode.Space))
+        if (isConnected && countDown.isPlay)
         {
-            float charge = Random.Range(0, 101);
-            float speed = Random.Range(0, 201);
-            float rate = Random.Range(0, 101);
-            AddValue(charge, speed, rate);
+            passedTime += Time.deltaTime;
+            if(updateInterval < passedTime)
+            {
+                UpdateData();
+                passedTime = 0;
+            }
         }
+    }
+
+    private void UpdateData()
+    {
+        float charge = batterySystem.remainBattery;
+        float speed = speedCheck.speed;
+        float rate = batterySystem.chargeRate;
+        AddValue(charge, speed, rate);
     }
 
     public void AddFutureChoice(string choice)
     {
-        // 登録するデータを定義
         Dictionary<string, object> test = new Dictionary<string, object>
         {
             { "future", choice },
         };
 
-        // Firestoreにデータを追加
         db.Collection("test").Document("test").SetAsync(test).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)

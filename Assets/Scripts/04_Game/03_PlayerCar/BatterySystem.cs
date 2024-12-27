@@ -15,6 +15,8 @@ public class BatterySystem : MonoBehaviour
     const float minRestrictor = 1;     // ?????l
     const float maxRestrictor = 4;   // ?????l
 
+    public float chargeAmount, totalAmount, chargeRate;
+
     [SerializeField]
     private Image[] manageIndicators;
 
@@ -93,7 +95,21 @@ public class BatterySystem : MonoBehaviour
             }
 
             UpdateUI();
+            CalcChargeRate();
         }
+    }
+
+    public void ChargeBattery(float amount)
+    {
+        remainBattery += amount;
+        chargeAmount += amount;
+        //For calc chargeRate;
+    }
+
+    public void UseBattery(float amount)
+    {
+        remainBattery -= amount;
+        totalAmount -= amount;
     }
 
     private void ChangeRestrictor(int amount)
@@ -157,5 +173,10 @@ public class BatterySystem : MonoBehaviour
                 manageIndicators[i].sprite = available;
             }
         }
+    }
+
+    private void CalcChargeRate()
+    {
+        chargeRate = (chargeAmount / Mathf.Abs(totalAmount)) * 100;
     }
 }

@@ -294,7 +294,7 @@ MonoBehaviour:
     m_Value: {x: 0.35615712, y: 0.44157743, z: 0.5}
   desiredLuxValue:
     m_OverrideState: 1
-    m_Value: 30000
+    m_Value: 20000
   updateMode:
     m_OverrideState: 0
     m_Value: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
   active: 1
   skyType:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 1
   cloudType:
     m_OverrideState: 0
     m_Value: 0

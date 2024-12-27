@@ -175,14 +175,16 @@ public class CarSystem : MonoBehaviour
 
         if (InputVector.y > 0)
         {
-            batterySystem.remainBattery -= 1.0f * restrictor * Time.deltaTime;
+            //batterySystem.remainBattery -= 1.0f * restrictor * Time.deltaTime;
+            batterySystem.UseBattery(1.0f * restrictor * Time.deltaTime);
             regenerativeBrakeAmount = 0;
         }
         if (InputVector.y <= 0)
         {
             if (speedCheck.speed >= 10)
             {
-                batterySystem.remainBattery += 2f * restrictor * Time.deltaTime;
+                //batterySystem.remainBattery += 2f * restrictor * Time.deltaTime;
+                batterySystem.ChargeBattery(2f * restrictor * Time.deltaTime);
                 regenerativeBrakeAmount = 150;
             }
             else
