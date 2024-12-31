@@ -34,6 +34,9 @@ public class MenuChoiceController : MonoBehaviour
     private Image choiceMarker;
 
     [SerializeField]
+    private Vector3 markerPosOffset;
+
+    [SerializeField]
     private Image explain;
 
     [SerializeField]
@@ -192,7 +195,7 @@ public class MenuChoiceController : MonoBehaviour
     private void UpdateUI()
     {
         choiceUI.SetActive(isSelecting);
-        choiceMarker.rectTransform.position = choices[currentChoiceNum].transform.position;
+        choiceMarker.rectTransform.position = choices[currentChoiceNum].transform.position + markerPosOffset;
         explain.gameObject.SetActive(isExplaining);
         explain.sprite = explainImage[currentChoiceNum];
 
