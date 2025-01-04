@@ -6,13 +6,16 @@ public class MenuController : MonoBehaviour
 {
     private bool onMenu = false;
 
-    [SerializeField]
-    private GameObject menuUI;
+    public bool isGameOver = false;
 
     [SerializeField]
+    private GameObject playerCar;
+
+    [SerializeField]
+    private GameObject menuUI, gameOverUI;
+
     private SceneTransition sceneController;
 
-    [SerializeField]
     private ReplaceController replaceController;
 
     private LapCounter lapCounter;
@@ -21,8 +24,9 @@ public class MenuController : MonoBehaviour
     void Awake()
     {
         onMenu = false;
-        replaceController = GetComponent<ReplaceController>();
-        lapCounter = GetComponent<LapCounter>();
+        replaceController = playerCar.GetComponent<ReplaceController>();
+        lapCounter = playerCar.GetComponent<LapCounter>();
+        sceneController = GetComponent<SceneTransition>();
     }
 
     // Update is called once per frame
@@ -40,7 +44,7 @@ public class MenuController : MonoBehaviour
             }
         }
 
-        if (onMenu || lapCounter.isFinished)
+        if (onMenu || lapCounter.isFinished || isGameOver)
         {
             if (Input.GetButtonDown("Fire_0") || Input.GetKeyDown(KeyCode.C))
             {
@@ -57,6 +61,8 @@ public class MenuController : MonoBehaviour
         }
 
         menuUI.SetActive(onMenu);
+        Debug.Log("GameOver Flag is " + isGameOver);
+        gameOverUI.SetActive(isGameOver);
     }
 
     public void ToMenu()

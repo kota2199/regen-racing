@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class BatterySystem : MonoBehaviour
 {
     private CarSystem carSystem;
+    private SpeedCheck speedCheck;
+
+    [SerializeField]
+    private MenuController menuController;
 
     [SerializeField]
     private Text batteryText, perText;
@@ -70,8 +74,6 @@ public class BatterySystem : MonoBehaviour
 
     void Start()
     {
-        carSystem = GetComponent<CarSystem>();
-
         remainBattery = 100;
         restrictor = 4;
 
@@ -92,6 +94,10 @@ public class BatterySystem : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
+        carSystem = GetComponent<CarSystem>();
+
+        speedCheck = GetComponent<SpeedCheck>();
+
         UpdateManageIndicator();
     }
 
@@ -109,6 +115,11 @@ public class BatterySystem : MonoBehaviour
             if (Input.GetButtonDown(restrictorUp) || Input.GetKeyDown(KeyCode.E))
             {
                 ChangeRestrictor(1);
+            }
+
+            if(remainBattery <= 0)
+            {
+                CheckCarSpeed();
             }
 
             UpdateUI();
@@ -232,6 +243,15 @@ public class BatterySystem : MonoBehaviour
             {
                 manageIndicators[i].sprite = availableImage[i];
             }
+        }
+    }
+
+    private void CheckCarSpeed()
+    {
+        Debug.Log("BATTERY 0");
+        if(speedCheck.speed <= 0.01f)
+        {
+            menuController.isGameOver = true;
         }
     }
 

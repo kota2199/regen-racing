@@ -825,7 +825,6 @@ GameObject:
   - component: {fileID: 5152142551616968279}
   - component: {fileID: 6590924702323633965}
   - component: {fileID: 1041336813}
-  - component: {fileID: 881537200}
   - component: {fileID: 881537212}
   - component: {fileID: 1041336812}
   - component: {fileID: 794631760401556389}
@@ -980,6 +979,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   batteryText: {fileID: 0}
+  perText: {fileID: 0}
+  lowBatteryColor: {r: 0.9411765, g: 0.011764706, b: 0.011764706, a: 1}
+  highBatteryColor: {r: 0.5176471, g: 1, b: 0.39607844, a: 1}
+  batteryIndicators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullImage: {fileID: 21300000, guid: afefb37963d5c4f648cdeb888dc05570, type: 3}
+  lowImage: {fileID: 21300000, guid: 8c3b6418c56824da4a0d3ba57652e3e8, type: 3}
+  emptyImage: {fileID: 21300000, guid: f0a5034c96b254d779a3ba15c8c76639, type: 3}
+  chargeStatusImage: {fileID: 0}
+  chargeStatusSprites:
+  - {fileID: 21300000, guid: beaba87b8e5cb4cdd8395fc97676e806, type: 3}
+  - {fileID: 21300000, guid: 49b4580ae2b8346e18087cf13d4a96b2, type: 3}
+  - {fileID: 21300000, guid: 80f2d9c6954184a098cd8aef6ee5dc06, type: 3}
+  - {fileID: 21300000, guid: 289f5e66ef8d2423ea3cc246980d572e, type: 3}
   remainBattery: 0
   restrictor: 0
   chargeAmount: 0
@@ -1073,21 +1095,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef43a163da7904623bd3d07b69f675fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &881537200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574169944846019409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 132c1ee908cfe4875b74b43ca82f79ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuUI: {fileID: 0}
-  sceneController: {fileID: 0}
-  replaceController: {fileID: 881537212}
 --- !u!114 &881537212
 MonoBehaviour:
   m_ObjectHideFlags: 0

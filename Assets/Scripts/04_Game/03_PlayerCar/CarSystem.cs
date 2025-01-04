@@ -155,7 +155,6 @@ public class CarSystem : MonoBehaviour
         {
             if (batterySystem.remainBattery <= 0)
             {
-                Debug.Log("BATTERY : 0");
                 Wheel[i].motorTorque = 0;
             }
             else
