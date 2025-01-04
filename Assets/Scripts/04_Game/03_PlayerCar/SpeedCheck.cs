@@ -16,9 +16,6 @@ public class SpeedCheck : MonoBehaviour
     private Image needle;
 
     [SerializeField]
-    private Vector2 needleRotation;
-
-    [SerializeField]
     private float maxSpeedOfMeter;
 
     [SerializeField]
@@ -54,7 +51,8 @@ public class SpeedCheck : MonoBehaviour
         {
             speedText.text = speed.ToString("f0");
 
-            needleAngle = -1 * speed + maxNeedleAngle;
+            //needleAngle = -1 * speed + maxNeedleAngle;
+            needleAngle = -1 * speed + 90;
             needleRect.rotation = Quaternion.Euler(0.0f, 0.0f, needleAngle);
         }
     }

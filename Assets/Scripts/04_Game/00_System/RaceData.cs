@@ -85,7 +85,6 @@ public class RaceData : ScriptableObject
         if (car != null)
         {
             car.colorIndex = colorIndex;
-            Debug.Log("changed");
         }
     }
 

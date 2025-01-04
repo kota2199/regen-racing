@@ -8,12 +8,27 @@ public class BatterySystem : MonoBehaviour
     private CarSystem carSystem;
 
     [SerializeField]
-    private Text batteryText;
+    private Text batteryText, perText;
+
+    [SerializeField]
+    private Color lowBatteryColor, highBatteryColor;
+
+    [SerializeField]
+    private Image[] batteryIndicators;
+
+    [SerializeField]
+    private Sprite fullImage, lowImage, emptyImage;
+
+    [SerializeField]
+    private Image chargeStatusImage;
+
+    [SerializeField]
+    private Sprite[] chargeStatusSprites;
 
     public float remainBattery, restrictor;
 
-    const float minRestrictor = 1;     // ?????l
-    const float maxRestrictor = 4;   // ?????l
+    const float minRestrictor = 1;
+    const float maxRestrictor = 4;
 
     public float chargeAmount, totalAmount, chargeRate;
 
@@ -21,7 +36,7 @@ public class BatterySystem : MonoBehaviour
     private Image[] manageIndicators;
 
     [SerializeField]
-    private Sprite available, unavailable;
+    private Sprite[] availableImage, unavailableImage;
 
 
     //needle
@@ -76,6 +91,8 @@ public class BatterySystem : MonoBehaviour
         needleRect = needle.gameObject.GetComponent<RectTransform>();
 
         audioSource = GetComponent<AudioSource>();
+
+        UpdateManageIndicator();
     }
 
     // Update is called once per frame
@@ -99,6 +116,14 @@ public class BatterySystem : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (humanCar)
+        {
+            UpdateBatteryIndicator();
+        }
+    }
+
     public void ChargeBattery(float amount)
     {
         remainBattery += amount;
@@ -119,6 +144,7 @@ public class BatterySystem : MonoBehaviour
         UpdateManageIndicator();
 
         audioSource.Stop();
+
         if(amount > 0)
         {
             audioSource.PlayOneShot(upSound);
@@ -127,16 +153,6 @@ public class BatterySystem : MonoBehaviour
         {
             audioSource.PlayOneShot(downSound);
         }
-    }
-
-    private void UpdateUI()
-    {
-        //text
-        batteryText.text = remainBattery.ToString("f0");
-
-        //needle's angle
-        needleAngle = -1 * remainBattery * 1.8f + maxNeedleAngle;
-        needleRect.rotation = Quaternion.Euler(0.0f, 0.0f, needleAngle);
     }
 
     private void BaterryLimit()
@@ -159,18 +175,62 @@ public class BatterySystem : MonoBehaviour
         restrictor = System.Math.Max(restrictor, minRestrictor);
     }
 
+    private void UpdateUI()
+    {
+        //text
+        batteryText.text = remainBattery.ToString("f0");
+
+        //needle's angle
+        needleAngle = -1 * remainBattery * 1.8f + maxNeedleAngle;
+        needleRect.rotation = Quaternion.Euler(0.0f, 0.0f, needleAngle);
+
+        //textcolor
+        if (remainBattery > 30)
+        {
+            batteryText.color = highBatteryColor;
+            perText.color = highBatteryColor;
+        }
+        else
+        {
+            batteryText.color = lowBatteryColor;
+            perText.color = lowBatteryColor;
+        }
+
+    }
+
+    private void UpdateBatteryIndicator()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            if (remainBattery > i * 10)
+            {
+                if(remainBattery > 30)
+                {
+                    batteryIndicators[i].sprite = fullImage;
+                }
+                else
+                {
+                    batteryIndicators[i].sprite = lowImage;
+                }
+            }
+            else
+            {
+                batteryIndicators[i].sprite = emptyImage;
+            }
+        }
+    }
+
     private void UpdateManageIndicator()
     {
         for (int i = 0; i < manageIndicators.Length; i++)
         {
-
-            if(i > restrictor- 1)
+            if(i != restrictor - 1)
             {
-                manageIndicators[i].sprite = unavailable;
+                manageIndicators[i].sprite = unavailableImage[i];
             }
             else
             {
-                manageIndicators[i].sprite = available;
+                manageIndicators[i].sprite = availableImage[i];
             }
         }
     }

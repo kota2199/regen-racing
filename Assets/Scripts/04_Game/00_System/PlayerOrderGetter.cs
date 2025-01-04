@@ -12,9 +12,9 @@ public class PlayerOrderGetter : MonoBehaviour
     private int myPos;
 
     [SerializeField]
-    private Text posText;
+    private Text posText, ordinalNumText;
 
-    private string myPosText;
+    private string ordinalNum;
 
     void Start()
     {
@@ -28,19 +28,20 @@ public class PlayerOrderGetter : MonoBehaviour
         switch (myPos)
         {
             case 1:
-                myPosText = "1st";
+                ordinalNum = "st";
                 break;
             case 2:
-                myPosText = "2nd";
+                ordinalNum = "nd";
                 break;
             case 3:
-                myPosText = "3rd";
+                ordinalNum = "rd";
                 break;
             default:
-                myPosText = myPos.ToString() + "th";
+                ordinalNum = "th";
                 break;
 
         }
-        posText.text = myPosText;
+        posText.text = myPos.ToString();
+        ordinalNumText.text = ordinalNum;
     }
 }
