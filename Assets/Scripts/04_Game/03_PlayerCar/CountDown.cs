@@ -32,12 +32,6 @@ public class CountDown : MonoBehaviour
         StartCoroutine("CountingDown");   
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private IEnumerator CountingDown()
     {
         yield return new WaitForSeconds(2);

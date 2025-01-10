@@ -7,6 +7,7 @@ public class MessageData
 {
     public string mainMassage;
     public string subMassage;
+    public AudioClip radio;
 }
 
 [CreateAssetMenu(fileName = "PopUpMessageData", menuName = "ScriptableObjects/PopUpMessageData", order = 3)]

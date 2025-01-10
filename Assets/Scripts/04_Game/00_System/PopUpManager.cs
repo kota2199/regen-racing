@@ -30,6 +30,15 @@ public class PopUpManager : MonoBehaviour
     [SerializeField]
     private BatterySystem playerBattery;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
+    private CountDown countDown;
+
+    private void Awake()
+    {
+        countDown = GetComponent<CountDown>();
+    }
     void Start()
     {
         PopUpRect.anchoredPosition = basePos;
@@ -47,7 +56,7 @@ public class PopUpManager : MonoBehaviour
             PopUp(1);
             batteryPopped = true;
         }
-        else if (playerBattery.remainBattery >= 100 && !batteryPopped)
+        else if (playerBattery.remainBattery >= 100 && !batteryPopped && countDown.isPlay)
         {
             PopUp(2);
             batteryPopped = true;
@@ -74,6 +83,7 @@ public class PopUpManager : MonoBehaviour
         PopUpRect.anchoredPosition = basePos;
         t_main.text = messageData.Datas[index].mainMassage;
         t_sub.text = messageData.Datas[index].subMassage;
+        audioSource.PlayOneShot(messageData.Datas[index].radio);
 
         // DoTweenシーケンスの完了を待機
         await ExecutePopUpAnimation();

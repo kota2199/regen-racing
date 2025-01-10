@@ -58,6 +58,9 @@ public class LapCounter : MonoBehaviour
     [SerializeField]
     private ResultManager resultManager;
 
+    [SerializeField]
+    private PopUpManager popUpManager;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -163,6 +166,11 @@ public class LapCounter : MonoBehaviour
             else
             {
                 lapCount++;
+            }
+
+            if(lapCount == maxLap)
+            {
+                popUpManager.PopUp(3);
             }
 
             other.gameObject.GetComponent<PositionChecker>().CarPassed(lapCount, this.gameObject);
