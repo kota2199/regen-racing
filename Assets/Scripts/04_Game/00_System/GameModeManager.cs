@@ -7,7 +7,7 @@ public class GameModeManager : MonoBehaviour
 
     public enum CarOwner
     {
-        Human, AI
+        Human, AI, Debug
     }
 
     public CarOwner carOwner;
