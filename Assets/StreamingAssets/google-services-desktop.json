@@ -1,21 +1,20 @@
 {
   "project_info": {
-    "project_number": "842679623398",
-    "firebase_url": "https://firebase-kunimi-test-default-rtdb.firebaseio.com",
-    "project_id": "firebase-kunimi-test",
-    "storage_bucket": "firebase-kunimi-test.firebasestorage.app"
+    "project_number": "48998464212",
+    "project_id": "regenracingresult",
+    "storage_bucket": "regenracingresult.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:842679623398:ios:21db8b5d0218e8222e2527",
+        "mobilesdk_app_id": "1:48998464212:ios:b9c081c01679c8202cd941",
         "android_client_info": {
-          "package_name": "com.DefaultCompany.EVRaceGame"
+          "package_name": "com.DefaultCompany.RegenRacing"
         }
       },
       "api_key": [
         {
-          "current_key": "AIzaSyDnnSdH9FU-YpTnJxew7oyiOGpJqm8_0oQ"
+          "current_key": "AIzaSyAqr5wpeiclNcNJTjMgp5vUiviSNZJqg-8"
         }
       ],
       "services": {

@@ -35,6 +35,9 @@ public class LapCounter : MonoBehaviour
 
     private float timer, selfBestTime, totalTime;
 
+    [SerializeField]
+    private Text t_timer;
+
     //Finished
     [SerializeField]
     private GameObject finishedPanel;
@@ -188,7 +191,20 @@ public class LapCounter : MonoBehaviour
     {
         lapText.text = lapCount.ToString() + "/" + maxLap.ToString();
 
+        t_timer.text = FormatToMMSSSSS(timer);
+
         finishedPanel.SetActive(isFinished);
+    }
+
+    public static string FormatToMMSSSSS(float totalSeconds)
+    {
+        // 分を計算
+        int minutes = (int)(totalSeconds / 60);
+        // 秒を計算
+        float seconds = totalSeconds % 60;
+
+        // MM:SS.SSS形式の文字列を返す
+        return $"{minutes}:{seconds:00.000}";
     }
 
     private void Finished()

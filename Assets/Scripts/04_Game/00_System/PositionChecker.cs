@@ -14,14 +14,6 @@ public class PositionChecker : MonoBehaviour
     {
         gapManager = GameObject.FindObjectOfType<TimeGapManager>();
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.tag == "Car")
-    //    {
-    //        int currentLap = other.gameObject.GetComponent<LapCounter>().lapCount;
-    //        gapManager.PassPoint(other.gameObject, checkPointNumber, this.gameObject.tag, currentLap);
-    //    }
-    //}
 
     public void CarPassed(int currentLap, GameObject car)
     {

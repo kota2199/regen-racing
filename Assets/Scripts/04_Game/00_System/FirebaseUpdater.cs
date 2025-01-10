@@ -69,12 +69,12 @@ public class FirebaseUpdater : MonoBehaviour
 
     public void AddFutureChoice(string choice)
     {
-        Dictionary<string, object> test = new Dictionary<string, object>
+        Dictionary<string, object> future = new Dictionary<string, object>
         {
             { "future", choice },
         };
 
-        db.Collection("test").Document("test").SetAsync(test).ContinueWithOnMainThread(task =>
+        db.Collection("Datas").Document("Data").SetAsync(future).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
             {
@@ -96,7 +96,7 @@ public class FirebaseUpdater : MonoBehaviour
             { "rate", FieldValue.ArrayUnion(regenRate)}
         };
 
-        db.Collection("test").Document("test").UpdateAsync(chargeUpdates).ContinueWithOnMainThread(task =>
+        db.Collection("Datas").Document("Data").UpdateAsync(chargeUpdates).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
             {

@@ -61,7 +61,6 @@ public class MenuController : MonoBehaviour
         }
 
         menuUI.SetActive(onMenu);
-        Debug.Log("GameOver Flag is " + isGameOver);
         gameOverUI.SetActive(isGameOver);
     }
 
