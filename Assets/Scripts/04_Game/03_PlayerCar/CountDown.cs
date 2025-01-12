@@ -27,13 +27,12 @@ public class CountDown : MonoBehaviour
     }
     void Start()
     {
-        isPlay = false;
-
         StartCoroutine("CountingDown");   
     }
 
     private IEnumerator CountingDown()
     {
+        isPlay = false;
         yield return new WaitForSeconds(2);
         countDownText.text = "3";
         yield return new WaitForSeconds(1);

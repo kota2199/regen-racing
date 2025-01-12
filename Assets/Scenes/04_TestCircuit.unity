@@ -3230,7 +3230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 481609849}
   m_Layer: 5
-  m_Name: MenuUIs
+  m_Name: pr_MenuUIs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6189,7 +6189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 898606513}
   m_Layer: 5
-  m_Name: StartingUI
+  m_Name: pr_StartingUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12280,7 +12280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1540292570}
   m_Layer: 5
-  m_Name: GameOverUI
+  m_Name: pr_GameOverUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16012,7 +16012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1904975579}
   m_Layer: 5
-  m_Name: FinishUIs
+  m_Name: pr_FinishUIs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16979,7 +16979,7 @@ GameObject:
   - component: {fileID: 2027713761}
   - component: {fileID: 2027713762}
   m_Layer: 5
-  m_Name: FadePanels
+  m_Name: pr_FadePanels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
