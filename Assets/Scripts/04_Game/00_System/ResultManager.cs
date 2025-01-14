@@ -9,56 +9,42 @@ public class ResultManager : MonoBehaviour
     private RaceData raceDate;
 
     [SerializeField]
-    private Text p1Name, p1Time, p1Eco, p1Total;
+    private List<GameObject> Uis;
 
     [SerializeField]
-    private Text p2Name, p2Time, p2Eco, p2Total;
-    
-    [SerializeField]
-    private Text p3Name, p3Time, p3Eco, p3Total;
+    private string[] futureOptions;
 
-    [SerializeField]
-    private Text p4Name, p4Time, p4Eco, p4Total;
+    List<CarInfo> carList;
+
+    private int finishedCarCount;
+
+    private void Start()
+    {
+        carList = raceDate.cars;
+        finishedCarCount = 0;
+
+        for(int i = 0; i < raceDate.cars.Count; i++)
+        {
+            Uis[i].transform.Find("t_Mode").GetComponent<Text>().text = futureOptions[raceDate.cars[i].choiceIndex];
+            if(raceDate.cars[i].CarName == "Player")
+            {
+                Uis[i].transform.Find("im_You").gameObject.SetActive(true);
+            }
+        }
+    }
 
     public void CalcResult(string goalCarName)
     {
         //車がコントロールラインを通過したら実行
-        List<CarInfo> carList = raceDate.cars;
-
         foreach(CarInfo car in carList)
         {
-            if (car.isFinished)
+            if(car.CarName == goalCarName)
             {
-                switch (car.Position)
-                {
-                    case 1:
-                        p1Name.text = car.CarName;
-                        p1Time.text = car.time.ToString("f3");
-                        p1Eco.text = car.ecoPoint.ToString();
-                        p1Total.text = car.totalTime.ToString("f3");
-                        break;
-
-                    case 2:
-                        p2Name.text = car.CarName;
-                        p2Time.text = car.time.ToString("f3");
-                        p2Eco.text = car.ecoPoint.ToString();
-                        p2Total.text = car.totalTime.ToString("f3");
-                        break;
-
-                    case 3:
-                        p3Name.text = car.CarName;
-                        p3Time.text = car.time.ToString("f3");
-                        p3Eco.text = car.ecoPoint.ToString();
-                        p3Total.text = car.totalTime.ToString("f3");
-                        break;
-
-                    case 4:
-                        p4Name.text = car.CarName;
-                        p4Time.text = car.time.ToString("f3");
-                        p4Eco.text = car.ecoPoint.ToString();
-                        p4Total.text = car.totalTime.ToString("f3");
-                        break;
-                }
+                Uis[finishedCarCount].transform.Find("t_Pos").GetComponent<Text>().text = car.Position.ToString();
+                Uis[finishedCarCount].transform.Find("t_Time").GetComponent<Text>().text = car.time.ToString();
+                Uis[finishedCarCount].transform.Find("t_Eco").GetComponent<Text>().text = car.ecoPoint.ToString();
+                Uis[finishedCarCount].transform.Find("t_Total").GetComponent<Text>().text = car.totalTime.ToString();
+                finishedCarCount++;
             }
         }
     }
