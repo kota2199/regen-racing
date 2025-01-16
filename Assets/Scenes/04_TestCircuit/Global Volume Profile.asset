@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: 1
   maximumVelocity:
     m_OverrideState: 1
-    m_Value: 150
+    m_Value: 250
   minimumVelocity:
     m_OverrideState: 1
     m_Value: 2
@@ -45,7 +45,7 @@ MonoBehaviour:
     m_Value: 1
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 16
+    m_Value: 32
 --- !u!114 &-4487087062614056155
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 13.41
   intensity:
     m_OverrideState: 1
     m_Value: 1

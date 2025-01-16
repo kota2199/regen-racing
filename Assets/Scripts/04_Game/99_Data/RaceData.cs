@@ -25,6 +25,8 @@ public class RaceData : ScriptableObject
 
     public int playerColorIndex, playerChoiceIndex;
 
+    public bool isPlay = false;
+
     public void ClearData()
     {
         cars.Clear();

@@ -967,6 +967,7 @@ GameObject:
   - component: {fileID: 236535448}
   - component: {fileID: 236535447}
   - component: {fileID: 236535446}
+  - component: {fileID: 236535451}
   m_Layer: 0
   m_Name: Checker3 (6)
   m_TagString: CheckPoint
@@ -1002,7 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 3
+  checkPointNumber: 12
 --- !u!54 &236535447
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1082,6 +1083,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236535444}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &236535451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236535444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 11
 --- !u!1 &243565101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,6 +1610,7 @@ GameObject:
   - component: {fileID: 288741694}
   - component: {fileID: 288741693}
   - component: {fileID: 288741692}
+  - component: {fileID: 288741697}
   m_Layer: 0
   m_Name: Checker1
   m_TagString: CheckPoint
@@ -1711,6 +1726,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288741690}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &288741697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288741690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 0
 --- !u!1 &301341418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,7 +1931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 305184531}
   m_Layer: 0
-  m_Name: WayPoints
+  m_Name: AIWayPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2496,6 +2524,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8b84af8c71ac64657a34c81a0ec665cf, type: 2}
+    - target: {fileID: 8850411550426085056, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: posManager
+      value: 
+      objectReference: {fileID: 604173724}
+    - target: {fileID: 8850411550426085056, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: checkPointParent
+      value: 
+      objectReference: {fileID: 1144942768}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
 --- !u!1 &367170701 stripped
@@ -3838,6 +3874,7 @@ GameObject:
   - component: {fileID: 604173720}
   - component: {fileID: 604173721}
   - component: {fileID: 604173722}
+  - component: {fileID: 604173724}
   - component: {fileID: 604173718}
   - component: {fileID: 604173723}
   m_Layer: 0
@@ -3875,6 +3912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46baa7ed82094363bd94426332d4479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
   countDownObj: {fileID: 898606512}
   panel: {fileID: 2047694021}
   countDownText: {fileID: 1733752235}
@@ -4198,6 +4236,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &604173724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604173712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a183adab3b35943e9b1e86819996d320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cars: []
+  raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
 --- !u!1 &627031629
 GameObject:
   m_ObjectHideFlags: 0
@@ -4439,6 +4491,7 @@ GameObject:
   - component: {fileID: 657115932}
   - component: {fileID: 657115931}
   - component: {fileID: 657115930}
+  - component: {fileID: 657115935}
   m_Layer: 0
   m_Name: Checker3 (1)
   m_TagString: CheckPoint
@@ -4474,7 +4527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 3
+  checkPointNumber: 10
 --- !u!54 &657115931
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4554,6 +4607,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657115928}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &657115935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657115928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 9
 --- !u!1 &663102999
 GameObject:
   m_ObjectHideFlags: 0
@@ -4704,6 +4770,7 @@ GameObject:
   - component: {fileID: 670840634}
   - component: {fileID: 670840633}
   - component: {fileID: 670840632}
+  - component: {fileID: 670840637}
   m_Layer: 0
   m_Name: Checker3 (4)
   m_TagString: CheckPoint
@@ -4739,7 +4806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 3
+  checkPointNumber: 9
 --- !u!54 &670840633
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4819,6 +4886,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670840630}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &670840637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670840630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 8
 --- !u!1001 &673355584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5392,6 +5472,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9643d485a210c4206a0dc2e36301c500, type: 2}
+    - target: {fileID: 8850411550426085056, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: posManager
+      value: 
+      objectReference: {fileID: 604173724}
+    - target: {fileID: 8850411550426085056, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: checkPointParent
+      value: 
+      objectReference: {fileID: 1144942768}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
 --- !u!1 &716538208 stripped
@@ -6478,6 +6566,7 @@ GameObject:
   - component: {fileID: 924201381}
   - component: {fileID: 924201380}
   - component: {fileID: 924201379}
+  - component: {fileID: 924201384}
   m_Layer: 0
   m_Name: Checker3 (8)
   m_TagString: CheckPoint
@@ -6513,7 +6602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 3
+  checkPointNumber: 18
 --- !u!54 &924201380
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6593,6 +6682,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924201377}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &924201384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924201377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 17
 --- !u!1 &933931765
 GameObject:
   m_ObjectHideFlags: 0
@@ -7102,6 +7204,7 @@ GameObject:
   - component: {fileID: 1031899587}
   - component: {fileID: 1031899586}
   - component: {fileID: 1031899585}
+  - component: {fileID: 1031899590}
   m_Layer: 0
   m_Name: Checker3 (3)
   m_TagString: CheckPoint
@@ -7137,7 +7240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 3
+  checkPointNumber: 8
 --- !u!54 &1031899586
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7217,6 +7320,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031899583}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1031899590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031899583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 7
 --- !u!1 &1032026624
 GameObject:
   m_ObjectHideFlags: 0
@@ -7591,6 +7707,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be68f1b19895944bcb28b36e1d1ee06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1041336829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041336811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4dcd8762b1a5482982c9b59378ff6ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCheckpoint: 0
+  distanceToNextCheckpoint: 0
+  checkPointParent: {fileID: 1144942768}
+  positionText: {fileID: 759687429}
+  ordinalNumText: {fileID: 1197856585}
+  posManager: {fileID: 604173724}
 --- !u!1 &1045279617
 GameObject:
   m_ObjectHideFlags: 0
@@ -9209,6 +9343,7 @@ GameObject:
   - component: {fileID: 1157753337}
   - component: {fileID: 1157753336}
   - component: {fileID: 1157753335}
+  - component: {fileID: 1157753340}
   m_Layer: 0
   m_Name: Checker2 (5)
   m_TagString: CheckPoint
@@ -9244,7 +9379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 2
+  checkPointNumber: 15
 --- !u!54 &1157753336
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9324,6 +9459,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157753333}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1157753340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157753333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 14
 --- !u!1001 &1182649205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10219,6 +10367,7 @@ GameObject:
   - component: {fileID: 1276985338}
   - component: {fileID: 1276985337}
   - component: {fileID: 1276985336}
+  - component: {fileID: 1276985341}
   m_Layer: 0
   m_Name: Checker3
   m_TagString: CheckPoint
@@ -10254,7 +10403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 3
+  checkPointNumber: 7
 --- !u!54 &1276985337
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10334,6 +10483,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276985334}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1276985341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276985334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 6
 --- !u!1 &1290388033
 GameObject:
   m_ObjectHideFlags: 0
@@ -10892,6 +11054,7 @@ GameObject:
   - component: {fileID: 1307374100}
   - component: {fileID: 1307374099}
   - component: {fileID: 1307374098}
+  - component: {fileID: 1307374103}
   m_Layer: 0
   m_Name: Checker2 (1)
   m_TagString: CheckPoint
@@ -10927,7 +11090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 2
+  checkPointNumber: 13
 --- !u!54 &1307374099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11007,6 +11170,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307374096}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1307374103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307374096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 12
 --- !u!1001 &1365902857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11668,6 +11844,7 @@ GameObject:
   - component: {fileID: 1424450192}
   - component: {fileID: 1424450191}
   - component: {fileID: 1424450190}
+  - component: {fileID: 1424450195}
   m_Layer: 0
   m_Name: Checker1 (2)
   m_TagString: CheckPoint
@@ -11703,7 +11880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 1
+  checkPointNumber: 3
 --- !u!54 &1424450191
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11783,6 +11960,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424450188}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1424450195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424450188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 2
 --- !u!1 &1456048631
 GameObject:
   m_ObjectHideFlags: 0
@@ -11888,6 +12078,7 @@ GameObject:
   - component: {fileID: 1456893476}
   - component: {fileID: 1456893475}
   - component: {fileID: 1456893474}
+  - component: {fileID: 1456893479}
   m_Layer: 0
   m_Name: Checker2 (2)
   m_TagString: CheckPoint
@@ -11923,7 +12114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 2
+  checkPointNumber: 5
 --- !u!54 &1456893475
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12003,6 +12194,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456893472}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1456893479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456893472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 4
 --- !u!1001 &1466712565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12456,6 +12660,7 @@ GameObject:
   - component: {fileID: 1554805578}
   - component: {fileID: 1554805577}
   - component: {fileID: 1554805576}
+  - component: {fileID: 1554805581}
   m_Layer: 0
   m_Name: Checker3 (2)
   m_TagString: CheckPoint
@@ -12491,7 +12696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 3
+  checkPointNumber: 16
 --- !u!54 &1554805577
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12571,6 +12776,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554805574}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1554805581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554805574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 15
 --- !u!1001 &1570695123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13454,6 +13672,7 @@ GameObject:
   - component: {fileID: 1675523863}
   - component: {fileID: 1675523862}
   - component: {fileID: 1675523861}
+  - component: {fileID: 1675523866}
   m_Layer: 0
   m_Name: Checker1 (1)
   m_TagString: CheckPoint
@@ -13489,7 +13708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 1
+  checkPointNumber: 2
 --- !u!54 &1675523862
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13569,6 +13788,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675523859}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1675523866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675523859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 1
 --- !u!1 &1685861883
 GameObject:
   m_ObjectHideFlags: 0
@@ -14554,6 +14786,7 @@ GameObject:
   - component: {fileID: 1836594481}
   - component: {fileID: 1836594480}
   - component: {fileID: 1836594479}
+  - component: {fileID: 1836594484}
   m_Layer: 0
   m_Name: Checker3 (5)
   m_TagString: CheckPoint
@@ -14589,7 +14822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 3
+  checkPointNumber: 11
 --- !u!54 &1836594480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14669,6 +14902,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836594477}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1836594484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836594477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 10
 --- !u!1 &1850643771
 GameObject:
   m_ObjectHideFlags: 0
@@ -14683,6 +14929,7 @@ GameObject:
   - component: {fileID: 1850643775}
   - component: {fileID: 1850643774}
   - component: {fileID: 1850643773}
+  - component: {fileID: 1850643778}
   m_Layer: 0
   m_Name: Checker2 (4)
   m_TagString: CheckPoint
@@ -14718,7 +14965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 2
+  checkPointNumber: 14
 --- !u!54 &1850643774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14798,6 +15045,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850643771}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1850643778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850643771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 13
 --- !u!1 &1874958450
 GameObject:
   m_ObjectHideFlags: 0
@@ -14812,6 +15072,7 @@ GameObject:
   - component: {fileID: 1874958454}
   - component: {fileID: 1874958453}
   - component: {fileID: 1874958452}
+  - component: {fileID: 1874958457}
   m_Layer: 0
   m_Name: Checker3 (7)
   m_TagString: CheckPoint
@@ -14847,7 +15108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 3
+  checkPointNumber: 17
 --- !u!54 &1874958453
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14927,6 +15188,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874958450}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1874958457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874958450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 16
 --- !u!1 &1875476550
 GameObject:
   m_ObjectHideFlags: 0
@@ -16565,6 +16839,7 @@ GameObject:
   - component: {fileID: 2047640342}
   - component: {fileID: 2047640341}
   - component: {fileID: 2047640340}
+  - component: {fileID: 2047640345}
   m_Layer: 0
   m_Name: Checker2
   m_TagString: CheckPoint
@@ -16600,7 +16875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 2
+  checkPointNumber: 4
 --- !u!54 &2047640341
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16680,6 +16955,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047640338}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2047640345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047640338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 3
 --- !u!1 &2047694021
 GameObject:
   m_ObjectHideFlags: 0
@@ -16957,6 +17245,7 @@ GameObject:
   - component: {fileID: 2058091785}
   - component: {fileID: 2058091784}
   - component: {fileID: 2058091783}
+  - component: {fileID: 2058091788}
   m_Layer: 0
   m_Name: Checker2 (3)
   m_TagString: CheckPoint
@@ -16992,7 +17281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gapManager: {fileID: 0}
-  checkPointNumber: 2
+  checkPointNumber: 6
 --- !u!54 &2058091784
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17072,6 +17361,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058091781}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2058091788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058091781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d88858aab64c7081ec2d96709246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointIndex: 5
 --- !u!1 &2059239371
 GameObject:
   m_ObjectHideFlags: 0
@@ -18993,10 +19295,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1719151625}
     - target: {fileID: 6575644918315649920, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
-      propertyPath: timerText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6575644918315649920, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: finishedPanel
       value: 
       objectReference: {fileID: 1904975578}
@@ -19004,10 +19302,6 @@ PrefabInstance:
       propertyPath: resultManager
       value: 
       objectReference: {fileID: 604173719}
-    - target: {fileID: 6575644918315649920, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
-      propertyPath: selfBestTimeText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6575644918315649920, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: checkPointsParent
       value: 
@@ -19020,10 +19314,14 @@ PrefabInstance:
       propertyPath: checkPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1276985334}
-    - target: {fileID: 6943840462113103040, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
-      propertyPath: countDown
+    - target: {fileID: 8850411550426085056, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: posManager
       value: 
-      objectReference: {fileID: 604173714}
+      objectReference: {fileID: 604173724}
+    - target: {fileID: 8850411550426085056, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: checkPointParent
+      value: 
+      objectReference: {fileID: 1144942768}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
 --- !u!1 &8850411550426085045 stripped

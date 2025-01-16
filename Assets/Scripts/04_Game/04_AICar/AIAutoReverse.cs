@@ -20,7 +20,7 @@ public class AIAutoReverse : MonoBehaviour
     private Rigidbody rigid;
 
     [SerializeField]
-    private CountDown countDown;
+    private RaceData raceData;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class AIAutoReverse : MonoBehaviour
 
     private void CalcMoveAmount()
     {
-        if (countDown.isPlay)
+        if (raceData.isPlay)
         {
             float movementDistance = Vector3.Distance(transform.position, lastPosition);
 

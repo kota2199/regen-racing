@@ -7,11 +7,15 @@ public class CountDown : MonoBehaviour
 {
     public static CountDown instance;
 
+    [SerializeField]
+    private RaceData raceData;
+
     public GameObject countDownObj, panel;
 
     public Text countDownText;
 
     public bool isPlay;
+    //すべてRaceDataのisPlayに置き換える
 
     // Start is called before the first frame update
     private void Awake()
@@ -42,6 +46,7 @@ public class CountDown : MonoBehaviour
         yield return new WaitForSeconds(1);
         countDownText.text = "Go!";
         isPlay = true;
+        raceData.isPlay = true;
         panel.SetActive(false);
         yield return new WaitForSeconds(1);
         countDownObj.SetActive(false);

@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 388706611}
   - component: {fileID: 6943840462113103040}
   - component: {fileID: 807871909788655167}
+  - component: {fileID: 8850411550426085056}
   m_Layer: 0
   m_Name: AICar
   m_TagString: Car
@@ -610,11 +611,11 @@ MonoBehaviour:
   lapCount: 0
   lapText: {fileID: 0}
   isCount: 0
-  timerText: {fileID: 0}
-  selfBestTimeText: {fileID: 0}
+  t_timer: {fileID: 0}
   finishedPanel: {fileID: 0}
   isFinished: 0
-  finishedBestTimeText: {fileID: 0}
+  resultManager: {fileID: 0}
+  popUpManager: {fileID: 0}
 --- !u!114 &1960940407883432829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,12 +628,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f8327af9f7f4a9299153f85aa1d4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuController: {fileID: 0}
   batteryText: {fileID: 0}
+  perText: {fileID: 0}
+  lowBatteryColor: {r: 0, g: 0, b: 0, a: 0}
+  highBatteryColor: {r: 0, g: 0, b: 0, a: 0}
+  batteryIndicators: []
+  fullImage: {fileID: 0}
+  lowImage: {fileID: 0}
+  emptyImage: {fileID: 0}
+  chargeStatusImage: {fileID: 0}
+  chargeStatusSprites: []
   remainBattery: 0
   restrictor: 0
+  chargeAmount: 0
+  totalAmount: 0
+  chargeRate: 0
   manageIndicators: []
-  available: {fileID: 0}
-  unavailable: {fileID: 0}
+  availableImage: []
+  unavailableImage: []
   needle: {fileID: 0}
   needleRotation: {x: 0, y: 0}
   maxSpeedOfMeter: 0
@@ -669,7 +683,6 @@ MonoBehaviour:
   speed: 0
   speedText: {fileID: 0}
   needle: {fileID: 0}
-  needleRotation: {x: 0, y: 0}
   maxSpeedOfMeter: 0
   maxNeedleAngle: 0
 --- !u!114 &6943840462113103040
@@ -685,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementThreshold: 0.1
-  countDown: {fileID: 0}
+  raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
 --- !u!114 &807871909788655167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,6 +760,21 @@ MonoBehaviour:
   carInfo: 1
   raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
   carColorIndex: 0
+--- !u!114 &8850411550426085056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960940407883432826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4dcd8762b1a5482982c9b59378ff6ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCheckpoint: 0
+  distanceToNextCheckpoint: 0
+  checkPointParent: {fileID: 0}
 --- !u!1 &1960940407931440695
 GameObject:
   m_ObjectHideFlags: 0
