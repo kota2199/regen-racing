@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class RaceResultViewer : MonoBehaviour
@@ -23,6 +24,12 @@ public class RaceResultViewer : MonoBehaviour
     [SerializeField]
     private float animTime;
 
+    [SerializeField]
+    private float waitTime;
+
+    [SerializeField]
+    private FadeInOut fadeInOut;
+
     private void Awake()
     {
         racePositionManager = GetComponent<RacePositionManager>();
@@ -31,6 +38,7 @@ public class RaceResultViewer : MonoBehaviour
     private void Start()
     {
         finishPanel.anchoredPosition = defaultPos;
+        finishUi.SetActive(false);
     }
     public void DisplayResult(float totalTime)
     {
@@ -70,5 +78,13 @@ public class RaceResultViewer : MonoBehaviour
 
         // MM:SS.SSSŒ`Ž®‚Ì•¶Žš—ñ‚ð•Ô‚·
         return $"{minutes}:{seconds:00.000}";
+    }
+
+    private IEnumerator WaitResult()
+    {
+        yield return new WaitForSeconds(waitTime);
+        fadeInOut.FadeOut();
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("06_Result");
     }
 }

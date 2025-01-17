@@ -113,7 +113,7 @@ public class LapCounter : MonoBehaviour
 
         if (!firstPassedCheckPoint)
         {
-            SetFirstGrid();
+            //SetFirstGrid();
         }
 
         if(humanCar)

@@ -605,17 +605,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  maxCheckPoint: 0
-  checkedNum: 0
   maxLap: 3
   lapCount: 0
   lapText: {fileID: 0}
   isCount: 0
+  timer: 0
+  totalTime: 0
   t_timer: {fileID: 0}
   finishedPanel: {fileID: 0}
   isFinished: 0
-  resultManager: {fileID: 0}
   popUpManager: {fileID: 0}
+  raceResultViewer: {fileID: 0}
 --- !u!114 &1960940407883432829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,6 +775,10 @@ MonoBehaviour:
   currentCheckpoint: 0
   distanceToNextCheckpoint: 0
   checkPointParent: {fileID: 0}
+  checkpoints: []
+  positionText: {fileID: 0}
+  ordinalNumText: {fileID: 0}
+  posManager: {fileID: 0}
 --- !u!1 &1960940407931440695
 GameObject:
   m_ObjectHideFlags: 0
