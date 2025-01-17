@@ -20,7 +20,7 @@ public class TimeGapManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+/*    void Start()
     {
         raceData.ClearData();
 
@@ -79,5 +79,5 @@ public class TimeGapManager : MonoBehaviour
         {
             Debug.Log("TagName is Different.");
         }
-    }
+    }*/
 }

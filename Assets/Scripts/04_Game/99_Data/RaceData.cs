@@ -96,16 +96,16 @@ public class RaceData : ScriptableObject
         if(car != null)
         {
             car.choiceIndex = index;
-            Debug.Log("ChangeCarMode : Car" + car.CarName + " is " + index);
         }
     }
 
-    public void UpdateFinishStatus(string name)
+    public void UpdateFinishStatus(string name, float totalTime)
     {
         CarInfo car = GetCarInfo(name);
         if (car != null)
         {
             car.isFinished = true;
+            car.totalTime = totalTime;
             switch (car.choiceIndex)
             {
                 case 0:

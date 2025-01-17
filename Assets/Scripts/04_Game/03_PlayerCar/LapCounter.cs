@@ -20,12 +20,12 @@ public class LapCounter : MonoBehaviour
     [SerializeField]
     private Transform[] checkPoints;
 
-    public int maxCheckPoint, checkedNum;
-
     [SerializeField]
     private int maxLap;
 
     public int lapCount;
+
+    private bool lapZero = true;
 
     [SerializeField]
     private Text lapText;
@@ -33,7 +33,7 @@ public class LapCounter : MonoBehaviour
     //Time
     public bool isCount;
 
-    private float timer, selfBestTime, totalTime;
+    public float timer, totalTime;
 
     [SerializeField]
     private Text t_timer;
@@ -56,10 +56,12 @@ public class LapCounter : MonoBehaviour
     private bool firstPassedCheckPoint = false;
 
     [SerializeField]
-    private ResultManager resultManager;
+    private PopUpManager popUpManager;
 
     [SerializeField]
-    private PopUpManager popUpManager;
+    private RaceResultViewer raceResultViewer;
+
+    private bool finalLapPopped = false;
 
     // Start is called before the first frame update
 
@@ -95,14 +97,11 @@ public class LapCounter : MonoBehaviour
             checkPoints[i] = checkPointsParent.transform.GetChild(i);
         }
 
-        maxCheckPoint = checkPoints.Length;
-        checkedNum = 0;
-
         lapCount = 1;
 
         isCount = false;
         timer = 0.0f;
-        selfBestTime = 0.0f;
+        totalTime = 0.0f;
 
         isFinished = false;
     }
@@ -136,44 +135,45 @@ public class LapCounter : MonoBehaviour
         {
             firstPassedCheckPoint = true;
 
-            if (other.gameObject.name == checkPoints[checkedNum].name)
+            //SetReplacePoint
+            if (humanCar)
             {
-                checkedNum++;
-                other.gameObject.GetComponent<PositionChecker>().CarPassed(lapCount, this.gameObject);
-
-                //SetReplacePoint
-                if (humanCar)
-                {
-                    playerReplacer.SetReplacePoint(other.gameObject.transform);
-                }
-                else
-                {
-                    aiReplacer.SetReplacePoint(other.gameObject.transform);
-                }
-            }
-        }
-
-        if(other.gameObject.tag == "ControlLine" && maxCheckPoint <= checkedNum)
-        {
-            //laped
-            FastestCheck(timer, lapCount);
-            timer = 0.0f;
-
-            if(lapCount >= maxLap)
-            {
-                Finished();
+                playerReplacer.SetReplacePoint(other.gameObject.transform);
             }
             else
             {
-                lapCount++;
+                aiReplacer.SetReplacePoint(other.gameObject.transform);
             }
+        }
 
-            if(lapCount == maxLap)
+        if(other.gameObject.tag == "ControlLine")
+        {
+            if (lapZero)
             {
-                popUpManager.PopUp(3);
+                lapZero = false;
             }
+            else
+            {
+                //laped
+                timer = 0.0f;
+                if (lapCount >= maxLap)
+                {
+                    Finished();
+                }
+                else
+                {
+                    lapCount++;
+                }
 
-            other.gameObject.GetComponent<PositionChecker>().CarPassed(lapCount, this.gameObject);
+                if (humanCar && lapCount == maxLap && !finalLapPopped)
+                {
+                    popUpManager.PopUp(3);
+                    finalLapPopped = true;
+                }
+            }
+            
+
+            //other.gameObject.GetComponent<PositionChecker>().CarPassed(lapCount, this.gameObject);
         }
     }
 
@@ -184,14 +184,6 @@ public class LapCounter : MonoBehaviour
         {
             timer += Time.deltaTime;
             totalTime += Time.deltaTime;
-        }
-    }
-
-    private void FastestCheck(float lapTime, int lap)
-    {
-        if(lap == 1 || selfBestTime > lapTime)
-        {
-            selfBestTime = lapTime;
         }
     }
 
@@ -218,13 +210,13 @@ public class LapCounter : MonoBehaviour
     private void Finished()
     {
         isFinished = true;
-        raceData.UpdateFinishStatus(this.gameObject.name);
-        resultManager.CalcResult(this.gameObject.name);
+        raceData.UpdateFinishStatus(this.gameObject.name, totalTime);
 
         if (humanCar)
         {
             this.GetComponent<CarSystem>().enabled = false;
             this.GetComponent<AICarController>().enabled = true;
+            raceResultViewer.DisplayResult(totalTime);
         }
     }
 }

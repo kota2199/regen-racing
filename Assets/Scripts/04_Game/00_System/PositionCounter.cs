@@ -11,6 +11,7 @@ public class PositionCounter : MonoBehaviour
     [SerializeField]
     private GameObject checkPointParent;
     
+    [SerializeField]
     private Transform[] checkpoints; // チェックポイントのリスト
 
     private GameModeManager gameModeManager;
@@ -20,6 +21,9 @@ public class PositionCounter : MonoBehaviour
 
     [SerializeField]
     private RacePositionManager posManager;
+
+    private int currentLap = 0; // 現在の周回数
+    private float progress = 0f; // コース内の進捗
 
     private void Awake()
     {
@@ -62,8 +66,16 @@ public class PositionCounter : MonoBehaviour
     public float GetProgress()
     {
         // 総進捗を計算（例: 現在のチェックポイント + 次のチェックポイントまでの進行割合）
-        float progress = currentCheckpoint + (1 - (distanceToNextCheckpoint / Vector3.Distance(checkpoints[currentCheckpoint].position, checkpoints[currentCheckpoint + 1].position)));
-        return progress;
+        if(currentCheckpoint < checkpoints.Length - 1)
+        {
+            float currentProgress = currentCheckpoint + (1 - (distanceToNextCheckpoint / Vector3.Distance(checkpoints[currentCheckpoint].position, checkpoints[currentCheckpoint + 1].position)));
+            return currentProgress;
+        }
+        else
+        {
+            float currentProgress = currentCheckpoint + (1 - (distanceToNextCheckpoint / Vector3.Distance(checkpoints[currentCheckpoint].position, checkpoints[0].position)));
+            return currentProgress;
+        }
     }
 
     // CarProgressスクリプトにワールド座標での比較を追加
@@ -96,6 +108,29 @@ public class PositionCounter : MonoBehaviour
 
             default:
                 return "th";
+        }
+    }
+
+    public void SetProgress(float newProgress)
+    {
+        if (newProgress < progress) // 進捗がリセットされたら周回+1
+        {
+            currentLap++;
+        }
+        progress = newProgress;
+    }
+
+    public int GetLapCount()
+    {
+        return currentLap;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "ControlLine")
+        {
+            currentLap++;
+            currentCheckpoint = 0;
         }
     }
 }

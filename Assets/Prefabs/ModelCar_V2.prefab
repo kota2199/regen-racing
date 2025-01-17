@@ -824,6 +824,7 @@ GameObject:
   - component: {fileID: 574169944846019417}
   - component: {fileID: 5152142551616968279}
   - component: {fileID: 6590924702323633965}
+  - component: {fileID: 1041336829}
   - component: {fileID: 1041336813}
   - component: {fileID: 881537212}
   - component: {fileID: 794631760401556389}
@@ -937,7 +938,6 @@ MonoBehaviour:
   brakeButton: Vertical Stick-L
   steerButton: Horizontal Stick-L
   reverseButton: Fire_0
-  controllWay: {fileID: 0}
 --- !u!114 &5152142550648497067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,6 +1087,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carOwner: 0
+--- !u!114 &1041336829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574169944846019409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4dcd8762b1a5482982c9b59378ff6ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCheckpoint: 0
+  distanceToNextCheckpoint: 0
+  checkPointParent: {fileID: 0}
+  positionText: {fileID: 0}
+  ordinalNumText: {fileID: 0}
+  posManager: {fileID: 0}
 --- !u!114 &1041336813
 MonoBehaviour:
   m_ObjectHideFlags: 0
