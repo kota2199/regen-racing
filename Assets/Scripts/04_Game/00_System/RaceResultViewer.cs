@@ -59,7 +59,7 @@ public class RaceResultViewer : MonoBehaviour
         {
             waitCount -= Time.deltaTime;
         }
-        t_WaitTime.text = "ƒ‰ƒ“ƒLƒ“ƒO•\Ž¦‚Ü‚Å‚ ‚Æ" + waitCount.ToString("f0") + "•b";
+        t_WaitTime.text = "???????????" + waitCount.ToString("f0") + "?";
     }
     public void DisplayResult(float totalTime)
     {
@@ -96,12 +96,12 @@ public class RaceResultViewer : MonoBehaviour
     }
     private string FormatToMMSSSSS(float totalSeconds)
     {
-        // •ª‚ðŒvŽZ
+        // ?????v?Z
         int minutes = (int)(totalSeconds / 60);
-        // •b‚ðŒvŽZ
+        // ?b???v?Z
         float seconds = totalSeconds % 60;
 
-        // MM:SS.SSSŒ`Ž®‚Ì•¶Žš—ñ‚ð•Ô‚·
+        // MM:SS.SSS?`????????????????
         return $"{minutes}:{seconds:00.000}";
     }
 
