@@ -6,9 +6,9 @@ using System.Collections.Generic;
 public class CarInfo
 {
     public string CarName;
-    public int Lap;
+/*  public int Lap;
+    public int PassedPoint;*/
     public int Position;
-    public int PassedPoint;
     public float time;
     public int colorIndex;
     public int choiceIndex;
@@ -27,17 +27,23 @@ public class RaceData : ScriptableObject
 
     public bool isPlay = false;
 
-    public void ClearData()
+    public void Initialize()
     {
         cars.Clear();
+        GameObject[] carArray = GameObject.FindGameObjectsWithTag("Car");
+        foreach(GameObject car in carArray)
+        {
+            CarInfo carInfo = new CarInfo();
+            carInfo.CarName = car.name;
+            cars.Add(carInfo);
+        }
     }
-
     public CarInfo GetCarInfo(string carName)
     {
         return cars.Find(car => car.CarName == carName);
     }
 
-    public int GetCarLap(string carName)
+    /*public int GetCarLap(string carName)
     {
         CarInfo car = GetCarInfo(carName);
         return car.Lap;
@@ -59,14 +65,12 @@ public class RaceData : ScriptableObject
             car.time = time;
         }
     }
-
+*/
     public void UpdateCarPositionsByTime()
     {
         // CarInfoリストをtimeの小さい順にソート
         List<CarInfo> sortedCars = new List<CarInfo>(cars);
-        sortedCars.Sort((carA, carB) => carA.time.CompareTo(carB.time));
-        sortedCars.Sort((carA, carB) => carB.PassedPoint.CompareTo(carA.PassedPoint));
-        sortedCars.Sort((carA, carB) => carB.Lap.CompareTo(carA.Lap));
+        sortedCars.Sort((carA, carB) => carA.Position.CompareTo(carB.Position));
 
         // ソートされたリストの順番に基づいてPositionを設定
         for (int i = 0; i < sortedCars.Count; i++)
@@ -99,6 +103,17 @@ public class RaceData : ScriptableObject
         }
     }
 
+    public void UpdateFinishTime(string carName, float time, int position)
+    {
+        CarInfo car = GetCarInfo(carName);
+        if(car != null)
+        {
+            car.Position = position;
+            car.time = time;
+            car.isFinished = true;
+        }
+    }
+
     public void UpdateFinishStatus(string name, float totalTime)
     {
         CarInfo car = GetCarInfo(name);
@@ -125,7 +140,7 @@ public class RaceData : ScriptableObject
                     break;
             }
 
-            UpdateCarPositionsByTime();
+            //UpdateCarPositionsByTime();
         }
     }
 }

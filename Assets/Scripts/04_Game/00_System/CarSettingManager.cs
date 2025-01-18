@@ -20,6 +20,10 @@ public class CarSettingManager : MonoBehaviour
     [SerializeField]
     private RaceData raceData;
 
+    private void Awake()
+    {
+        raceData.Initialize();
+    }
     // Start is called before the first frame update
     void Start()
     {

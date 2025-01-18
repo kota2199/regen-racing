@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ResultManager : MonoBehaviour
 {
@@ -14,38 +15,107 @@ public class ResultManager : MonoBehaviour
     [SerializeField]
     private string[] futureOptions;
 
-    List<CarInfo> carList;
+    [SerializeField]
+    private Color[] futureColorCode;
 
-    private int finishedCarCount;
+    [SerializeField]
+    private int[] ecoPoint;
+
+    [SerializeField]
+    private Sprite[] carImage;
+
+    [SerializeField]
+    private FadeInOut fadeInOut;
+    [SerializeField]
+    private AudioClip decide;
 
     private void Start()
     {
-        carList = raceDate.cars;
-        finishedCarCount = 0;
+        raceDate.UpdateCarPositionsByTime();
 
-        for(int i = 0; i < raceDate.cars.Count; i++)
+        for (int i = 0; i < raceDate.cars.Count; i++)
         {
-            Uis[i].transform.Find("t_Mode").GetComponent<Text>().text = futureOptions[raceDate.cars[i].choiceIndex];
-            if(raceDate.cars[i].CarName == "Player")
+            Text modeText = Uis[i].transform.Find("t_Mode").GetComponent<Text>();
+            modeText.text = futureOptions[raceDate.cars[i].choiceIndex];
+            modeText.color = futureColorCode[raceDate.cars[i].choiceIndex];
+
+            if (raceDate.cars[i].CarName == "Player")
             {
                 Uis[i].transform.Find("im_You").gameObject.SetActive(true);
             }
+            else
+            {
+                Uis[i].transform.Find("im_You").gameObject.SetActive(false);
+            }
+
+            Uis[i].transform.Find("im_Car").GetComponent<Image>().sprite = carImage[raceDate.cars[i].colorIndex];
+            Uis[i].transform.Find("t_Pos").GetComponent<Text>().text = raceDate.cars[i].Position.ToString() + MakeOrdinalNumber(raceDate.cars[i].Position.ToString());
+            Uis[i].transform.Find("t_Time").GetComponent<Text>().text = FormatToMMSSSSS(raceDate.cars[i].time);
+            Uis[i].transform.Find("t_Eco").GetComponent<Text>().text = ecoPoint[raceDate.cars[i].choiceIndex].ToString();
+            Uis[i].transform.Find("t_Total").GetComponent<Text>().text = FormatToMMSSSSS(TotalTime(raceDate.cars[i].choiceIndex,raceDate.cars[i].time));
         }
     }
 
-    public void CalcResult(string goalCarName)
+    private string MakeOrdinalNumber(string num)
     {
-        //車がコントロールラインを通過したら実行
-        foreach(CarInfo car in carList)
+        switch (num)
         {
-            if(car.CarName == goalCarName)
-            {
-                Uis[finishedCarCount].transform.Find("t_Pos").GetComponent<Text>().text = car.Position.ToString();
-                Uis[finishedCarCount].transform.Find("t_Time").GetComponent<Text>().text = car.time.ToString();
-                Uis[finishedCarCount].transform.Find("t_Eco").GetComponent<Text>().text = car.ecoPoint.ToString();
-                Uis[finishedCarCount].transform.Find("t_Total").GetComponent<Text>().text = car.totalTime.ToString();
-                finishedCarCount++;
-            }
+            case "1":
+                return "st";
+
+            case "2":
+                return "nd";
+
+            case "3":
+                return "rd";
+
+            default:
+                return "th";
         }
+    }
+    private string FormatToMMSSSSS(float totalSeconds)
+    {
+        // 分を計算
+        int minutes = (int)(totalSeconds / 60);
+        // 秒を計算
+        float seconds = totalSeconds % 60;
+
+        // MM:SS.SSS形式の文字列を返す
+        return $"{minutes}:{seconds:00.000}";
+    }
+
+    private float TotalTime(int index, float time)
+    {
+        float total;
+
+        switch (index)
+        {
+            case 0:
+                total = time + ecoPoint[0];
+                return total;
+            case 1:
+                total = time + ecoPoint[1];
+                return total;
+            case 2:
+                total = time + ecoPoint[2];
+                return total;
+            default:
+                return 0;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            GetComponent<AudioSource>().PlayOneShot(decide);
+            fadeInOut.FadeOut();
+            Invoke("ToTitle", 2f);
+        }
+    }
+
+    private void ToTitle()
+    {
+        SceneManager.LoadScene("01_Title");
     }
 }

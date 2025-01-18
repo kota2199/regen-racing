@@ -61,6 +61,9 @@ public class LapCounter : MonoBehaviour
     [SerializeField]
     private RaceResultViewer raceResultViewer;
 
+    [SerializeField]
+    private RacePositionManager racePositionManager;
+
     private bool finalLapPopped = false;
 
     // Start is called before the first frame update
@@ -209,14 +212,19 @@ public class LapCounter : MonoBehaviour
 
     private void Finished()
     {
-        isFinished = true;
-        raceData.UpdateFinishStatus(this.gameObject.name, totalTime);
-
-        if (humanCar)
+        if (!isFinished)
         {
-            this.GetComponent<CarSystem>().enabled = false;
-            this.GetComponent<AICarController>().enabled = true;
-            raceResultViewer.DisplayResult(totalTime);
+            //raceData.UpdateFinishStatus(this.gameObject.name, totalTime);
+
+            raceData.UpdateFinishTime(gameObject.name, totalTime, racePositionManager.GetPosition(gameObject.name));
+
+            if (humanCar)
+            {
+                this.GetComponent<CarSystem>().enabled = false;
+                this.GetComponent<AICarController>().enabled = true;
+                raceResultViewer.DisplayResult(totalTime);
+                isFinished = true;
+            }
         }
     }
 }
