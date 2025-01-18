@@ -106,7 +106,7 @@ public class ResultManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetButtonDown("Fire_0") || Input.GetKeyDown(KeyCode.C))
         {
             GetComponent<AudioSource>().PlayOneShot(decide);
             fadeInOut.FadeOut();
