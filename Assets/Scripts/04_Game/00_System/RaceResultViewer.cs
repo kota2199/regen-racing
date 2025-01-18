@@ -59,7 +59,7 @@ public class RaceResultViewer : MonoBehaviour
         {
             waitCount -= Time.deltaTime;
         }
-        t_WaitTime.text = "???????????" + waitCount.ToString("f0") + "?";
+        t_WaitTime.text = "ランキング表示まであと" + waitCount.ToString("f0") + "秒";
     }
     public void DisplayResult(float totalTime)
     {
