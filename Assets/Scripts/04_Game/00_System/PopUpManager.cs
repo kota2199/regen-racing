@@ -35,6 +35,9 @@ public class PopUpManager : MonoBehaviour
 
     private CountDown countDown;
 
+    [SerializeField]
+    private RaceData raceData;
+
     private void Awake()
     {
         countDown = GetComponent<CountDown>();
@@ -51,19 +54,22 @@ public class PopUpManager : MonoBehaviour
 
     private void CallPopUp()
     {
-        if (playerBattery.remainBattery <= 30 && !batteryPopped)
+        if (raceData.isPlay)
         {
-            PopUp(1);
-            batteryPopped = true;
-        }
-        else if (playerBattery.remainBattery >= 100 && !batteryPopped && countDown.isPlay)
-        {
-            PopUp(2);
-            batteryPopped = true;
-        }
-        else if (100 > playerBattery.remainBattery && playerBattery.remainBattery > 30 && batteryPopped)
-        {
-            batteryPopped = false;
+            if (playerBattery.remainBattery <= 30 && !batteryPopped)
+            {
+                PopUp(1);
+                batteryPopped = true;
+            }
+            else if (playerBattery.remainBattery >= 100 && !batteryPopped && countDown.isPlay)
+            {
+                PopUp(2);
+                batteryPopped = true;
+            }
+            else if (100 > playerBattery.remainBattery && playerBattery.remainBattery > 30 && batteryPopped)
+            {
+                batteryPopped = false;
+            }
         }
     }
 

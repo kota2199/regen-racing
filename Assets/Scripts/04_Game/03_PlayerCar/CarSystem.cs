@@ -52,7 +52,6 @@ public class CarSystem : MonoBehaviour
 
     private float acceleAmount, brakeAmount;
 
-    // Start is called before the first frame update
     void Awake()
     {
         countDown = manager.GetComponent<CountDown>();
@@ -76,7 +75,7 @@ public class CarSystem : MonoBehaviour
 
     void Start()
     {
-        padControll = true;
+        padControll = IsGamepadConnected();
     }
 
     // Update is called once per frame
@@ -170,7 +169,7 @@ public class CarSystem : MonoBehaviour
         if (InputVector.y > 0)
         {
             //batterySystem.remainBattery -= 1.0f * restrictor * Time.deltaTime;
-            batterySystem.UseBattery(1.0f * restrictor * Time.deltaTime);
+            batterySystem.UseBattery(0.3f * restrictor * Time.deltaTime);
             regenerativeBrakeAmount = 0;
         }
         if (InputVector.y <= 0)
@@ -186,5 +185,18 @@ public class CarSystem : MonoBehaviour
                 regenerativeBrakeAmount = 0;
             }
         }
+    }
+
+    public static bool IsGamepadConnected()
+    {
+        string[] joystickNames = Input.GetJoystickNames();
+        foreach (string name in joystickNames)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

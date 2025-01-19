@@ -3680,7 +3680,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3826,6 +3826,7 @@ MonoBehaviour:
   time: 1
   playerBattery: {fileID: 1041336815}
   audioSource: {fileID: 604173723}
+  raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
 --- !u!82 &604173723
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5722,7 +5723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &852752596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5867,10 +5868,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.67
+    y: -0.01
+    width: 0.76
+    height: 0.39
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -5881,7 +5882,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 64
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 594f1abd3ca7549faaf0e8bae9a8be67, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
