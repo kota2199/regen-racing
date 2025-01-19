@@ -26,6 +26,9 @@ public class TitleController : MonoBehaviour
     [SerializeField]
     private AudioClip decision, choice;
 
+    [SerializeField]
+    private FadeInOut fadeInOut;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -92,6 +95,7 @@ public class TitleController : MonoBehaviour
     private IEnumerator ToNextScene(string sceneName, AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+        fadeInOut.FadeOut();
         yield return new WaitForSeconds(clip.length);
         SceneManager.LoadScene(sceneName);
     }
