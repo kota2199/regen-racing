@@ -214,7 +214,7 @@ public class LapCounter : MonoBehaviour
     {
         if (!isFinished)
         {
-            //raceData.UpdateFinishStatus(this.gameObject.name, totalTime);
+            raceData.isPlay = false;
 
             raceData.UpdateFinishTime(gameObject.name, totalTime, racePositionManager.GetPosition(gameObject.name));
 

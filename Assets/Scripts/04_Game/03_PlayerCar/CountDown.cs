@@ -28,6 +28,8 @@ public class CountDown : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        raceData.isPlay = false;
     }
     void Start()
     {
