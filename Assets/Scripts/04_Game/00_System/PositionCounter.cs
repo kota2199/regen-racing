@@ -25,6 +25,9 @@ public class PositionCounter : MonoBehaviour
     private int currentLap = 0; // 現在の周回数
     private float progress = 0f; // コース内の進捗
 
+    [SerializeField]
+    private RaceData raceData;
+
     private void Awake()
     {
         gameModeManager = GetComponent<GameModeManager>();
@@ -43,15 +46,18 @@ public class PositionCounter : MonoBehaviour
 
     private void Update()
     {
-        // 現在位置から次のチェックポイントまでの距離を計算
-        if (currentCheckpoint < checkpoints.Length - 1)
+        if (raceData.isPlay)
         {
-            distanceToNextCheckpoint = Vector3.Distance(transform.position, checkpoints[currentCheckpoint + 1].position);
-        }
+            // 現在位置から次のチェックポイントまでの距離を計算
+            if (currentCheckpoint < checkpoints.Length - 1)
+            {
+                distanceToNextCheckpoint = Vector3.Distance(transform.position, checkpoints[currentCheckpoint + 1].position);
+            }
 
-        if(gameModeManager.carOwner == GameModeManager.CarOwner.Human)
-        {
-            UpdateUI();
+            if(gameModeManager.carOwner == GameModeManager.CarOwner.Human)
+            {
+                UpdateUI();
+            }
         }
     }
 

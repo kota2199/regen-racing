@@ -71,6 +71,7 @@ public class RaceData : ScriptableObject
         // CarInfoリストをtimeの小さい順にソート
         List<CarInfo> sortedCars = new List<CarInfo>(cars);
         sortedCars.Sort((carA, carB) => carA.Position.CompareTo(carB.Position));
+        sortedCars.Sort((carA, carB) => carB.isFinished.CompareTo(carA.isFinished));
 
         // ソートされたリストの順番に基づいてPositionを設定
         for (int i = 0; i < sortedCars.Count; i++)
