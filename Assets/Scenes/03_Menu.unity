@@ -2602,7 +2602,7 @@ MonoBehaviour:
   colorChoice: {fileID: 8300000, guid: 577a7168e521f409fb25aac39dcfe643, type: 3}
   decision: {fileID: 8300000, guid: 002c1f0219aa14f04a153745d212aa6b, type: 3}
   choice: {fileID: 8300000, guid: 0a1f097574b934ccda1d7163b219294c, type: 3}
-  raceSceneName: 04_TestCircuit
+  raceSceneName: 05_CityCircuit
   fadeController: {fileID: 323367968}
   raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
 --- !u!114 &1761763329

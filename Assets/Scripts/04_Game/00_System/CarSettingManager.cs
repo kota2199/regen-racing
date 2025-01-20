@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarSettingManager : MonoBehaviour
+namespace UnityStandardAssets.Vehicles.Car
 {
+    public class CarSettingManager : MonoBehaviour
+    {
     [SerializeField]
     private GameObject playerCar;
 
@@ -24,7 +26,7 @@ public class CarSettingManager : MonoBehaviour
     {
         raceData.Initialize();
     }
-    // Start is called before the first frame update
+    // Start is called before the first frame update6 
     void Start()
     {
         RandomSetAICar();
@@ -46,16 +48,19 @@ public class CarSettingManager : MonoBehaviour
             {
                 case 0:
                     aICars[i].GetComponent<AICarController>().AccelPower = choice1MaxTorque;
+                    aICars[i].GetComponent<AICarControll>().m_FullTorqueOverAllWheels = choice1MaxTorque;
                     aICars[i].GetComponent<Rigidbody>().mass = choice1CarWeight;
                     break;
 
                 case 1:
                     aICars[i].GetComponent<AICarController>().AccelPower = choice2MaxTorque;
+                    aICars[i].GetComponent<AICarControll>().m_FullTorqueOverAllWheels = choice2MaxTorque;
                     aICars[i].GetComponent<Rigidbody>().mass = choice2CarWeight;
                     break;
 
                 case 2:
                     aICars[i].GetComponent<AICarController>().AccelPower = choice3MaxTorque;
+                    aICars[i].GetComponent<AICarControll>().m_FullTorqueOverAllWheels = choice3MaxTorque;
                     aICars[i].GetComponent<Rigidbody>().mass = choice3CarWeight;
                     break;
             }
@@ -86,3 +91,6 @@ public class CarSettingManager : MonoBehaviour
         }
     }
 }
+
+}
+    
