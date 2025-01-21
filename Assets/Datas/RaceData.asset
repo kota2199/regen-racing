@@ -13,30 +13,38 @@ MonoBehaviour:
   m_Name: RaceData
   m_EditorClassIdentifier: 
   cars:
-  - CarName: AICar_1
+  - CarName: Player
     Position: 3
-    time: 205.7149
-    colorIndex: 9
-    choiceIndex: 1
+    time: 10
+    colorIndex: 1
+    choiceIndex: 2
     isFinished: 1
     ecoPoint: 0
-    totalTime: 0
-  - CarName: Player
-    Position: 4
-    time: 191.55156
-    colorIndex: 8
+    totalTime: 20
+  - CarName: AICar_2
+    Position: 1
+    time: 15
+    colorIndex: 5
     choiceIndex: 0
     isFinished: 1
     ecoPoint: 0
-    totalTime: 0
+    totalTime: 5
   - CarName: AICar_3
-    Position: 3
-    time: 206.21039
-    colorIndex: 8
-    choiceIndex: 1
+    Position: 2
+    time: 20
+    colorIndex: 3
+    choiceIndex: 0
     isFinished: 1
     ecoPoint: 0
+    totalTime: 10
+  - CarName: AICar_1
+    Position: 4
+    time: 0
+    colorIndex: 7
+    choiceIndex: 0
+    isFinished: 0
+    ecoPoint: 0
     totalTime: 0
-  playerColorIndex: 8
+  playerColorIndex: 3
   playerChoiceIndex: 0
   isPlay: 1
