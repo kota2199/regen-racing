@@ -6,8 +6,6 @@ public class AIAutoReverse : MonoBehaviour
 {
     private float stoppedTime;
 
-    private float moveAmount;
-
     // 閾値 (これを下回ったらboolがtrueになる)
     [SerializeField]
     private float movementThreshold = 0.1f;

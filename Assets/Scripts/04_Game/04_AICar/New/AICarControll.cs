@@ -131,6 +131,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 steering = Mathf.Clamp(steering, -1, 1);
                 AccelInput = accel = Mathf.Clamp(accel, 0, 1);
                 BrakeInput = footbrake = -1 * Mathf.Clamp(footbrake, -1, 0);
+                Debug.Log(gameObject.name + "'s BrakeInput is " + BrakeInput);
                 handbrake = Mathf.Clamp(handbrake, 0, 1);
 
                 //Set the steer on the front wheels.
@@ -214,6 +215,7 @@ namespace UnityStandardAssets.Vehicles.Car
             {
                 if (CurrentSpeed > 5 && Vector3.Angle(transform.forward, m_Rigidbody.velocity) < 50f)
                 {
+                    Debug.Log(gameObject.name + " 's Braking Power is " + m_BrakeTorque * footbrake);
                     m_WheelColliders[i].brakeTorque = m_BrakeTorque * footbrake;
                 }
                 else if (footbrake > 0)
@@ -270,7 +272,6 @@ namespace UnityStandardAssets.Vehicles.Car
                 // is the tire slipping above the given threshhold
                 if (Mathf.Abs(wheelHit.forwardSlip) >= m_SlipLimit || Mathf.Abs(wheelHit.sidewaysSlip) >= m_SlipLimit)
                 {
-                    Debug.Log("Slip");
                     /*m_WheelEffects[i].EmitTyreSmoke();
 
                     // avoiding all four tires screeching at the same time
