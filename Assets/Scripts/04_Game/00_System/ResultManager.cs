@@ -150,7 +150,7 @@ public class ResultManager : MonoBehaviour
             float seconds = Mathf.Abs(totalSeconds) % 60;
 
             // MM:SS.SSS形式の文字列を返す
-            return $"{minutes}:{seconds:00.000}";
+            return "-" + $"{minutes}:{seconds:00.000}";
         }
         else
         {
