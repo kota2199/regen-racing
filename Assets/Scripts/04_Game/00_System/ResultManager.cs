@@ -85,7 +85,6 @@ public class ResultManager : MonoBehaviour
             if (raceDate.cars[i].isFinished)
             {
                 StartCoroutine(CountUp(Uis[i].transform.Find("t_Time").GetComponent<Text>(), 0, raceDate.cars[i].time));
-                //Uis[i].transform.Find("t_Time").GetComponent<Text>().text = FormatToMMSSSSS(raceDate.cars[i].time);
             }
             else
             {
@@ -103,7 +102,6 @@ public class ResultManager : MonoBehaviour
             if (raceDate.cars[i].isFinished)
             {
                 StartCoroutine(CountUp(Uis[i].transform.Find("t_Eco").GetComponent<Text>(), 0, ecoPoint[raceDate.cars[i].choiceIndex]));
-                //Uis[i].transform.Find("t_Eco").GetComponent<Text>().text = ecoPoint[raceDate.cars[i].choiceIndex].ToString();
             }
             else
             {
@@ -122,7 +120,6 @@ public class ResultManager : MonoBehaviour
                 raceDate.cars[i].totalTime = TotalTime(raceDate.cars[i].choiceIndex, raceDate.cars[i].time);
 
                 StartCoroutine(CountUp(Uis[i].transform.Find("t_Total").GetComponent<Text>(), 0, raceDate.cars[i].totalTime));
-                //Uis[i].transform.Find("t_Total").GetComponent<Text>().text = FormatToMMSSSSS(raceDate.cars[i].totalTime);
             }
             else
             {

@@ -23,7 +23,7 @@ public class RacePositionManager : MonoBehaviour
         {
             cars.RemoveAll(car => car == null);
 
-            // ✅ 値をキャッシュ化
+            //値をキャッシュ化
             Dictionary<PositionCounter, (int lap, float progress)> progressCache = new();
             foreach (var car in cars)
             {
@@ -33,7 +33,7 @@ public class RacePositionManager : MonoBehaviour
                 }
             }
 
-            // ✅ nullチェック & ソート
+            //nullチェック & ソート
             cars.Sort((car1, car2) =>
             {
                 if (car1 == null) return 1;
@@ -48,7 +48,7 @@ public class RacePositionManager : MonoBehaviour
                 return progress2.CompareTo(progress1);
             });
 
-            // ✅ 順位キャッシュ更新
+            //順位キャッシュ更新
             positionCache.Clear();
             for (int i = 0; i < cars.Count; i++)
             {
