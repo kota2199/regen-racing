@@ -108,15 +108,15 @@ public class CarSystem : MonoBehaviour
             //PadControll
             if (padControll)
             {
-                if (Input.GetAxis(acceleButton) < 0.1f)
+                if (Input.GetAxis(acceleButton) > 0.1f)
                 {
-                    acceleAmount = -Input.GetAxis(acceleButton);
+                    acceleAmount = Input.GetAxis(acceleButton);
                     brakeAmount = 0;
                 }
-                else if(Input.GetAxis(acceleButton) > -0.1f)
+                if(Input.GetAxis(brakeButton) > 0.1f)
                 {
                     acceleAmount = 0;
-                    brakeAmount = 1;
+                    brakeAmount = Input.GetAxis(brakeButton);
                 }
 
                 InputVector = new Vector2(Input.GetAxis(steerButton), acceleAmount * reverse);

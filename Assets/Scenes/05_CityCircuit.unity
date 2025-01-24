@@ -164,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_CautiousMaxDistance
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_CautiousSpeedFactor
@@ -184,6 +184,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Topspeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_Downforce
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
@@ -716,7 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4b165a252c896af46ae0b6a113918480, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1958892
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4b165a252c896af46ae0b6a113918480, type: 3}
       propertyPath: m_LocalPosition.y
@@ -951,7 +955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80f8f04cf2b5f73499b0220bd9039b1c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 122.2
+      value: 107.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80f8f04cf2b5f73499b0220bd9039b1c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2841,7 +2845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283445979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 536.9, y: 0, z: 405.2}
+  m_LocalPosition: {x: 524.3, y: 0, z: 423.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4534,7 +4538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_CautiousMaxDistance
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_CautiousSpeedFactor
@@ -4554,6 +4558,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Topspeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_Downforce
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
@@ -5222,7 +5230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621450071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 517.4, y: 0, z: 428.9}
+  m_LocalPosition: {x: 500.06, y: 0, z: 434.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5926,7 +5934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c668a9081a0301449af1804a3360db37, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.8
+      value: 20.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c668a9081a0301449af1804a3360db37, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7991,6 +7999,7 @@ GameObject:
   - component: {fileID: 957748794}
   - component: {fileID: 957748798}
   - component: {fileID: 957748795}
+  - component: {fileID: 957748804}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -8369,6 +8378,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &957748804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957748791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c8f92d18a87964885d5a220d8f8a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963662344
 GameObject:
   m_ObjectHideFlags: 0
@@ -12393,6 +12414,14 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 574169944846019411, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: brakeButton
+      value: Horizontal Stick-L
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169944846019411, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: acceleButton
+      value: Horizontal Stick-R
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169944846019411, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: DriveWheels.Array.data[0]
       value: 0
       objectReference: {fileID: 0}
@@ -12457,9 +12486,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1339831000}
     - target: {fileID: 574169944846019414, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: restrictorUp
+      value: Fire_R1
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169944846019414, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: menuController
       value: 
       objectReference: {fileID: 957748793}
+    - target: {fileID: 574169944846019414, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: restrictorDown
+      value: Fire_L1
+      objectReference: {fileID: 0}
     - target: {fileID: 574169944846019414, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: chargeStatusImage
       value: 
@@ -12792,7 +12829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712297851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 540.7, y: 0, z: 373.6}
+  m_LocalPosition: {x: 542.5, y: 0, z: 388.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13449,6 +13486,14 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 1962719711}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_CautiousMaxDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_Downforce
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 1865202067, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Camera
       value: 
@@ -13791,7 +13836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792159037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 484.9, y: 0, z: 438.47}
+  m_LocalPosition: {x: 482.16, y: 0, z: 438.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
