@@ -215,7 +215,10 @@ namespace UnityStandardAssets.Vehicles.Car
             {
                 if (CurrentSpeed > 5 && Vector3.Angle(transform.forward, m_Rigidbody.velocity) < 50f)
                 {
-                    Debug.Log(gameObject.name + " 's Braking Power is " + m_BrakeTorque * footbrake);
+                    if(m_BrakeTorque * footbrake > 0)
+                    {
+                        Debug.Log(gameObject.name + " 's Braking Power is " + m_BrakeTorque * footbrake);
+                    }
                     m_WheelColliders[i].brakeTorque = m_BrakeTorque * footbrake;
                 }
                 else if (footbrake > 0)
