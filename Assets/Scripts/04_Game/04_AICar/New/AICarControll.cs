@@ -131,7 +131,6 @@ namespace UnityStandardAssets.Vehicles.Car
                 steering = Mathf.Clamp(steering, -1, 1);
                 AccelInput = accel = Mathf.Clamp(accel, 0, 1);
                 BrakeInput = footbrake = -1 * Mathf.Clamp(footbrake, -1, 0);
-                Debug.Log(gameObject.name + "'s BrakeInput is " + BrakeInput);
                 handbrake = Mathf.Clamp(handbrake, 0, 1);
 
                 //Set the steer on the front wheels.

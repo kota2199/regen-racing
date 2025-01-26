@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.28345, g: 324.97046, b: 430.1162, a: 1}
+  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -691,9 +691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0731aa012c4fb41888a6b671cf89f15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: Fire_2
-  triangle: Fire_3
-  square: Fire_1
+  circle: Circle
+  triangle: Triangle
+  square: Square
   titleCanvas: {fileID: 349510800}
   choiceCanvas: {fileID: 663976196}
   explainSceneName: 02_GameExplain

@@ -2591,9 +2591,9 @@ MonoBehaviour:
   currentChoiceNum: 0
   colorChoiceUI: {fileID: 1034587671}
   colorModelCar: {fileID: 946071698}
-  decisionButton: Fire_2
-  detailButton: Fire_3
-  cancelButton: Fire_1
+  decisionButton: Circle
+  detailButton: Triangle
+  cancelButton: Cross
   selectRight: 0
   selectLeft: 0
   audioSourceForGuide: {fileID: 1761763330}

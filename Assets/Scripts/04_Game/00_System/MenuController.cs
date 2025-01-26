@@ -20,6 +20,9 @@ public class MenuController : MonoBehaviour
 
     private LapCounter lapCounter;
 
+    [SerializeField]
+    private string menuButton, retryButton, replaceButton, quitButton;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,7 +35,7 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire_Select") || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown(menuButton) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (!onMenu)
             {
@@ -46,15 +49,15 @@ public class MenuController : MonoBehaviour
 
         if (onMenu || lapCounter.isFinished || isGameOver)
         {
-            if (Input.GetButtonDown("Fire_0") || Input.GetKeyDown(KeyCode.C))
+            if (Input.GetButtonDown(quitButton) || Input.GetKeyDown(KeyCode.C))
             {
                 ToMenu();
             }
-            if (Input.GetButtonDown("Fire_1") || Input.GetKeyDown(KeyCode.D))
+            if (Input.GetButtonDown(replaceButton) || Input.GetKeyDown(KeyCode.D))
             {
                 Replace();
             }
-            if (Input.GetButtonDown("Fire_3") || Input.GetKeyDown(KeyCode.B))
+            if (Input.GetButtonDown(retryButton) || Input.GetKeyDown(KeyCode.B))
             {
                 Retry();
             }

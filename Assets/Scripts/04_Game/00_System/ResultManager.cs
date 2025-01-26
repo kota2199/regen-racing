@@ -210,7 +210,7 @@ public class ResultManager : MonoBehaviour
 
     private void Update()
     {
-        if (isDisplayFinished && Input.GetButtonDown("Fire_0") || Input.GetKeyDown(KeyCode.C))
+        if (isDisplayFinished && Input.GetButtonDown("Cross") || Input.GetKeyDown(KeyCode.C))
         {
             audioSource.PlayOneShot(decide);
             fadeInOut.FadeOut();
