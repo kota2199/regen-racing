@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5354.158, g: 7711.4062, b: 9250.219, a: 1}
+  m_IndirectSpecularColor: {r: 5354.0376, g: 7712.1133, b: 9251.5, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9143,15 +9143,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: -0.98
     y: 0
-    width: 1
+    width: 2
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 849.1
+  orthographic size: 875.33
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -12322,15 +12322,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 46348690, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 240
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 46348690, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 240
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 46348690, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -100.4
+      value: -140
       objectReference: {fileID: 0}
     - target: {fileID: 46348690, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_LocalRotation.w
