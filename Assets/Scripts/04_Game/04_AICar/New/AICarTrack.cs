@@ -35,30 +35,9 @@ public class AICarTrack : MonoBehaviour
 
         if (Mathf.Abs(carPosX - thisPosX) < approachDistance && Mathf.Abs(carPosZ - thisPosZ) < approachDistance)
         {
-            Debug.Log(aiCar.name + "'s target is switched.");
             SwitchToNextTarget();
         }
     }
-
-    //IEnumerator OnTriggerEnter(Collider collision)
-    //{
-    //    if (collision.gameObject == aiCar)//If the AICar collider is detected
-    //    {
-    //        Point = GameObject.Find("Point" + CurrentPoint);    //the script will search the next point automatically
-    //        this.transform.position = Point.transform.position; //then, it will get the position of the point and move the tracker to there 
-    //        this.GetComponent<BoxCollider>().enabled = false;//the collider will disable to avoid triggering twice the AI point
-    //        CurrentPoint += 1;//the AI point that the AI car will follow now will be the next one
-    //        if (GameObject.Find("Point" + CurrentPoint) == null)//if the next point doesn't exists, that means that the last point was passed
-    //        {
-    //            CurrentPoint = 1;//so it will return to the first one
-    //        }
-    //        //now that we completed the next AI point assignment:
-    //        yield return new WaitForSeconds(0.1f);
-    //        this.GetComponent<BoxCollider>().enabled = true;//we can turn on the collider again, because it will be in the next point position already
-    //    }
-    //    //you can add as many points as you need from the Unity hirearchy, remember to put "Point" and the number next to it (i.e: Point13)
-    //    //then, you can freely move the transform to move the point wherever you want and the tracker will move to the car, making the AI car follow it
-    //}
 
     private void  SwitchToNextTarget()
     {
@@ -71,5 +50,18 @@ public class AICarTrack : MonoBehaviour
             CurrentPoint = 1;//so it will return to the first one
         }
         //now that we completed the next AI point assignment:
+    }
+
+    public void ReverseTarget()
+    {
+        CurrentPoint -= 1;//the AI point that the AI car will follow now will be the next one
+        Point = GameObject.Find("Point" + CurrentPoint);    //the script will search the next point automatically
+        this.transform.position = Point.transform.position; //then, it will get the position of the point and move the tracker to there
+        CurrentPoint += 1;//the AI point that the AI car will follow now will be the next one
+        if (GameObject.Find("Point" + CurrentPoint) == null)//if the next point doesn't exists, that means that the last point was passed
+        {
+            Debug.Log("Target Point is Null");
+            CurrentPoint = 1;//so it will return to the first one
         }
+    }
 }

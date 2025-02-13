@@ -214,10 +214,6 @@ namespace UnityStandardAssets.Vehicles.Car
             {
                 if (CurrentSpeed > 5 && Vector3.Angle(transform.forward, m_Rigidbody.velocity) < 50f)
                 {
-                    if(m_BrakeTorque * footbrake > 0)
-                    {
-                        Debug.Log(gameObject.name + " 's Braking Power is " + m_BrakeTorque * footbrake);
-                    }
                     m_WheelColliders[i].brakeTorque = m_BrakeTorque * footbrake;
                 }
                 else if (footbrake > 0)
@@ -274,24 +270,8 @@ namespace UnityStandardAssets.Vehicles.Car
                 // is the tire slipping above the given threshhold
                 if (Mathf.Abs(wheelHit.forwardSlip) >= m_SlipLimit || Mathf.Abs(wheelHit.sidewaysSlip) >= m_SlipLimit)
                 {
-                    /*m_WheelEffects[i].EmitTyreSmoke();
-
-                    // avoiding all four tires screeching at the same time
-                    // if they do it can lead to some strange audio artefacts
-                    if (!AnySkidSoundPlaying())
-                    {
-                        m_WheelEffects[i].PlayAudio();
-                    }*/
                     continue;
                 }
-                
-                //        // if it wasnt slipping stop all the audio
-                /*if (m_WheelEffects[i].PlayingAudio)
-                {
-                    m_WheelEffects[i].StopAudio();
-                }
-                // end the trail generation
-                m_WheelEffects[i].EndSkidTrail();*/
             }
         }
 
@@ -345,18 +325,5 @@ namespace UnityStandardAssets.Vehicles.Car
                 }
             }
         }
-
-
-        //private bool AnySkidSoundPlaying()
-        //{
-        //    for (int i = 0; i < 4; i++)
-        //    {
-        //        if (m_WheelEffects[i].PlayingAudio)
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
     }
 }

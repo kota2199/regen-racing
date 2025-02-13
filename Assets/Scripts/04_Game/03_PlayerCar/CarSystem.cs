@@ -40,6 +40,15 @@ public class CarSystem : MonoBehaviour
 
     private float restrictor;
 
+    //calculate deceleration
+    private Vector3 previousVelocity;
+    private float previousTime;
+    private float decelerationMagnitude;
+
+    //Manage Battery
+    [SerializeField]
+    private float batteryUseAmount, batteryChargeAmount;
+
     //Reverase
     [SerializeField, Range(-1, 1)]
     private int reverse = 1;
@@ -76,6 +85,9 @@ public class CarSystem : MonoBehaviour
     void Start()
     {
         padControll = IsGamepadConnected();
+
+        previousVelocity = RB.velocity;
+        previousTime = Time.time;
     }
 
     // Update is called once per frame
@@ -99,6 +111,33 @@ public class CarSystem : MonoBehaviour
                 Debug.Log("Controll : PAD (ReturnKey for Keyboard)");
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        float currentTime = Time.time;
+        Vector3 currentVelocity = RB.velocity;
+
+        // 経過時間を計算
+        float deltaTime = currentTime - previousTime;
+        if (deltaTime > 0)
+        {
+            // 減速率（加速度）を計算
+            Vector3 acceleration = (currentVelocity - previousVelocity) / deltaTime;
+
+            // 減速率の大きさ（スカラー値）を計算
+            decelerationMagnitude = -Vector3.Dot(acceleration, previousVelocity.normalized);
+
+            // 表示（減速のみを表示）
+            if (decelerationMagnitude > 0)
+            {
+                //Debug.Log("減速率: " + decelerationMagnitude + " m/s²");
+            }
+        }
+
+        // 現在の値を次のフレーム用に更新
+        previousVelocity = currentVelocity;
+        previousTime = currentTime;
     }
 
     private void ControllInput()
@@ -173,24 +212,20 @@ public class CarSystem : MonoBehaviour
             Obj[i].rotation = _dir;
         }
 
-        if (InputVector.y > 0)
+        //Use and Charge Battery
+        if (Mathf.Abs(InputVector.y) > 0)
         {
-            //batterySystem.remainBattery -= 1.0f * restrictor * Time.deltaTime;
-            batterySystem.UseBattery(0.3f * restrictor * Time.deltaTime);
+            batterySystem.UseBattery(Mathf.Abs(InputVector.y) * batteryUseAmount * restrictor * Time.deltaTime);
             regenerativeBrakeAmount = 0;
         }
-        if (InputVector.y <= 0)
+        if (speedCheck.speed >= 10)
         {
-            if (speedCheck.speed >= 10)
-            {
-                //batterySystem.remainBattery += 2f * restrictor * Time.deltaTime;
-                batterySystem.ChargeBattery(2f * restrictor * Time.deltaTime);
-                regenerativeBrakeAmount = 150;
-            }
-            else
-            {
-                regenerativeBrakeAmount = 0;
-            }
+            batterySystem.ChargeBattery(decelerationMagnitude * batteryChargeAmount * restrictor * Time.deltaTime);
+            regenerativeBrakeAmount = 150;
+        }
+        else
+        {
+            regenerativeBrakeAmount = 0;
         }
     }
 

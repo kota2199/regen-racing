@@ -25,8 +25,6 @@ public class LapCounter : MonoBehaviour
 
     public int lapCount;
 
-    private bool lapZero = true;
-
     [SerializeField]
     private Text lapText;
 
@@ -53,8 +51,6 @@ public class LapCounter : MonoBehaviour
     //Human or AI
     private bool humanCar = false;
 
-    private bool firstPassedCheckPoint = false;
-
     [SerializeField]
     private PopUpManager popUpManager;
 
@@ -64,6 +60,8 @@ public class LapCounter : MonoBehaviour
     [SerializeField]
     private RacePositionManager racePositionManager;
 
+    private int passPointCount;
+
     private bool finalLapPopped = false;
 
     // Start is called before the first frame update
@@ -71,6 +69,14 @@ public class LapCounter : MonoBehaviour
     private void Awake()
     {
         gameModeManager = GetComponent<GameModeManager>();
+
+
+        checkPoints = new Transform[checkPointsParent.transform.childCount];
+
+        for (var i = 0; i < checkPoints.Length; ++i)
+        {
+            checkPoints[i] = checkPointsParent.transform.GetChild(i);
+        }
 
         if (gameModeManager.carOwner == GameModeManager.CarOwner.Human)
         {
@@ -84,20 +90,15 @@ public class LapCounter : MonoBehaviour
         if (humanCar)
         {
             playerReplacer = GetComponent<ReplaceController>();
+            playerReplacer.SetReplacePoint(transform);
         }
         else
         {
             if (GetComponent<AIAutoReverse>())
             {
                 aiReplacer = GetComponent<AIAutoReverse>();
+                aiReplacer.SetReplacePoint(transform);
             }
-        }
-
-        checkPoints = new Transform[checkPointsParent.transform.childCount];
-
-        for (var i = 0; i < checkPoints.Length; ++i)
-        {
-            checkPoints[i] = checkPointsParent.transform.GetChild(i);
         }
 
         lapCount = 1;
@@ -105,6 +106,8 @@ public class LapCounter : MonoBehaviour
         isCount = false;
         timer = 0.0f;
         totalTime = 0.0f;
+
+        passPointCount = 0;
 
         isFinished = false;
     }
@@ -114,29 +117,17 @@ public class LapCounter : MonoBehaviour
     {
         TimeCounter();
 
-        if (!firstPassedCheckPoint)
-        {
-            //SetFirstGrid();
-        }
-
         if(humanCar)
         {
             UpdateUI();
         }
     }
 
-    private void SetFirstGrid()
-    {
-        string carName = this.gameObject.name;
-        raceData.GetCarInfo(carName).Position = defaultGrid;
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "CheckPoint")
         {
-            firstPassedCheckPoint = true;
+            passPointCount++;
 
             //SetReplacePoint
             if (humanCar)
@@ -149,34 +140,24 @@ public class LapCounter : MonoBehaviour
             }
         }
 
-        if(other.gameObject.tag == "ControlLine")
+        if(other.gameObject.tag == "ControlLine" && passPointCount >= checkPoints.Length - 1)
         {
-            if (lapZero)
+            //laped
+            timer = 0.0f;
+            if (lapCount >= maxLap)
             {
-                lapZero = false;
+                Finished();
             }
             else
             {
-                //laped
-                timer = 0.0f;
-                if (lapCount >= maxLap)
-                {
-                    Finished();
-                }
-                else
-                {
-                    lapCount++;
-                }
-
-                if (humanCar && lapCount == maxLap && !finalLapPopped)
-                {
-                    popUpManager.PopUp(3);
-                    finalLapPopped = true;
-                }
+                lapCount++;
             }
-            
 
-            //other.gameObject.GetComponent<PositionChecker>().CarPassed(lapCount, this.gameObject);
+            if (humanCar && lapCount == maxLap && !finalLapPopped)
+            {
+                popUpManager.PopUp(3);
+                finalLapPopped = true;
+            }
         }
     }
 

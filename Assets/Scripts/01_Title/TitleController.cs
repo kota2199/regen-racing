@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class TitleController : MonoBehaviour
 {
     [SerializeField]
-    private string circle, triangle, square;
+    private string circle, triangle, square, cross;
 
     public enum Mode
     {
@@ -61,11 +61,20 @@ public class TitleController : MonoBehaviour
             }
             audioSource.PlayOneShot(decision);
         }
+
         if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown(triangle))
         {
             if(currentMode == Mode.Choice)
             {
                 StartCoroutine(ToNextScene(gameSceneName, decision));
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetButtonDown(cross))
+        {
+            if (currentMode == Mode.Choice)
+            {
+                ChangeMode(Mode.Title);
             }
         }
     }

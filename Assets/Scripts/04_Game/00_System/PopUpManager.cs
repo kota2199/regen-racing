@@ -66,7 +66,7 @@ public class PopUpManager : MonoBehaviour
                 PopUp(2);
                 batteryPopped = true;
             }
-            else if (100 > playerBattery.remainBattery && playerBattery.remainBattery > 30 && batteryPopped)
+            else if (70 > playerBattery.remainBattery && playerBattery.remainBattery > 30 && batteryPopped)
             {
                 batteryPopped = false;
             }
