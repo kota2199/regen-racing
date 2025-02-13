@@ -31,9 +31,6 @@ public class MenuChoiceController : MonoBehaviour
     private GameObject[] choices;
 
     [SerializeField]
-    private Image choiceMarker;
-
-    [SerializeField]
     private Vector3 markerPosOffset;
 
     [SerializeField]
@@ -108,7 +105,6 @@ public class MenuChoiceController : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal Stick-L") > 0.15f && !selectRight)
         {
-            Debug.Log("Right");
             selectRight = true;
             RecieveRightInput();
         }
@@ -119,7 +115,6 @@ public class MenuChoiceController : MonoBehaviour
 
         if (Input.GetAxis("Horizontal Stick-L") < -0.15f && !selectLeft)
         {
-            Debug.Log("Left");
             selectLeft = true;
             RecieveLeftInput();
         }
@@ -179,6 +174,7 @@ public class MenuChoiceController : MonoBehaviour
         if (isSelecting && currentChoiceNum < choices.Length - 1)
         {
             currentChoiceNum++;
+            UpdateOptions();
             audioSourceSE.PlayOneShot(choice);
         }
     }
@@ -188,6 +184,7 @@ public class MenuChoiceController : MonoBehaviour
         if (isSelecting && currentChoiceNum > 0)
         {
             currentChoiceNum--;
+            UpdateOptions();
             audioSourceSE.PlayOneShot(choice);
         }
     }
@@ -195,12 +192,27 @@ public class MenuChoiceController : MonoBehaviour
     private void UpdateUI()
     {
         choiceUI.SetActive(isSelecting);
-        choiceMarker.rectTransform.position = choices[currentChoiceNum].transform.position + markerPosOffset;
-        explain.gameObject.SetActive(isExplaining);
+        //explain.gameObject.SetActive(isExplaining);
         explain.sprite = explainImage[currentChoiceNum];
 
         colorChoiceUI.SetActive(isColorSelecting);
         colorModelCar.SetActive(isColorSelecting);
+    }
+
+    private void UpdateOptions()
+    {
+        for(int i = 0; i < choices.Length; i++)
+        {
+            if(i == currentChoiceNum)
+            {
+                choices[i].GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            }
+            else
+            {
+                choices[i].GetComponent<Image>().color = new Color(1, 1, 1, 0.3f);
+            }
+            explain.sprite = explainImage[i];
+        }
     }
 
     private void UpdateMenuMode(MenuMode nextMenuMode)
@@ -216,6 +228,8 @@ public class MenuChoiceController : MonoBehaviour
                 isExplaining = false;
                 isColorSelecting = false;
                 selecter.isColorSelecting = isColorSelecting;
+
+                UpdateOptions();
 
                 if (!audioSourceForGuide.isPlaying)
                 {
