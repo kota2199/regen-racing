@@ -30,7 +30,8 @@ public class ResultManager : MonoBehaviour
     private Sprite[] carImage;
 
     [SerializeField]
-    private FadeInOut fadeInOut;
+    private ScreenFader screenFader;
+
     [SerializeField]
     private AudioClip time, eco ,total, afterTotal, decide;
 
@@ -39,6 +40,9 @@ public class ResultManager : MonoBehaviour
 
     [SerializeField]
     private float countDuration = 1f;
+
+    [SerializeField]
+    private Image close;
 
     private bool isDisplayFinished = false;
 
@@ -212,14 +216,25 @@ public class ResultManager : MonoBehaviour
     {
         if (isDisplayFinished && Input.GetButtonDown("Cross") || Input.GetKeyDown(KeyCode.C))
         {
-            audioSource.PlayOneShot(decide);
-            fadeInOut.FadeOut();
-            Invoke("ToTitle", 2f);
+            StartCoroutine(ToTitle());
         }
     }
 
-    private void ToTitle()
+    private IEnumerator ToTitle()
     {
+        audioSource.PlayOneShot(decide);
+        yield return StartCoroutine(ImageAnimationForSceneChange(close));
+        yield return StartCoroutine(screenFader.FadeOut());
         SceneManager.LoadScene("01_Title");
+    }
+    private IEnumerator ImageAnimationForSceneChange(Image animTarget)
+    {
+        float originalScale = animTarget.transform.localScale.x;
+        var sequence = DOTween.Sequence();
+        sequence.Append(animTarget.transform.DOScale(originalScale * 0.9f, 0.2f).SetEase(Ease.OutBack));
+        sequence.Append(animTarget.transform.DOScale(originalScale * 1.2f, 0.2f).SetEase(Ease.OutBack));
+        sequence.Join(animTarget.gameObject.GetComponent<Image>().DOFade(endValue: 0f, duration: 0.1f));
+        sequence.Append(animTarget.transform.DOScale(originalScale, 0f));
+        yield return sequence.Play().WaitForCompletion();
     }
 }

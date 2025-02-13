@@ -3,22 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class MenuChoiceController : MonoBehaviour
 {
-    /// <summary>
-    /// Car Choice
-    /// </summary>
+    [Header("Future Choice")]
     public bool isSelecting;
-
-    private bool isExplaining;
 
     private bool isColorSelecting;
 
     public enum MenuMode
     {
         CarChoice,
-        CarExplain,
         ChoiceCarColor
     }
 
@@ -42,9 +38,9 @@ public class MenuChoiceController : MonoBehaviour
     [SerializeField]
     private int currentChoiceNum;
 
-    /// <summary>
-    /// Car's color choice
-    /// </summary>
+    [Space(20)]
+
+    [Header("Color Choice")]
     [SerializeField]
     private GameObject colorChoiceUI;
 
@@ -72,7 +68,7 @@ public class MenuChoiceController : MonoBehaviour
     private string raceSceneName;
 
     [SerializeField]
-    private FadeInOut fadeController;
+    private ScreenFader screenFader;
 
     [SerializeField]
     private RaceData raceData;
@@ -81,8 +77,7 @@ public class MenuChoiceController : MonoBehaviour
     {
         selecter = GetComponent<ColorSelectController>();
         audioSourceForGuide = GetComponent<AudioSource>();
-        isSelecting = false;
-        isExplaining = false;
+        isSelecting = true;
         isColorSelecting = false;
         menuMode = MenuMode.CarChoice;
         colorModelCar.SetActive(false);
@@ -91,7 +86,7 @@ public class MenuChoiceController : MonoBehaviour
 
     private void Start()
     {
-        UpdateMenuMode(MenuMode.CarChoice);
+        StartCoroutine(UpdateMenuMode(MenuMode.CarChoice, null));
     }
 
     // Update is called once per frame
@@ -131,32 +126,20 @@ public class MenuChoiceController : MonoBehaviour
             if (isSelecting)
             {
                 raceData.playerChoiceIndex = currentChoiceNum;
-                UpdateMenuMode(MenuMode.ChoiceCarColor);
+                StartCoroutine(UpdateMenuMode(MenuMode.ChoiceCarColor, choices[currentChoiceNum].transform));
             }
             else if (isColorSelecting)
             {
-                ToRaceScene();
+                StartCoroutine(ToRaceScene());
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown(detailButton))
+        if(Input.GetKeyDown(KeyCode.C) || Input.GetButtonDown(cancelButton))
         {
-            if (isSelecting)
+            if (isColorSelecting)
             {
-                if (!isExplaining)
-                {
-                    UpdateMenuMode(MenuMode.CarExplain);
-                }
-                else
-                {
-                    UpdateMenuMode(MenuMode.CarChoice);
-                }
+                StartCoroutine(UpdateMenuMode(MenuMode.CarChoice, null));
             }
-        }
-
-        if(Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown(cancelButton))
-        {
-            Debug.Log("Cancel");
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -192,8 +175,6 @@ public class MenuChoiceController : MonoBehaviour
     private void UpdateUI()
     {
         choiceUI.SetActive(isSelecting);
-        //explain.gameObject.SetActive(isExplaining);
-        explain.sprite = explainImage[currentChoiceNum];
 
         colorChoiceUI.SetActive(isColorSelecting);
         colorModelCar.SetActive(isColorSelecting);
@@ -206,32 +187,37 @@ public class MenuChoiceController : MonoBehaviour
             if(i == currentChoiceNum)
             {
                 choices[i].GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                StartCoroutine(ImageAnimationForFutureChoice(choices[i].transform));
+                StartCoroutine(ImageAnimationForFutureExplain(explainImage[i]));
             }
             else
             {
                 choices[i].GetComponent<Image>().color = new Color(1, 1, 1, 0.3f);
             }
-            explain.sprite = explainImage[i];
         }
     }
 
-    private void UpdateMenuMode(MenuMode nextMenuMode)
+    private IEnumerator UpdateMenuMode(MenuMode nextMenuMode, Transform animTarget)
     {
         menuMode = nextMenuMode;
         audioSourceSE.PlayOneShot(decision);
+
+        if(animTarget != null)
+        {
+            yield return StartCoroutine(ImageAnimationForSceneChange(animTarget));
+        }
 
         switch (menuMode)
         {
             case MenuMode.CarChoice:
 
                 isSelecting = true;
-                isExplaining = false;
                 isColorSelecting = false;
                 selecter.isColorSelecting = isColorSelecting;
 
                 UpdateOptions();
 
-                if (!audioSourceForGuide.isPlaying)
+                if (audioSourceForGuide.isPlaying)
                 {
                     audioSourceForGuide.Stop();
                     StartCoroutine(PlayGuideVoice(carChoice));
@@ -239,19 +225,9 @@ public class MenuChoiceController : MonoBehaviour
 
                 break;
 
-            case MenuMode.CarExplain:
-
-                isSelecting = true;
-                isExplaining = true;
-                isColorSelecting = false;
-                selecter.isColorSelecting = isColorSelecting;
-
-                break;
-
             case MenuMode.ChoiceCarColor:
 
                 isSelecting = false;
-                isExplaining = false;
                 isColorSelecting = true;
                 selecter.isColorSelecting = isColorSelecting;
 
@@ -265,21 +241,42 @@ public class MenuChoiceController : MonoBehaviour
         }
     }
 
-    public void ToRaceScene()
+    private IEnumerator ToRaceScene()
     {
-        fadeController.FadeOut();
-        Invoke("SceneTransition", 1f);
+        audioSourceForGuide.Stop();
+        yield return StartCoroutine(screenFader.FadeOut());
+        SceneManager.LoadScene(raceSceneName);
     }
 
     private IEnumerator PlayGuideVoice(AudioClip clip)
     {
         audioSourceForGuide.Stop();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         audioSourceForGuide.PlayOneShot(clip);
     }
-
-    private void SceneTransition()
+    private IEnumerator ImageAnimationForSceneChange(Transform animTarget)
     {
-        SceneManager.LoadScene(raceSceneName);
+        float originalScale = animTarget.transform.localScale.x;
+        var sequence = DOTween.Sequence();
+        sequence.Append(animTarget.DOScale(originalScale * 0.9f, 0.2f).SetEase(Ease.OutBack));
+        sequence.Append(animTarget.DOScale(originalScale * 1.2f, 0.2f).SetEase(Ease.OutBack));
+        sequence.Join(animTarget.gameObject.GetComponent<Image>().DOFade(endValue: 0f, duration: 0.1f));
+        sequence.Append(animTarget.DOScale(originalScale, 0f));
+        yield return sequence.Play().WaitForCompletion();
+    }
+    private IEnumerator ImageAnimationForFutureChoice(Transform animTarget)
+    {
+        float originalScale = animTarget.transform.localScale.x;
+        var sequence = DOTween.Sequence();
+        sequence.Append(animTarget.DOScale(originalScale * 0.9f, 0.2f).SetEase(Ease.OutBack));
+        sequence.Append(animTarget.DOScale(originalScale * 1f, 0.2f).SetEase(Ease.OutBack));
+        yield return sequence.Play().WaitForCompletion();
+    }
+    private IEnumerator ImageAnimationForFutureExplain(Sprite nextExplain)
+    {
+        yield return explain.DOFade(endValue: 0f, duration: 0.1f).WaitForCompletion();
+        explain.sprite = nextExplain;
+        yield return new WaitForSeconds(0.1f);
+        explain.DOFade(endValue: 1f, duration: 0.1f);
     }
 }

@@ -9,20 +9,20 @@ public class SkipExplainMovie : MonoBehaviour
     private string cross;
 
     [SerializeField]
-    private FadeInOut fadeInOut;
+    private ScreenFader screenFader;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C) || Input.GetButtonDown(cross))
         {
-            fadeInOut.FadeOut();
-            Invoke("ToMenu", 1f);
+            StartCoroutine(ToMenu());
         }
     }
 
-    void ToMenu()
+    IEnumerator ToMenu()
     {
+        yield return StartCoroutine(screenFader.FadeOut());
         SceneManager.LoadScene("03_Menu");
     }
 }

@@ -11,6 +11,9 @@ public class VideoController : MonoBehaviour
     [SerializeField]
     private string menuSceneName;
 
+    [SerializeField]
+    private ScreenFader screenFader;
+
     private void Awake()
     {
         videoPlayer = GetComponent<VideoPlayer>();
@@ -24,6 +27,13 @@ public class VideoController : MonoBehaviour
 
     public void LoopPointReached(VideoPlayer vp)
     {
+        StartCoroutine(ChangeScene());
+    }
+
+    IEnumerator ChangeScene()
+    {
+        yield return StartCoroutine(screenFader.FadeOut());
         SceneManager.LoadScene(menuSceneName);
+
     }
 }

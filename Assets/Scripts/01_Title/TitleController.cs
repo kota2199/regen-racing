@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class TitleController : MonoBehaviour
 {
@@ -27,7 +29,10 @@ public class TitleController : MonoBehaviour
     private AudioClip decision, choice;
 
     [SerializeField]
-    private FadeInOut fadeInOut;
+    private ScreenFader screenFader;
+
+    [SerializeField]
+    private Transform start, explain, menu;
 
     private void Awake()
     {
@@ -37,7 +42,7 @@ public class TitleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ChangeMode(Mode.Title);
+         StartCoroutine(ChangeMode(Mode.Title, null));
     }
 
     // Update is called once per frame
@@ -52,12 +57,11 @@ public class TitleController : MonoBehaviour
         {
             if(currentMode == Mode.Title)
             {
-                ChangeMode(Mode.Choice);
+                StartCoroutine(ChangeMode(Mode.Choice, start));
             }
             else if(currentMode == Mode.Choice)
             {
-                SceneManager.LoadScene(explainSceneName);
-                StartCoroutine(ToNextScene(explainSceneName, decision));
+                StartCoroutine(ToNextScene(explainSceneName, decision, explain));
             }
             audioSource.PlayOneShot(decision);
         }
@@ -66,7 +70,7 @@ public class TitleController : MonoBehaviour
         {
             if(currentMode == Mode.Choice)
             {
-                StartCoroutine(ToNextScene(gameSceneName, decision));
+                StartCoroutine(ToNextScene(gameSceneName, decision, menu));
             }
         }
 
@@ -74,14 +78,20 @@ public class TitleController : MonoBehaviour
         {
             if (currentMode == Mode.Choice)
             {
-                ChangeMode(Mode.Title);
+                StartCoroutine(ChangeMode(Mode.Title, null));
             }
         }
     }
 
-    private void ChangeMode(Mode mode)
+    private IEnumerator ChangeMode(Mode mode, Transform animTarget)
     {
         audioSource.PlayOneShot(decision);
+
+        if(animTarget != null)
+        {
+            yield return StartCoroutine(ImageAnimation(animTarget));
+        }
+
         switch (mode)
         {
             case Mode.Title:
@@ -101,11 +111,26 @@ public class TitleController : MonoBehaviour
         }
     }
 
-    private IEnumerator ToNextScene(string sceneName, AudioClip clip)
+    private IEnumerator ToNextScene(string sceneName, AudioClip clip, Transform animTarget)
     {
         audioSource.PlayOneShot(clip);
-        fadeInOut.FadeOut();
-        yield return new WaitForSeconds(clip.length);
+
+        if (animTarget != null)
+        {
+            yield return StartCoroutine(ImageAnimation(animTarget));
+        }
+
+        yield return StartCoroutine(screenFader.FadeOut());
         SceneManager.LoadScene(sceneName);
+    }
+
+    private IEnumerator ImageAnimation(Transform animTarget)
+    {
+        float originalScale = animTarget.transform.localScale.x;
+        var sequence = DOTween.Sequence();
+        sequence.Append(animTarget.DOScale(originalScale * 0.9f, 0.2f).SetEase(Ease.OutBack));
+        sequence.Append(animTarget.DOScale(originalScale * 1.2f, 0.2f).SetEase(Ease.OutBack));
+        sequence.Join(animTarget.gameObject.GetComponent<Image>().DOFade(endValue: 0f, duration: 0.1f));
+        yield return sequence.Play().WaitForCompletion();
     }
 }
