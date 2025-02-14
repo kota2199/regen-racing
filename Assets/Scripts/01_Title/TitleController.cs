@@ -34,6 +34,8 @@ public class TitleController : MonoBehaviour
     [SerializeField]
     private Transform start, explain, menu;
 
+    private Transform startImageDefaultTransform;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -43,6 +45,7 @@ public class TitleController : MonoBehaviour
     void Start()
     {
          StartCoroutine(ChangeMode(Mode.Title, null));
+        startImageDefaultTransform = start.transform;
     }
 
     // Update is called once per frame
@@ -98,6 +101,9 @@ public class TitleController : MonoBehaviour
                 currentMode = Mode.Title;
                 titleCanvas.SetActive(true);
                 choiceCanvas.SetActive(false);
+                start.transform.position = startImageDefaultTransform.position;
+                start.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                start.gameObject.GetComponent<Image>().DOFade(endValue: 1f, duration: 0f);
                 break;
 
             case Mode.Choice:

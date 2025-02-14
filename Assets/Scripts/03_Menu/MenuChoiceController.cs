@@ -244,6 +244,7 @@ public class MenuChoiceController : MonoBehaviour
     private IEnumerator ToRaceScene()
     {
         audioSourceForGuide.Stop();
+        audioSourceSE.PlayOneShot(decision);
         yield return StartCoroutine(screenFader.FadeOut());
         SceneManager.LoadScene(raceSceneName);
     }
