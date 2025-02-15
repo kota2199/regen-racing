@@ -18,6 +18,7 @@ public class ResultManager : MonoBehaviour
 
 
     [SerializeField]
+    [Multiline(2)]
     private string[] futureOptions;
 
     [SerializeField]

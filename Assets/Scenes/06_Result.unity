@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
+  m_IndirectSpecularColor: {r: 262.28345, g: 324.97046, b: 430.1162, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1069,14 +1069,14 @@ MonoBehaviour:
   - {fileID: 566321794}
   - {fileID: 140959926}
   futureOptions:
-  - "\u81EA\u7136\u3092\u5B88\u308B\u8ECA"
-  - "\u6301\u7D9A\u53EF\u80FD\u6027\u306E\u3042\u308B\u8ECA"
-  - "\u901F\u3055\u3092\u8FFD\u6C42\u3059\u308B\u8ECA"
+  - "\u81EA\u7136\u7D20\u6750\u306E\u8ECA"
+  - "\u30EA\u30B5\u30A4\u30AF\u30EB\u7D20\u6750\u306E\u8ECA"
+  - "\u901F\u3055\u3092\u8FFD\u6C42\u3057\u305F\n\u7D20\u6750\u306E\u8ECA"
   futureColorCode:
   - {r: 0.10980392, g: 0.5411765, b: 0, a: 1}
-  - {r: 0.49803922, g: 0.29803923, b: 0, a: 1}
-  - {r: 0, g: 0.18431373, b: 0.5254902, a: 1}
-  ecoPoint: f6ffffff000000000a000000
+  - {r: 0.96862745, g: 0.5803922, b: 0.11764706, a: 1}
+  - {r: 0, g: 0.54509807, b: 1, a: 1}
+  ecoPoint: ecfffffff6ffffff00000000
   carImage:
   - {fileID: 21300000, guid: 26610910385fa1947a3e971fbf85aa69, type: 3}
   - {fileID: 21300000, guid: db0791c4428091642886eb6d96755641, type: 3}

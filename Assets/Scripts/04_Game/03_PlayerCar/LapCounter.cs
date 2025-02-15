@@ -155,7 +155,7 @@ public class LapCounter : MonoBehaviour
 
             if (humanCar && lapCount == maxLap && !finalLapPopped)
             {
-                popUpManager.PopUp(3);
+                //popUpManager.PopUp(3);
                 finalLapPopped = true;
             }
         }

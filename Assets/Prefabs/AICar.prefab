@@ -252,7 +252,7 @@ WheelCollider:
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1.2
     m_AsymptoteValue: 1
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_Enabled: 1
 --- !u!1 &1960940406656069590
 GameObject:
@@ -315,7 +315,7 @@ WheelCollider:
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1.2
     m_AsymptoteValue: 1
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_Enabled: 1
 --- !u!1 &1960940406696819800
 GameObject:
@@ -442,7 +442,7 @@ WheelCollider:
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1.2
     m_AsymptoteValue: 1
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_Enabled: 1
 --- !u!1 &1960940407826148778
 GameObject:
@@ -513,7 +513,7 @@ Transform:
   m_GameObject: {fileID: 1960940407883432826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.62, y: 1.37, z: -4.3}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7155889661675933781}
@@ -549,11 +549,11 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960940407883432826}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1018cc6575a3d4fb3a781d84f4ec2fd4, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.1, y: 1, z: 4.97}
+  m_Size: {x: 2.74, y: 1, z: 4.97}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2719266501084875692
 MonoBehaviour:
@@ -608,7 +608,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  maxLap: 2
+  maxLap: 1
   lapCount: 0
   lapText: {fileID: 0}
   isCount: 0
@@ -702,6 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementThreshold: 0.1
+  aiCarTrack: {fileID: 0}
   raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
 --- !u!114 &807871909788655167
 MonoBehaviour:
@@ -808,22 +809,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce583ebbff5cc424ba0c32327f236e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CautiousSpeedFactor: 0.5
+  m_CautiousSpeedFactor: 0.7
   m_CautiousMaxAngle: 5
-  m_CautiousMaxDistance: 100
-  m_CautiousAngularVelocityFactor: 5
-  m_SteerSensitivity: 0.01
+  m_CautiousMaxDistance: 300
+  m_CautiousAngularVelocityFactor: 90
+  m_SteerSensitivity: 0.015
   m_AccelSensitivity: 1
-  m_BrakeSensitivity: 3
+  m_BrakeSensitivity: 10
   m_LateralWanderDistance: 3
   m_LateralWanderSpeed: 0.2
   m_AccelWanderAmount: 0.1
   m_AccelWanderSpeed: 0.1
-  m_BrakeCondition: 2
+  m_BrakeCondition: 1
   m_Driving: 1
   m_Target: {fileID: 0}
   m_StopWhenTargetReached: 0
-  m_ReachTargetThreshold: 2
+  m_ReachTargetThreshold: 0.25
 --- !u!114 &716538211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,13 +849,13 @@ MonoBehaviour:
   - {fileID: 1960940407931440695}
   - {fileID: 1960940408257999241}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 10
+  m_MaximumSteerAngle: 20
   m_SteerHelper: 1
   m_TractionControl: 0.5
   m_FullTorqueOverAllWheels: 1000
   m_ReverseTorque: 100
   m_MaxHandbrakeTorque: 100000000
-  m_Downforce: 100
+  m_Downforce: 200
   m_SpeedType: 1
   m_Topspeed: 200
   m_RevRangeBoundary: 1
@@ -990,7 +991,7 @@ WheelCollider:
     m_ExtremumValue: 2
     m_AsymptoteSlip: 1.2
     m_AsymptoteValue: 1
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_Enabled: 1
 --- !u!1 &1960940408257999241
 GameObject:

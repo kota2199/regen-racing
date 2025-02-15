@@ -36,9 +36,13 @@ public class TitleController : MonoBehaviour
 
     private Transform startImageDefaultTransform;
 
+    [SerializeField]
+    private RaceData raceData;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        raceData.Initialize();
     }
 
     // Start is called before the first frame update
