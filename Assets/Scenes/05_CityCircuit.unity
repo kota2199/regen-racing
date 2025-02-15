@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5354.158, g: 7711.4062, b: 9250.219, a: 1}
+  m_IndirectSpecularColor: {r: 5354.0376, g: 7712.1133, b: 9251.5, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_BrakeSensitivity
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_CautiousMaxAngle
@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_CautiousSpeedFactor
-      value: 0.7
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_ReachTargetThreshold
@@ -2774,7 +2774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283445979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 524.3, y: 0, z: 423.8}
+  m_LocalPosition: {x: 528.9, y: 0, z: 418}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3205,7 +3205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318347395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 489.7, y: 0, z: 60.6}
+  m_LocalPosition: {x: 489.1, y: 0, z: 60.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4724,7 +4724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_BrakeSensitivity
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_CautiousMaxAngle
@@ -4744,7 +4744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_CautiousSpeedFactor
-      value: 0.7
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_ReachTargetThreshold
@@ -8255,7 +8255,6 @@ GameObject:
   - component: {fileID: 957748794}
   - component: {fileID: 957748798}
   - component: {fileID: 957748795}
-  - component: {fileID: 957748804}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -8279,7 +8278,7 @@ MonoBehaviour:
   countDownObj: {fileID: 1648963771}
   panel: {fileID: 1799326233}
   countDownText: {fileID: 1355551346}
-  countDownTextTargetFontSize: 100
+  countDownTextTargetFontSize: 200
   isPlay: 0
 --- !u!114 &957748793
 MonoBehaviour:
@@ -8639,18 +8638,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &957748804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 957748791}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c8f92d18a87964885d5a220d8f8a25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &963662344
 GameObject:
   m_ObjectHideFlags: 0
@@ -10275,7 +10262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290807763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 510.3, y: 0, z: 82.4}
+  m_LocalPosition: {x: 510.3, y: 0, z: 81.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10605,7 +10592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308061036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 526.5, y: 0, z: 88.4}
+  m_LocalPosition: {x: 529.3, y: 0, z: 88.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10990,16 +10977,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 94916aa3affecc94b86463d463540f23, type: 3}
-    m_FontSize: 65
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 5
     m_MaxSize: 66
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Ready...
 --- !u!222 &1355551347
@@ -11028,7 +11015,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1358635149
 GameObject:
@@ -12708,15 +12695,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumSlip
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SuspensionSpring.targetPosition
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteSlip
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteValue
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SuspensionDistance
@@ -12732,15 +12731,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumSlip
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SuspensionSpring.targetPosition
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteSlip
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteValue
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SuspensionDistance
@@ -12755,16 +12766,28 @@ PrefabInstance:
       value: 60000
       objectReference: {fileID: 0}
     - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumSlip
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SuspensionSpring.targetPosition
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteSlip
-      value: 1.2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 2
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteValue
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574169944846019409, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_Name
@@ -12979,16 +13002,28 @@ PrefabInstance:
       value: 60000
       objectReference: {fileID: 0}
     - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumSlip
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SuspensionSpring.targetPosition
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteSlip
-      value: 1.2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 2
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteValue
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5152142549718625797, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_Size.x
@@ -13238,7 +13273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712297851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 542.5, y: 0, z: 388.2}
+  m_LocalPosition: {x: 541.5, y: 0, z: 392.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13895,6 +13930,14 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 1962719711}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_BrakeSensitivity
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_CautiousSpeedFactor
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1865202067, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Camera
       value: 

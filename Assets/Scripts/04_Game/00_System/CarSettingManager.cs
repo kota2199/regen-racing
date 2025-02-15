@@ -29,6 +29,13 @@ namespace UnityStandardAssets.Vehicles.Car
     // Start is called before the first frame update6 
     void Start()
     {
+        for (int i = 0; i < raceData.cars.Count; i++)
+        {
+            if (raceData.cars[i].CarName == "Player")
+            {
+                    raceData.cars[i].choiceIndex = raceData.playerChoiceIndex;
+            }
+        }
         RandomSetAICar();
         SetPlayerCar();
     }

@@ -73,6 +73,8 @@ public class MenuChoiceController : MonoBehaviour
     [SerializeField]
     private RaceData raceData;
 
+    private bool isDecision;
+
     void Awake()
     {
         selecter = GetComponent<ColorSelectController>();
@@ -82,6 +84,7 @@ public class MenuChoiceController : MonoBehaviour
         menuMode = MenuMode.CarChoice;
         colorModelCar.SetActive(false);
         currentChoiceNum = 0;
+        isDecision = false;
     }
 
     private void Start()
@@ -92,28 +95,32 @@ public class MenuChoiceController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateInput();
+        if (!isDecision)
+        {
+            UpdateInput();
+            RecieveInput();
+        }
+        
         UpdateUI();
-        RecieveInput();
     }
     private void RecieveInput()
     {
-        if (Input.GetAxis("Horizontal Stick-L") > 0.15f && !selectRight)
+        if (Input.GetAxis("Horizontal Stick-L") > 0.05f && !selectRight)
         {
             selectRight = true;
             RecieveRightInput();
         }
-        else if(Input.GetAxis("Horizontal Stick-L") < 0.15f)
+        else if(Input.GetAxis("Horizontal Stick-L") < 0.05f)
         {
             selectRight = false;
         }
 
-        if (Input.GetAxis("Horizontal Stick-L") < -0.15f && !selectLeft)
+        if (Input.GetAxis("Horizontal Stick-L") < -0.05f && !selectLeft)
         {
             selectLeft = true;
             RecieveLeftInput();
         }
-        else if (Input.GetAxis("Horizontal Stick-L") > -0.15f)
+        else if (Input.GetAxis("Horizontal Stick-L") > -0.05f)
         {
             selectLeft = false;
         }
@@ -202,6 +209,8 @@ public class MenuChoiceController : MonoBehaviour
         menuMode = nextMenuMode;
         audioSourceSE.PlayOneShot(decision);
 
+        isDecision = true;
+
         if(animTarget != null)
         {
             yield return StartCoroutine(ImageAnimationForSceneChange(animTarget));
@@ -213,6 +222,7 @@ public class MenuChoiceController : MonoBehaviour
 
                 isSelecting = true;
                 isColorSelecting = false;
+                isDecision = false;
                 selecter.isColorSelecting = isColorSelecting;
 
                 UpdateOptions();
@@ -229,6 +239,7 @@ public class MenuChoiceController : MonoBehaviour
 
                 isSelecting = false;
                 isColorSelecting = true;
+                isDecision = false;
                 selecter.isColorSelecting = isColorSelecting;
 
                 audioSourceForGuide.Stop();
@@ -243,6 +254,7 @@ public class MenuChoiceController : MonoBehaviour
 
     private IEnumerator ToRaceScene()
     {
+        isDecision = true;
         audioSourceForGuide.Stop();
         audioSourceSE.PlayOneShot(decision);
         yield return StartCoroutine(screenFader.FadeOut());

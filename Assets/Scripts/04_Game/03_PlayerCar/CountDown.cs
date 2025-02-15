@@ -47,19 +47,19 @@ public class CountDown : MonoBehaviour
         yield return StartCoroutine(CountDownAnimate("3"));
         yield return StartCoroutine(CountDownAnimate("2"));
         yield return StartCoroutine(CountDownAnimate("1"));
-
-        //yield return new WaitForSeconds(2);
-        //countDownText.text = "3";
-        //yield return new WaitForSeconds(1);
-        //countDownText.text = "2";
-        //yield return new WaitForSeconds(1);
-        //countDownText.text = "1";
-        //yield return new WaitForSeconds(1);
+        countDownText.DOFade(endValue: 1f, duration: 0f);
         countDownText.text = "Go!";
+
         isPlay = true;
         raceData.isPlay = true;
         panel.SetActive(false);
-        yield return new WaitForSeconds(1);
+
+        yield return new WaitForSeconds(1f);
+        var sequence = DOTween.Sequence();
+        sequence.Append(countDownText.DOFade(endValue: 0f, duration: 1f));
+        sequence.Join(countDownText.transform.DOScale(0, 1f));
+        sequence.Join(countDownText.DOFade(endValue: 0f, duration: 1f));
+        yield return sequence.Play().WaitForCompletion();
         countDownObj.SetActive(false);
     }
 
@@ -69,7 +69,7 @@ public class CountDown : MonoBehaviour
         countDownText.text = message;
 
         var sequence = DOTween.Sequence();
-        sequence.Append(countDownText.DOFade(endValue: 1f, duration: 1f));
+        sequence.Append(countDownText.DOFade(endValue: 1f, duration: 0f));
         sequence.Append(DOVirtual.Int(originalFontSize, countDownTextTargetFontSize, 1, value =>
         {
             countDownText.fontSize = value;

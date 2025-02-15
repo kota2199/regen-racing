@@ -39,10 +39,13 @@ public class TitleController : MonoBehaviour
     [SerializeField]
     private RaceData raceData;
 
+    private bool isDecision;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         raceData.Initialize();
+        isDecision = false;
     }
 
     // Start is called before the first frame update
@@ -55,7 +58,10 @@ public class TitleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RecieveInput();
+        if (!isDecision)
+        {
+            RecieveInput();
+        }
     }
 
     private void RecieveInput()
@@ -123,6 +129,8 @@ public class TitleController : MonoBehaviour
 
     private IEnumerator ToNextScene(string sceneName, AudioClip clip, Transform animTarget)
     {
+        isDecision = true;
+
         audioSource.PlayOneShot(clip);
 
         if (animTarget != null)
