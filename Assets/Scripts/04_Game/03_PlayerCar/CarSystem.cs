@@ -33,6 +33,7 @@ public class CarSystem : MonoBehaviour
     [SerializeField] float HandleAngle = 45f;
     [SerializeField] float BrakePower = 1000f;
     [SerializeField] float regenerativeBrakeAmount = 0.0f;
+    [SerializeField] float DownForce;
 
     [SerializeField] float[] DriveWheels = new float[] { 1.0f, 1.0f, 1.0f, 1.0f };
     [SerializeField] float[] SteerWheels = new float[] { 0f, 0f, 1.0f, 1.0f };
@@ -96,6 +97,8 @@ public class CarSystem : MonoBehaviour
         ControllInput();
 
         CarControll();
+
+        CalcDownForce();
 
         //ForDebug
         if (Input.GetKeyDown(KeyCode.Return))
@@ -227,6 +230,12 @@ public class CarSystem : MonoBehaviour
         {
             regenerativeBrakeAmount = 0;
         }
+    }
+
+    private void CalcDownForce()
+    {
+        float dowForcePower = DownForce * RB.velocity.magnitude;
+        RB.AddRelativeForce(new Vector3(0, -dowForcePower, 0));
     }
 
     public static bool IsGamepadConnected()

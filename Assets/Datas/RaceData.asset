@@ -16,35 +16,35 @@ MonoBehaviour:
   - CarName: AICar_1
     Position: 0
     time: 0
-    colorIndex: 6
-    choiceIndex: 1
+    colorIndex: 7
+    choiceIndex: 2
     isFinished: 0
     ecoPoint: 0
     totalTime: 0
   - CarName: Player
     Position: 0
     time: 0
-    colorIndex: 0
-    choiceIndex: 1
+    colorIndex: 9
+    choiceIndex: 2
     isFinished: 0
     ecoPoint: 0
     totalTime: 0
   - CarName: AICar_3
     Position: 0
     time: 0
-    colorIndex: 10
-    choiceIndex: 0
+    colorIndex: 0
+    choiceIndex: 2
     isFinished: 0
     ecoPoint: 0
     totalTime: 0
   - CarName: AICar_2
     Position: 0
     time: 0
-    colorIndex: 3
-    choiceIndex: 1
+    colorIndex: 1
+    choiceIndex: 2
     isFinished: 0
     ecoPoint: 0
     totalTime: 0
-  playerColorIndex: 0
+  playerColorIndex: 9
   playerChoiceIndex: 2
-  isPlay: 0
+  isPlay: 1

@@ -43,6 +43,8 @@ namespace UnityStandardAssets.Vehicles.Car
 
         [SerializeField] RaceData raceData;
 
+        [SerializeField] GameObject centerOfMass;
+
         // Use this for initialization
         private void Start()
         {
@@ -56,6 +58,7 @@ namespace UnityStandardAssets.Vehicles.Car
             m_MaxHandbrakeTorque = float.MaxValue;
 
             m_Rigidbody = GetComponent<Rigidbody>();
+            //m_Rigidbody.centerOfMass = centerOfMass.transform.position;
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl * m_FullTorqueOverAllWheels);
         }
 
