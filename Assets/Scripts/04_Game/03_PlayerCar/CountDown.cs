@@ -21,6 +21,12 @@ public class CountDown : MonoBehaviour
     public bool isPlay;
     //すべてRaceDataのisPlayに置き換える
 
+    [SerializeField]
+    AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip countDownSE, goSE;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -44,10 +50,15 @@ public class CountDown : MonoBehaviour
     {
         isPlay = false;
         yield return new WaitForSeconds(2);
+        audioSource.PlayOneShot(countDownSE);
         yield return StartCoroutine(CountDownAnimate("3"));
+        audioSource.PlayOneShot(countDownSE);
         yield return StartCoroutine(CountDownAnimate("2"));
+        audioSource.PlayOneShot(countDownSE);
         yield return StartCoroutine(CountDownAnimate("1"));
         countDownText.DOFade(endValue: 1f, duration: 0f);
+
+        audioSource.PlayOneShot(goSE);
         countDownText.text = "Go!";
 
         isPlay = true;
