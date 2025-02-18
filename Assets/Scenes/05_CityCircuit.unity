@@ -134,6 +134,26 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 1989054317}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_AccelWanderSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_SteerSensitivity
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_CautiousSpeedFactor
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_ReachTargetThreshold
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_Downforce
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Name
       value: AICar_2
@@ -4618,7 +4638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_AccelWanderSpeed
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_BrakeSensitivity
@@ -4630,7 +4650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_SteerSensitivity
-      value: 0.015
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_LateralWanderSpeed
@@ -4642,11 +4662,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_CautiousSpeedFactor
-      value: 0.3
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_ReachTargetThreshold
-      value: 0.1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_LateralWanderDistance
@@ -4662,7 +4682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Downforce
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: centerOfMass
@@ -6614,7 +6634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPoint: 0
   aiCar: {fileID: 549695898}
-  approachDistance: 5
+  approachDistance: 10
 --- !u!1 &722626136
 GameObject:
   m_ObjectHideFlags: 0
@@ -12779,7 +12799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumSlip
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SuspensionSpring.targetPosition
@@ -12791,15 +12811,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteSlip
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 574169943538285643, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_Center.y
@@ -12843,7 +12863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumSlip
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SuspensionSpring.targetPosition
@@ -12855,15 +12875,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteSlip
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 574169943628269567, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_Center.y
@@ -12907,7 +12927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumSlip
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SuspensionSpring.targetPosition
@@ -12919,15 +12939,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteSlip
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 574169944580176860, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169944846019409, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_Name
@@ -12951,7 +12971,7 @@ PrefabInstance:
       objectReference: {fileID: 957748791}
     - target: {fileID: 574169944846019411, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: DownForce
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 574169944846019411, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: HandleAngle
@@ -13175,7 +13195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumSlip
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SuspensionSpring.targetPosition
@@ -13187,15 +13207,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteSlip
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 574169945302869084, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5152142549718625797, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_Size.x
@@ -13457,7 +13477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712297851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 535.8, y: 0, z: 411.5}
+  m_LocalPosition: {x: 534.81, y: 0, z: 411.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14065,7 +14085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772476064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 542.9, y: 0, z: 388.4}
+  m_LocalPosition: {x: 541.3, y: 0, z: 382.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14145,6 +14165,26 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 1962719711}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_AccelWanderSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_SteerSensitivity
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_CautiousSpeedFactor
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538210, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_ReachTargetThreshold
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 716538211, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
+      propertyPath: m_Downforce
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1865202067, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Camera
       value: 
@@ -15832,7 +15872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPoint: 0
   aiCar: {fileID: 1783868241}
-  approachDistance: 5
+  approachDistance: 10
 --- !u!1 &1974690654
 GameObject:
   m_ObjectHideFlags: 0
@@ -16125,7 +16165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPoint: 0
   aiCar: {fileID: 4102216}
-  approachDistance: 5
+  approachDistance: 10
 --- !u!1 &2055270565
 GameObject:
   m_ObjectHideFlags: 0
