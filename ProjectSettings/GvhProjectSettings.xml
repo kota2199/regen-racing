@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<projectSettings>
-  <projectSetting name="com.google.external-dependency-managerAnalyticsCookie" value="bd5d9509e88346ea909565138eb5227c" />
-  <projectSetting name="com.google.external-dependency-managerAnalyticsEnabled" value="True" />
-  <projectSetting name="com.google.firebaseAnalyticsCookie" value="0d15a64058e4452b9a251e3dd60bafbc" />
-  <projectSetting name="com.google.firebaseAnalyticsEnabled" value="True" />
-</projectSettings>
