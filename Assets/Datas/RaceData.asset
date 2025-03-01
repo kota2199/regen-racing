@@ -14,37 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cars:
   - CarName: AICar_1
-    Position: 0
-    time: 0
-    colorIndex: 7
+    Position: 1
+    time: 125.456
+    colorIndex: 9
     choiceIndex: 2
-    isFinished: 0
+    isFinished: 1
     ecoPoint: 0
     totalTime: 0
   - CarName: Player
-    Position: 0
-    time: 0
-    colorIndex: 9
-    choiceIndex: 2
-    isFinished: 0
+    Position: 2
+    time: 130.334
+    colorIndex: 0
+    choiceIndex: 0
+    isFinished: 1
     ecoPoint: 0
     totalTime: 0
   - CarName: AICar_3
-    Position: 0
-    time: 0
-    colorIndex: 0
-    choiceIndex: 2
-    isFinished: 0
+    Position: 3
+    time: 140.234
+    colorIndex: 9
+    choiceIndex: 1
+    isFinished: 1
     ecoPoint: 0
-    totalTime: 0
+    totalTime: 1
   - CarName: AICar_2
-    Position: 0
-    time: 0
-    colorIndex: 1
+    Position: 4
+    time: 140.2998
+    colorIndex: 5
     choiceIndex: 2
-    isFinished: 0
+    isFinished: 1
     ecoPoint: 0
-    totalTime: 0
-  playerColorIndex: 9
-  playerChoiceIndex: 2
+    totalTime: 1
+  playerColorIndex: 0
+  playerChoiceIndex: 0
   isPlay: 1
