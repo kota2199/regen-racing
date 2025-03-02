@@ -792,7 +792,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960940407883432826}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88743977777f74b3893ce8ccfba9d051, type: 3}
   m_Name: 
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960940407883432826}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce583ebbff5cc424ba0c32327f236e67, type: 3}
   m_Name: 
@@ -813,9 +813,9 @@ MonoBehaviour:
   m_CautiousMaxAngle: 5
   m_CautiousMaxDistance: 400
   m_CautiousAngularVelocityFactor: 60
-  m_SteerSensitivity: 0.03
+  m_SteerSensitivity: 0.015
   m_AccelSensitivity: 100
-  m_BrakeSensitivity: 500
+  m_BrakeSensitivity: 10000
   m_LateralWanderDistance: 3
   m_LateralWanderSpeed: 0.2
   m_AccelWanderAmount: 0.1
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960940407883432826}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30528a891388d4fbe8e99e70294fee18, type: 3}
   m_Name: 
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
   m_MaximumSteerAngle: 20
   m_SteerHelper: 1
-  m_TractionControl: 0.5
+  m_TractionControl: 0
   m_FullTorqueOverAllWheels: 1000
   m_ReverseTorque: 100
   m_MaxHandbrakeTorque: 100000000
