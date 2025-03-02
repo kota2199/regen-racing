@@ -1806,6 +1806,10 @@ PrefabInstance:
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 534966610737656099, guid: f56db983fd1cc944ab2a0d2ceebda1ef, type: 3}
+      propertyPath: brakeTorque
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 534966610737656099, guid: f56db983fd1cc944ab2a0d2ceebda1ef, type: 3}
       propertyPath: gizmoDrawer
       value: 
       objectReference: {fileID: 1552512052}
@@ -5271,6 +5275,10 @@ PrefabInstance:
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 534966610737656099, guid: f56db983fd1cc944ab2a0d2ceebda1ef, type: 3}
+      propertyPath: brakeTorque
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 534966610737656099, guid: f56db983fd1cc944ab2a0d2ceebda1ef, type: 3}
       propertyPath: gizmoDrawer
       value: 
       objectReference: {fileID: 1552512052}
@@ -6037,6 +6045,10 @@ PrefabInstance:
     - target: {fileID: 534966610737656099, guid: f56db983fd1cc944ab2a0d2ceebda1ef, type: 3}
       propertyPath: maxSpeed
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 534966610737656099, guid: f56db983fd1cc944ab2a0d2ceebda1ef, type: 3}
+      propertyPath: brakeTorque
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 534966610737656099, guid: f56db983fd1cc944ab2a0d2ceebda1ef, type: 3}
       propertyPath: gizmoDrawer
@@ -12449,7 +12461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ea007a79834c4c0c8917cc4e8bfade0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8d442a383eba6f4fa327488f65c13e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16289,7 +16301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574169944846019410, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_Drag
-      value: 0.08
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 574169944846019410, guid: 36548756a7dfd452bb943046c37083df, type: 3}
       propertyPath: m_AngularDrag
