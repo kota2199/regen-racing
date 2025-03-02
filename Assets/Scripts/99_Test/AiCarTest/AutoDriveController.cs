@@ -21,6 +21,9 @@ public class AutoDriveController : MonoBehaviour
     private Rigidbody rb;
     private float currentSpeed = 0f;
 
+    [SerializeField]
+    private RaceData raceData;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -37,28 +40,31 @@ public class AutoDriveController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (bezierPoints == null || bezierPoints.Count < 2) return;
-
-        Vector3 targetPoint = bezierPoints[currentBezierIndex];
-        Vector3 direction = targetPoint - transform.position;
-        direction.y = 0;
-
-        float distanceToTarget = Vector3.Distance(transform.position, targetPoint);
-
-        if (distanceToTarget < waypointThreshold)
+        if (raceData.isPlay)
         {
-            currentBezierIndex = (currentBezierIndex + 1) % bezierPoints.Count;
+            if (bezierPoints == null || bezierPoints.Count < 2) return;
+
+            Vector3 targetPoint = bezierPoints[currentBezierIndex];
+            Vector3 direction = targetPoint - transform.position;
+            direction.y = 0;
+
+            float distanceToTarget = Vector3.Distance(transform.position, targetPoint);
+
+            if (distanceToTarget < waypointThreshold)
+            {
+                currentBezierIndex = (currentBezierIndex + 1) % bezierPoints.Count;
+            }
+
+            float angle = Vector3.SignedAngle(transform.forward, direction, Vector3.up);
+            float steering = Mathf.Clamp(angle / maxSteeringAngle, -1f, 1f);
+
+            wheelColliders[0].steerAngle = steering * maxSteeringAngle;
+            wheelColliders[1].steerAngle = steering * maxSteeringAngle;
+
+            float targetSpeed = maxSpeed;
+            AdjustSpeed(targetSpeed);
+            UpdateWheelModels();
         }
-
-        float angle = Vector3.SignedAngle(transform.forward, direction, Vector3.up);
-        float steering = Mathf.Clamp(angle / maxSteeringAngle, -1f, 1f);
-
-        wheelColliders[0].steerAngle = steering * maxSteeringAngle;
-        wheelColliders[1].steerAngle = steering * maxSteeringAngle;
-
-        float targetSpeed = maxSpeed;
-        AdjustSpeed(targetSpeed);
-        UpdateWheelModels();
     }
 
     private void AdjustSpeed(float targetSpeed)

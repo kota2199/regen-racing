@@ -18,9 +18,6 @@ public class AIAutoReverse : MonoBehaviour
     private Rigidbody rigid;
 
     [SerializeField]
-    private AICarTrack aiCarTrack;
-
-    [SerializeField]
     private RaceData raceData;
 
     // Start is called before the first frame update
@@ -74,8 +71,5 @@ public class AIAutoReverse : MonoBehaviour
         rigid.velocity = Vector3.zero;
         transform.position = replacePosition;
         transform.rotation = replaceRotation;
-
-        //reset ai car taget
-        aiCarTrack.ReverseTarget();
     }
 }

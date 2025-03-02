@@ -203,6 +203,7 @@ public class CarSystem : MonoBehaviour
             else
             {
                 Wheel[i].motorTorque = InputVector.y * DriveWheels[i] * AccelPower * boostManager.addBoostPower * (restrictor / 4) - regenerativeBrakeAmount;
+                /*Wheel[i].motorTorque = InputVector.y * DriveWheels[i] * AccelPower * boostManager.addBoostPower * (restrictor / 4);*/
             }
 
             Wheel[i].steerAngle = InputVector.x * SteerWheels[i] * HandleAngle;
@@ -221,10 +222,10 @@ public class CarSystem : MonoBehaviour
             batterySystem.UseBattery(Mathf.Abs(InputVector.y) * batteryUseAmount * restrictor * Time.deltaTime);
             regenerativeBrakeAmount = 0;
         }
-        if (speedCheck.speed >= 10)
+        else if (speedCheck.speed >= 10)
         {
             batterySystem.ChargeBattery(decelerationMagnitude * batteryChargeAmount * restrictor * Time.deltaTime);
-            regenerativeBrakeAmount = 150;
+            regenerativeBrakeAmount = 50;
         }
         else
         {

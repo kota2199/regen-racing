@@ -51,28 +51,45 @@ namespace UnityStandardAssets.Vehicles.Car
         for (int i = 0; i < aICars.Length; i++)
         {
             int carMode = Random.Range(0, 3);
-            switch (carMode)
-            {
-                case 0:
-                    aICars[i].GetComponent<AICarController>().AccelPower = choice1MaxTorque;
-                    aICars[i].GetComponent<AICarControll>().m_FullTorqueOverAllWheels = choice1MaxTorque;
-                    aICars[i].GetComponent<Rigidbody>().mass = choice1CarWeight;
-                    break;
+                /*switch (carMode)
+                {
+                    case 0:
+                        aICars[i].GetComponent<AICarController>().AccelPower = choice1MaxTorque;
+                        aICars[i].GetComponent<AICarControll>().m_FullTorqueOverAllWheels = choice1MaxTorque;
+                        aICars[i].GetComponent<Rigidbody>().mass = choice1CarWeight;
+                        break;
 
-                case 1:
-                    aICars[i].GetComponent<AICarController>().AccelPower = choice2MaxTorque;
-                    aICars[i].GetComponent<AICarControll>().m_FullTorqueOverAllWheels = choice2MaxTorque;
-                    aICars[i].GetComponent<Rigidbody>().mass = choice2CarWeight;
-                    break;
+                    case 1:
+                        aICars[i].GetComponent<AICarController>().AccelPower = choice2MaxTorque;
+                        aICars[i].GetComponent<AICarControll>().m_FullTorqueOverAllWheels = choice2MaxTorque;
+                        aICars[i].GetComponent<Rigidbody>().mass = choice2CarWeight;
+                        break;
 
-                case 2:
-                    aICars[i].GetComponent<AICarController>().AccelPower = choice3MaxTorque;
-                    aICars[i].GetComponent<AICarControll>().m_FullTorqueOverAllWheels = choice3MaxTorque;
-                    aICars[i].GetComponent<Rigidbody>().mass = choice3CarWeight;
-                    break;
-            }
+                    case 2:
+                        aICars[i].GetComponent<AICarController>().AccelPower = choice3MaxTorque;
+                        aICars[i].GetComponent<AICarControll>().m_FullTorqueOverAllWheels = choice3MaxTorque;
+                        aICars[i].GetComponent<Rigidbody>().mass = choice3CarWeight;
+                        break;
+                }*/
+                switch (carMode)
+                {
+                    case 0:
+                        aICars[i].GetComponent<AutoDriveController>().maxMotorTorque = choice1MaxTorque;
+                        aICars[i].GetComponent<Rigidbody>().mass = choice1CarWeight;
+                        break;
 
-            raceData.UpdateCarChoiceNumber(aICars[i].name, carMode);
+                    case 1:
+                        aICars[i].GetComponent<AutoDriveController>().maxMotorTorque = choice2MaxTorque;
+                        aICars[i].GetComponent<Rigidbody>().mass = choice2CarWeight;
+                        break;
+
+                    case 2:
+                        aICars[i].GetComponent<AutoDriveController>().maxMotorTorque = choice3MaxTorque;
+                        aICars[i].GetComponent<Rigidbody>().mass = choice3CarWeight;
+                        break;
+                }
+
+                raceData.UpdateCarChoiceNumber(aICars[i].name, carMode);
         }
     }
 
