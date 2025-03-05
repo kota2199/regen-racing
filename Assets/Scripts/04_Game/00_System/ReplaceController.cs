@@ -19,10 +19,10 @@ public class ReplaceController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        /*if (Input.GetKeyDown(KeyCode.P))
         {
             Replace();
-        }
+        }*/
     }
 
     public void SetReplacePoint(Transform point)

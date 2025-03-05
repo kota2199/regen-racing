@@ -24,6 +24,8 @@ public class AutoDriveController : MonoBehaviour
     [SerializeField]
     private RaceData raceData;
 
+    private AIAutoReverse autoReverse;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();

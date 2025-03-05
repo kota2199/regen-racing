@@ -201,7 +201,8 @@ public class ResultManager : MonoBehaviour
         while (true)
         {
             elapsedTime += Time.deltaTime;
-            num = Mathf.FloorToInt(Mathf.Lerp(0, targetNum, elapsedTime / countDuration));
+            /*num = Mathf.FloorToInt(Mathf.Lerp(0, targetNum, elapsedTime / countDuration));*/
+            num = Mathf.Lerp(0, targetNum, elapsedTime / countDuration);
             timeText.text = FormatToMMSSSSS(num);
 
             if (countDuration <= elapsedTime)

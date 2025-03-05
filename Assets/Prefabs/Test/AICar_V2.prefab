@@ -569,8 +569,8 @@ MonoBehaviour:
   maxSteeringAngle: 15
   waypointThreshold: 25
   minSpeed: 5
-  maxSpeed: 200
-  brakeTorque: 300
+  maxSpeed: 300
+  brakeTorque: 500
   curveSensitivity: 20
   brakingDistanceFactor: 300
   wheelColliders:
