@@ -20,10 +20,30 @@ public class MenuController : MonoBehaviour
 
     private ReplaceController replaceController;
 
-    private LapCounter lapCounter;
-
     [SerializeField]
     private string menuButton, retryButton, replaceButton, quitButton;
+
+    private int selectIndex = 0;
+
+    [SerializeField]
+    private Image[] menuOptions;
+
+    [SerializeField]
+    private Sprite[] optionsImages;
+    [SerializeField]
+    private Sprite[] selectedImages;
+
+    [SerializeField]
+    private Image preview;
+
+    [SerializeField]
+    private Sprite[] previewImages;
+
+    [SerializeField]
+    private AudioSource seAudioSource;
+
+    [SerializeField]
+    private AudioClip choice, decision;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,18 +51,20 @@ public class MenuController : MonoBehaviour
         onMenu = false;
         menuUI.SetActive(onMenu);
         replaceController = playerCar.GetComponent<ReplaceController>();
-        lapCounter = playerCar.GetComponent<LapCounter>();
         sceneController = GetComponent<SceneTransition>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("SelectIndex is " + selectIndex);
+
         if (Input.GetButtonDown(menuButton) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (!onMenu)
             {
                 onMenu = true;
+                UpdateMenuOptionImage();
                 StartCoroutine(DisplayMenuPanelAnimation());
             }
             else
@@ -52,23 +74,68 @@ public class MenuController : MonoBehaviour
             }
         }
 
-        if (onMenu || lapCounter.isFinished || isGameOver)
+        if (onMenu)
         {
-            if (Input.GetButtonDown(quitButton) || Input.GetKeyDown(KeyCode.C))
+            if (Input.GetAxis("CrossKey_Vertical") > 0 || Input.GetKeyDown(KeyCode.UpArrow) && selectIndex < menuOptions.Length - 1)
             {
-                ToMenu();
+                selectIndex++;
+                UpdateMenuOptionImage();
             }
-            if (Input.GetButtonDown(replaceButton) || Input.GetKeyDown(KeyCode.D))
+            if (Input.GetAxis("CrossKey_Vertical") < 0 || Input.GetKeyDown(KeyCode.DownArrow) && selectIndex > 0)
             {
-                Replace();
+                selectIndex--;
+                UpdateMenuOptionImage();
             }
-            if (Input.GetButtonDown(retryButton) || Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
-                Retry();
+                SelectOption();
             }
         }
 
         gameOverUI.SetActive(isGameOver);
+    }
+
+    private void UpdateMenuOptionImage()
+    {
+        for(int i = 0; i < menuOptions.Length; i++)
+        {
+            if(i == selectIndex)
+            {
+                menuOptions[i].sprite = selectedImages[i];
+                preview.sprite = previewImages[i];
+            }
+            else
+            {
+                menuOptions[i].sprite = optionsImages[i];
+            }
+        }
+
+        seAudioSource.PlayOneShot(choice);
+    }
+
+    private void SelectOption()
+    {
+        seAudioSource.PlayOneShot(decision);
+
+        switch (selectIndex)
+        {
+            case 0:
+                Replace();
+                break;
+            case 1:
+                Retry();
+                break;
+            case 2:
+                ToMenu();
+                break;
+            case 3:
+                onMenu = false;
+                StartCoroutine(HideMenuPanelAnimation());
+                break;
+            default:
+                Debug.LogError("OutOfIndex");
+                break;
+        }
     }
 
     public void ToMenu()
