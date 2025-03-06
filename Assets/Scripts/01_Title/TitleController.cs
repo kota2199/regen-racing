@@ -41,6 +41,13 @@ public class TitleController : MonoBehaviour
 
     private bool isDecision;
 
+    private bool selectRight = false, selectLeft = false;
+
+    private int choiceIndex = 0;
+
+    [SerializeField]
+    private GameObject[] choiceImages;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -51,7 +58,7 @@ public class TitleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         StartCoroutine(ChangeMode(Mode.Title, null));
+        StartCoroutine(ChangeMode(Mode.Title, null));
         startImageDefaultTransform = start.transform;
     }
 
@@ -72,19 +79,6 @@ public class TitleController : MonoBehaviour
             {
                 StartCoroutine(ChangeMode(Mode.Choice, start));
             }
-            else if(currentMode == Mode.Choice)
-            {
-                StartCoroutine(ToNextScene(explainSceneName, decision, explain));
-            }
-            audioSource.PlayOneShot(decision);
-        }
-
-        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown(triangle))
-        {
-            if(currentMode == Mode.Choice)
-            {
-                StartCoroutine(ToNextScene(gameSceneName, decision, menu));
-            }
         }
 
         if (Input.GetKeyDown(KeyCode.C) || Input.GetButtonDown(cross))
@@ -94,6 +88,53 @@ public class TitleController : MonoBehaviour
                 StartCoroutine(ChangeMode(Mode.Title, null));
             }
         }
+
+        if(currentMode == Mode.Choice)
+        {
+            if ((Input.GetAxis("Horizontal Stick-L") > 0.05f || Input.GetKey(KeyCode.RightArrow)) && !selectRight && choiceIndex < 1)
+            {
+                selectRight = true;
+                SelectMode(1);
+            }
+            else if (Input.GetAxis("Horizontal Stick-L") < 0.05f && !Input.GetKey(KeyCode.RightArrow))
+            {
+                selectRight = false;
+            }
+
+            if ((Input.GetAxis("Horizontal Stick-L") < -0.05f || Input.GetKey(KeyCode.LeftArrow)) && !selectLeft && choiceIndex > 0)
+            {
+                selectLeft = true;
+                SelectMode(-1);
+            }
+            else if (Input.GetAxis("Horizontal Stick-L") > -0.05f && !Input.GetKey(KeyCode.LeftArrow))
+            {
+                selectLeft = false;
+            }
+
+            if(Input.GetButtonDown("Circle") || Input.GetKeyDown(KeyCode.Return))
+            {
+                StartCoroutine(ToNextScene());
+            }
+        }
+    }
+
+    private void SelectMode(int a)
+    {
+        choiceIndex += a;
+        for(int i = 0; i < choiceImages.Length; i++)
+        {
+            if(i == choiceIndex)
+            {
+                StartCoroutine(MenuSelectAnim(choiceImages[i].transform));
+                Debug.Log("Animate");
+            }
+            else
+            {
+                choiceImages[i].transform.localScale = new Vector3(1, 1, 1);
+                Debug.Log("Size Reset");
+            }
+        }
+
     }
 
     private IEnumerator ChangeMode(Mode mode, Transform animTarget)
@@ -120,6 +161,7 @@ public class TitleController : MonoBehaviour
                 currentMode = Mode.Choice;
                 titleCanvas.SetActive(false);
                 choiceCanvas.SetActive(true);
+                SelectMode(0);
                 break;
 
             default:
@@ -127,19 +169,25 @@ public class TitleController : MonoBehaviour
         }
     }
 
-    private IEnumerator ToNextScene(string sceneName, AudioClip clip, Transform animTarget)
+    private IEnumerator ToNextScene()
     {
         isDecision = true;
 
-        audioSource.PlayOneShot(clip);
+        audioSource.PlayOneShot(decision);
 
-        if (animTarget != null)
-        {
-            yield return StartCoroutine(ImageAnimation(animTarget));
-        }
+        yield return StartCoroutine(MenuAnimToNext(choiceImages[choiceIndex].transform));
 
         yield return StartCoroutine(screenFader.FadeOut());
-        SceneManager.LoadScene(sceneName);
+
+        switch (choiceIndex)
+        {
+            case 0:
+                SceneManager.LoadScene(explainSceneName);
+                break;
+            case 1:
+                SceneManager.LoadScene(gameSceneName);
+                break;
+        }
     }
 
     private IEnumerator ImageAnimation(Transform animTarget)
@@ -149,6 +197,26 @@ public class TitleController : MonoBehaviour
         sequence.Append(animTarget.DOScale(originalScale * 0.9f, 0.2f).SetEase(Ease.OutBack));
         sequence.Append(animTarget.DOScale(originalScale * 1.2f, 0.2f).SetEase(Ease.OutBack));
         sequence.Join(animTarget.gameObject.GetComponent<Image>().DOFade(endValue: 0f, duration: 0.1f));
+        yield return sequence.Play().WaitForCompletion();
+    }
+
+    private IEnumerator MenuSelectAnim(Transform animTarget)
+    {
+        float originalScale = animTarget.transform.localScale.x;
+        var sequence = DOTween.Sequence();
+        sequence.Append(animTarget.DOScale(originalScale * 0.9f, 0.2f).SetEase(Ease.OutBack));
+        sequence.Append(animTarget.DOScale(originalScale * 1.1f, 0.2f).SetEase(Ease.OutBack));
+        yield return sequence.Play().WaitForCompletion();
+    }
+
+    private IEnumerator MenuAnimToNext(Transform animTarget)
+    {
+        float originalScale = animTarget.transform.localScale.x;
+        var sequence = DOTween.Sequence();
+        sequence.Append(animTarget.DOScale(originalScale * 0.9f, 0.2f).SetEase(Ease.OutBack));
+        sequence.Append(animTarget.DOScale(originalScale * 1.2f, 0.2f).SetEase(Ease.OutBack));
+        sequence.Join(animTarget.gameObject.GetComponent<Image>().DOFade(endValue: 0f, duration: 0.1f));
+        sequence.Append(animTarget.DOScale(originalScale, 0f));
         yield return sequence.Play().WaitForCompletion();
     }
 }
