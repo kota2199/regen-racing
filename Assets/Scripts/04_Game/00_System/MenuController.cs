@@ -45,6 +45,12 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private AudioClip choice, decision;
 
+    private bool choiceUp = false, choiceDown = false;
+
+    //Debug
+    [SerializeField]
+    private Text debugText;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -57,7 +63,9 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("SelectIndex is " + selectIndex);
+        Debug.Log("ChoiceUp : " + choiceUp);
+        Debug.Log("ChoiceDown : " + choiceDown);
+        debugText.text = "CrossKeyInput : " + Input.GetAxis("CrossKey_Vertical").ToString();
 
         if (Input.GetButtonDown(menuButton) || Input.GetKeyDown(KeyCode.Escape))
         {
@@ -76,17 +84,45 @@ public class MenuController : MonoBehaviour
 
         if (onMenu)
         {
-            if (Input.GetAxis("CrossKey_Vertical") > 0 || Input.GetKeyDown(KeyCode.UpArrow) && selectIndex < menuOptions.Length - 1)
+            if (!choiceUp)
             {
-                selectIndex++;
-                UpdateMenuOptionImage();
+                if ((-Input.GetAxis("CrossKey_Vertical") > 0.5 || Input.GetKey(KeyCode.DownArrow)) && selectIndex < menuOptions.Length - 1)
+                {
+                    choiceUp = true;
+                    selectIndex++;
+                    UpdateMenuOptionImage();
+                }
             }
-            if (Input.GetAxis("CrossKey_Vertical") < 0 || Input.GetKeyDown(KeyCode.DownArrow) && selectIndex > 0)
+
+            if (!choiceDown)
             {
-                selectIndex--;
-                UpdateMenuOptionImage();
+                if ((-Input.GetAxis("CrossKey_Vertical") < -0.5 || Input.GetKey(KeyCode.UpArrow)) && selectIndex > 0)
+                {
+                    choiceDown = true;
+                    selectIndex--;
+                    UpdateMenuOptionImage();
+                }
             }
-            if (Input.GetKeyDown(KeyCode.Return))
+
+            if (Input.GetAxis("CrossKey_Vertical") < 0.1 && Input.GetAxis("CrossKey_Vertical") > -0.1
+                && !Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow))
+            {
+                choiceUp = false;
+                choiceDown = false;
+            }
+
+            //if (Input.GetButtonDown("CrossKey_Up") && selectIndex > 0)
+            //{
+            //    selectIndex--;
+            //    UpdateMenuOptionImage();
+            //}
+            //if (Input.GetButtonDown("CrossKey_Down") && selectIndex < menuOptions.Length - 1)
+            //{
+            //    selectIndex++;
+            //    UpdateMenuOptionImage();
+            //}
+
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Circle"))
             {
                 SelectOption();
             }
