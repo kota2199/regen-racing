@@ -1147,7 +1147,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 35
+  field of view: 37
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -2531,7 +2531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1648691521}
-  fadeDuration: 1.2
+  fadeDuration: 0.5
 --- !u!1 &1580272752 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4451939823378360135, guid: 015c7202c63ef4af68e33226e5162925, type: 3}
